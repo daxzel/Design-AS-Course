@@ -39,6 +39,7 @@
 <!-- 		<property name="prefix" value="/WEB-INF/views/"/> -->
 <!-- 		<property name="suffix" value=".jsp"/> -->
 <!-- 	</bean> -->
+
     ${message}
 </body>
 </html>
