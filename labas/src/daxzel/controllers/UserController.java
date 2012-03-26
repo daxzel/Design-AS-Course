@@ -32,4 +32,11 @@ public class UserController {
  
         return new ModelAndView("user", "command", new User());
     }
+    
+    @RequestMapping("/use")
+    public ModelAndView showUserds() {
+ 
+        return new ModelAndView("user", "command", new User());
+    }
+    
 }
