@@ -15,16 +15,17 @@
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>
 </head>
 <body>
-    <header>
-		<tiles:insertAttribute name="header" />
-	</header>
-    
-    
-    <tiles:insertAttribute name="body" />
-    
-    <footer>
-		<tiles:insertAttribute name="footer" />
-	</footer>
+
+	
+	    <header>
+			<tiles:insertAttribute name="header" />
+		</header>
+	    
+	    	<tiles:insertAttribute name="body" />
+
+	    <footer>
+			<tiles:insertAttribute name="footer" />
+		</footer>
 	
 </body>
 </html>

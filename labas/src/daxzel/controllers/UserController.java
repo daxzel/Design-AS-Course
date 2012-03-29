@@ -1,6 +1,8 @@
 package daxzel.controllers;
+
+import daxzel.model.DAO.UserDAO;
  
-import daxzel.domains.User;
+import daxzel.model.domains.User;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -30,6 +32,7 @@ public class UserController {
     @RequestMapping("/users")
     public ModelAndView showUsers() {
  
+    	UserDAO.getAll();
         return new ModelAndView("user", "command", new User());
     }
     
