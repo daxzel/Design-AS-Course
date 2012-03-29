@@ -2,11 +2,15 @@ package daxzel.model.domains;
 
 import javax.persistence.Entity;
 
-import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import javax.validation.constraints.Size;
 
 import javax.persistence.Id;
 
 import javax.persistence.GeneratedValue;
+
+import javax.persistence.Column;
 
 import javax.persistence.GenerationType;
 
@@ -17,11 +21,17 @@ public class User
 {
 	
 	@Id
+	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
 	
+	@NotNull
+	@Size(min=3, max=20)
+	@Column(unique=true) 
 	private String name;
 	
+	@NotNull
+	@Size(min=5, max=20)
 	private String password;
 	
 	public String getPassword() 
