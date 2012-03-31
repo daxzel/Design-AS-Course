@@ -35,7 +35,10 @@
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-api-1.6.4.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/slf4j-log4j12-1.6.4.jar"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/commons-digester-2.0.jar"/>
-	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER"/>
 	<classpathentry kind="lib" path="war/WEB-INF/lib/validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-validator-annotation-processor-4.2.0.Final.jar"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/hibernate-validator-4.2.0.Final.jar"/>
+	<classpathentry kind="con" path="com.google.appengine.eclipse.core.GAE_CONTAINER/App Engine"/>
+	<classpathentry kind="lib" path="war/WEB-INF/lib/aopalliance-1.0.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

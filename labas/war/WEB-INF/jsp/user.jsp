@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <h2>Contact Manager</h2>
-<form:form method="post" action="addUser.html">
+<form:form method="post" action="">
  
     <table>
     <tr>

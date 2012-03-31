@@ -27,7 +27,6 @@ public class User
 	
 	@NotNull
 	@Size(min=3, max=20)
-	@Column(unique=true) 
 	private String name;
 	
 	@NotNull
