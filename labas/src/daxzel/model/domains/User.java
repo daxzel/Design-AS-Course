@@ -4,6 +4,10 @@ import javax.persistence.Entity;
 
 import javax.validation.constraints.NotNull;
 
+import javax.persistence.ManyToOne;
+
+import javax.persistence.JoinColumn;
+
 import javax.validation.constraints.Size;
 
 import javax.persistence.Id;
@@ -33,6 +37,10 @@ public class User
 	@Size(min=5, max=20)
 	private String password;
 	
+	@ManyToOne(optional=false) 
+    @JoinColumn(nullable=false, updatable=false)
+	private Role role;
+	
 	public String getPassword() 
 	{
 		return password;
@@ -56,6 +64,16 @@ public class User
 	public Long getKey() 
 	{
 		return key;
+	}
+	
+	public Role getRole() 
+	{
+		return role;
+	}
+	
+	public void setRole(Role role) 
+	{
+		this.role=role;
 	}
 
 }

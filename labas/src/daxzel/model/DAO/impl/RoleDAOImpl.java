@@ -1,6 +1,6 @@
 package daxzel.model.DAO.impl;
 
-import daxzel.model.DAO.UserDAO;
+import daxzel.model.DAO.RoleDAO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.QueryBuilder;
@@ -15,41 +15,34 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import daxzel.model.domains.User;
+import daxzel.model.domains.Role;
 
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class RoleDAOImpl implements RoleDAO {
 
 	@PersistenceContext
 	private EntityManager em;
 
 	public void remove(Long id) {
-		User user = getByID(id);
-		if (user != null) {
-			em.remove(user);	
+		Role role = getByID(id);
+		if (role != null) {
+			em.remove(role);	
 		}
 	}
 
-	public User getByID(Long id) {
-		return em.find(User.class, id);
+	public Role getByID(Long id) {
+		return em.find(Role.class, id);
 	}
 
-	public List<User> getAll() {
+	public List<Role> getAll() {
 		
-		List<User> us = em.createQuery("Select From User").getResultList();
-		us.size();
-		return us;
+		List<Role> lr = em.createQuery("Select From Role").getResultList();
+		lr.size();
+		return lr;
 	}
 
-	public void add(User user) {
-		em.persist(user);
+	public void add(Role role) {
+		em.persist(role);
 
-	}
-
-	public User getUserByName(String name) {
-		User user = (User) em.createQuery(
-				"Select u From User u Where u.name='" + name + "'")
-				.getSingleResult();
-		return user;
 	}
 }

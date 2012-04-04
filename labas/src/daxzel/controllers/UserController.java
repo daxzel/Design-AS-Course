@@ -23,7 +23,16 @@ public class UserController {
 	@Autowired
  	private UserService userService;
 	
-    @RequestMapping(value="/new",method = RequestMethod.POST)
+	
+	@RequestMapping("/delete/{userId}")
+    public ModelAndView deleteUser(@PathVariable("userId")
+                            Long id) 
+    {       
+    	userService.remove(id);
+    	return new ModelAndView(new RedirectView("../"));
+    }
+	
+    @RequestMapping(value="/add",method = RequestMethod.POST)
     public ModelAndView addUser(@ModelAttribute("user")
                             User user, BindingResult result) 
     {       
@@ -41,14 +50,14 @@ public class UserController {
     public ModelAndView getForName(@PathVariable("name") String name)  
     {
     	User user = userService.getUserByName(name);
-        return new ModelAndView("user", "command", user);
+        return new ModelAndView("user", "findedUser", user);
     }
     
     @RequestMapping(value="/add", method=RequestMethod.GET)
     public ModelAndView newUser()  
     {
     	User user = new User();
-        return new ModelAndView("user", "command", user);
+        return new ModelAndView("add_user", "user", user);
     }
     
 }
