@@ -36,7 +36,7 @@ public class RoleDAOImpl implements RoleDAO {
 
 	public List<Role> getAll() {
 		
-		List<Role> lr = em.createQuery("Select From Role").getResultList();
+		List<Role> lr = em.createQuery("Select r From Role r").getResultList();
 		lr.size();
 		return lr;
 	}
@@ -44,5 +44,10 @@ public class RoleDAOImpl implements RoleDAO {
 	public void add(Role role) {
 		em.persist(role);
 
+	}
+	
+	public void drop()
+	{
+		em.createQuery("Delete From Role").executeUpdate();
 	}
 }

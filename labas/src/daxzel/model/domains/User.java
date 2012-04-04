@@ -37,8 +37,7 @@ public class User
 	@Size(min=5, max=20)
 	private String password;
 	
-	@ManyToOne(optional=false) 
-    @JoinColumn(nullable=false, updatable=false)
+	@ManyToOne
 	private Role role;
 	
 	public String getPassword() 

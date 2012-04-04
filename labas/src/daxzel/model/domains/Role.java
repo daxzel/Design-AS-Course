@@ -1,6 +1,7 @@
 package daxzel.model.domains;
 
 
+
 import javax.persistence.Entity;
 
 import javax.validation.constraints.NotNull;
@@ -14,6 +15,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 
 import javax.persistence.GenerationType;
+import com.google.appengine.api.datastore.Key;
 
 @Entity
 public class Role {
@@ -21,14 +23,13 @@ public class Role {
 	@Id
 	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long key;
+    private Key key;
 
 	@NotNull
 	@Size(min=3, max=20)
-	@Column(unique=true) 
 	private String name;
 
-	public Long getKey() {
+	public Key getKey() {
 		return key;
 	}
 

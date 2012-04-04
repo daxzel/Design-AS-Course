@@ -1,8 +1,14 @@
 package daxzel.controllers;
 
 import daxzel.model.services.UserService;
+
+import daxzel.model.services.RoleService;
+
+import daxzel.model.domains.Role;
  
 import daxzel.model.domains.User;
+
+import java.beans.PropertyEditorSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
@@ -11,6 +17,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,6 +31,9 @@ public class UserController {
  
 	@Autowired
  	private UserService userService;
+	
+	@Autowired
+ 	private RoleService roleService;
 	
 	
 	@RequestMapping("/delete/{userId}")
@@ -57,7 +69,11 @@ public class UserController {
     public ModelAndView newUser()  
     {
     	User user = new User();
-        return new ModelAndView("add_user", "user", user);
+    	ModelAndView modelView = new ModelAndView("add_user");
+    	modelView.addObject("user", user);
+    	java.util.List<Role> roles = roleService.getAll();
+    	modelView.addObject("roleList", roles);
+        return modelView;
     }
     
 }

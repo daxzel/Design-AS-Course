@@ -1,6 +1,8 @@
 package daxzel.model.services;
 
-public interface RoleService {
+import daxzel.model.domains.Role;
+
+public interface RoleService extends AbstractService<Role> {
 	
 	void create();
 
