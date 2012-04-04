@@ -29,8 +29,8 @@ public class Role {
 	@Size(min=3, max=20)
 	private String name;
 
-	public Key getKey() {
-		return key;
+	public Long getKey() {
+		return key.getId();
 	}
 
 	public String getName() {

@@ -16,7 +16,7 @@
 		<c:forEach items="${userList}" var="user">
 				<tr>
 						<td onclick="location.href=''">${user.name}</td>
-						<td><a href="/users/delete/${user.key}" class="ym-button ym-delete">Удалить</a><a href="/users/edit/${user.key}" class="ym-button ym-edit">Изменить</a></td>
+						<td><a href="/users/delete/${user.key}" class="ym-button ym-delete">Удалить</a><a href="/users/edit/${user.name}" class="ym-button ym-edit">Изменить</a></td>
 				</tr>
 		</c:forEach>
 	</tbody>

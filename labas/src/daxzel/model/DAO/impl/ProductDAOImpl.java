@@ -1,7 +1,6 @@
 package daxzel.model.DAO.impl;
 
-import daxzel.model.DAO.RoleDAO;
-
+import daxzel.model.DAO.ProductDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.QueryBuilder;
 import javax.persistence.criteria.Predicate;
@@ -15,39 +14,34 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import daxzel.model.domains.Role;
+import daxzel.model.domains.Product;
 
 @Repository
-public class RoleDAOImpl implements RoleDAO {
+public class ProductDAOImpl implements ProductDAO {
 
 	@PersistenceContext
 	private EntityManager em;
 
 	public void remove(Long id) {
-		Role role = getByID(id);
-		if (role != null) {
-			em.remove(role);	
+		Product product = getByID(id);
+		if (product != null) {
+			em.remove(product);	
 		}
 	}
 
-	public Role getByID(Long id) {
-		return em.find(Role.class, id);
+	public Product getByID(Long id) {
+		return em.find(Product.class, id);
 	}
 
-	public List<Role> getAll() {
+	public List<Product> getAll() {
 		
-		List<Role> lr = em.createQuery("Select r From Role r").getResultList();
+		List<Product> lr = em.createQuery("Select From Product").getResultList();
 		lr.size();
 		return lr;
 	}
 
-	public void addOrUpdate(Role role) {
-		em.persist(role);
+	public void addOrUpdate(Product group) {
+		em.persist(group);
 
-	}
-	
-	public void drop()
-	{
-		em.createQuery("Delete From Role").executeUpdate();
-	}
+	}	
 }

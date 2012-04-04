@@ -2,9 +2,24 @@
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<h2>Добавление нового пользователя</h2>
+<% 
+	String action;
+	String name;
+	if (pageContext.findAttribute("add").equals(new Boolean(true))){
+		action = "Добавить";
+		name = "Добавление";
+	}else{
+		action = "Изменить";
+		name = "Изменение";
+	}
+%>
 
-<form:form method="post" action="" commandName="user" class="ym-form ">
+
+<h2><%=name%> нового пользователя</h2>
+
+<form:form method="post" action="/users/" commandName="user" class="ym-form ">
+
+	<form:hidden path="key"/>
 
 	<div class="ym-fbox-text">
 		<form:label path="name">Имя пользователя<sup
@@ -28,7 +43,6 @@
 	</div>
 
 	<div class="ym-fbox-button">
-		<input type="submit" class="save" value="Добавить" /> <a href="./"
-			class="ym-button">Отмена</a>
+		<input type="submit" class="save" value="<%=action%>" /> <a href="/users"class="ym-button">Отмена</a>
 	</div>
 </form:form>

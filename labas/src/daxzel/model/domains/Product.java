@@ -22,48 +22,35 @@ import com.google.appengine.api.datastore.Key;
 
 import com.google.appengine.api.datastore.KeyFactory;
 
-
-
 @Entity
-public class User 
+public class Product 
 {
 	
 	@Id
 	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;
+    private Key key;	
 	
-	@NotNull
-	@Size(min=3, max=20)
-	private String name;
+	private String developer;
 	
-	@NotNull
-	@Size(min=5, max=20)
-	private String password;
-	
-	@ManyToOne
-	private Role role;
-	
-	public String getPassword() 
-	{
-		return password;
+	private String manufacturer;
+
+	public String getDeveloper() {
+		return developer;
 	}
-	
-	public void setPassword(String password) 
-	{
-		this.password = password;
+
+	public void setDeveloper(String developer) {
+		this.developer = developer;
 	}
-	
-	public String getName() 
-	{
-		return name;
+
+	public String getManufacturer() {
+		return manufacturer;
 	}
-	
-	public void setName(String name) 
-	{
-		this.name = name;
+
+	public void setManufacturer(String manufacturer) {
+		this.manufacturer = manufacturer;
 	}
-	
+
 	public Long getKey() 
 	{
 		if (key!=null)
@@ -78,17 +65,7 @@ public class User
 	
 	public void setKey(Long id) 
 	{
-		key = KeyFactory.createKey(User.class.getSimpleName(), id);
+		key = KeyFactory.createKey(Product.class.getSimpleName(), id);
 	}
 	
-	public Role getRole() 
-	{
-		return role;
-	}
-	
-	public void setRole(Role role) 
-	{
-		this.role=role;
-	}
-
 }

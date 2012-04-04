@@ -19,7 +19,7 @@ public class RoleServiceImpl implements RoleService {
 	@Transactional
 	public void add(Role entity)
 	{
-		roleDAO.add(entity);
+		roleDAO.addOrUpdate(entity);
 	}
 
 	@Transactional

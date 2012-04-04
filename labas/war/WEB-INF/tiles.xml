@@ -13,17 +13,32 @@
  
     <definition name="user" extends="base.definition">
         <put-attribute name="title" value="User Manager" />
-        <put-attribute name="body" value="/WEB-INF/jsp/user.jsp" />
+        <put-attribute name="body" value="/WEB-INF/jsp/users/user.jsp" />
     </definition>
     
     <definition name="users" extends="base.definition">
         <put-attribute name="title" value="User Manager" />
-        <put-attribute name="body" value="/WEB-INF/jsp/users.jsp" />
+        <put-attribute name="body" value="/WEB-INF/jsp/users/users.jsp" />
     </definition>
     
      <definition name="add_user" extends="base.definition">
+        <put-attribute name="title" value="Group Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/users/addUser.jsp" />
+    </definition>
+    
+     <definition name="group" extends="base.definition">
+        <put-attribute name="title" value="Group Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/groups/group.jsp" />
+    </definition>
+    
+    <definition name="groups" extends="base.definition">
+        <put-attribute name="title" value="Group Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/groups/groups.jsp" />
+    </definition>
+    
+     <definition name="add_group" extends="base.definition">
         <put-attribute name="title" value="User Manager" />
-        <put-attribute name="body" value="/WEB-INF/jsp/addUser.jsp" />
+        <put-attribute name="body" value="/WEB-INF/jsp/groups/addGroup.jsp" />
     </definition>
     
     <definition name="home" extends="base.definition">

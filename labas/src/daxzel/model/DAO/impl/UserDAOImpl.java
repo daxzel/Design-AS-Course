@@ -26,7 +26,7 @@ public class UserDAOImpl implements UserDAO {
 	public void remove(Long id) {
 		User user = getByID(id);
 		if (user != null) {
-			em.remove(user);	
+			em.remove(user);
 		}
 	}
 
@@ -35,14 +35,25 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public List<User> getAll() {
-		
+
 		List<User> us = em.createQuery("Select From User").getResultList();
 		us.size();
 		return us;
 	}
 
-	public void add(User user) {
-		em.persist(user);
+	public void addOrUpdate(User user) {
+		if (user.getKey()==null)
+		{
+			em.persist(user);
+			return;
+		}
+		User userx = em.find(User.class, user.getKey());
+		if (userx != null) {
+			userx.setName(user.getName());
+			userx.setPassword(user.getPassword());
+		} else {
+			em.persist(user);
+		}
 
 	}
 

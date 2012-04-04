@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface AbstractDAO<T> {
 
-    void add(T entity);
+    void addOrUpdate(T entity);
  
     List<T> getAll();
  

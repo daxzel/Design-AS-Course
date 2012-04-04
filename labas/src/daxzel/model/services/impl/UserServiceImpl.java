@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public void add(User entity)
 	{
-		userDAO.add(entity);
+		userDAO.addOrUpdate(entity);
 	}
 
 	@Transactional
