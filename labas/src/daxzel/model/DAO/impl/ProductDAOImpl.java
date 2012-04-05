@@ -1,5 +1,6 @@
 package daxzel.model.DAO.impl;
 
+
 import daxzel.model.DAO.ProductDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.QueryBuilder;
@@ -40,8 +41,20 @@ public class ProductDAOImpl implements ProductDAO {
 		return lr;
 	}
 
-	public void addOrUpdate(Product group) {
-		em.persist(group);
+	public void addOrUpdate(Product product) {
+		em.persist(product);
 
-	}	
+	}
+	
+	public Product findProductByNCP(Long NCP)
+	{
+		return (Product)em.createQuery("Select p From Product p Where p.NCP="+NCP).getSingleResult();
+	}
+
+	public void removeProductByNCP(Long NCP)
+	{
+		em.createQuery("Delete From Product p Where p.NCP="+NCP).executeUpdate();
+	}
+	
+	
 }

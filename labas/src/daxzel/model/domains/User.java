@@ -90,5 +90,10 @@ public class User
 	{
 		this.role=role;
 	}
+	
+	public void setKey(Key key) 
+	{
+		this.key = key;
+	}
 
 }

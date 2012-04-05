@@ -22,23 +22,23 @@
     </definition>
     
      <definition name="add_user" extends="base.definition">
-        <put-attribute name="title" value="Group Manager" />
+        <put-attribute name="title" value="User Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/users/addUser.jsp" />
     </definition>
     
-     <definition name="group" extends="base.definition">
-        <put-attribute name="title" value="Group Manager" />
-        <put-attribute name="body" value="/WEB-INF/jsp/groups/group.jsp" />
+     <definition name="product" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/products/product.jsp" />
     </definition>
     
-    <definition name="groups" extends="base.definition">
-        <put-attribute name="title" value="Group Manager" />
-        <put-attribute name="body" value="/WEB-INF/jsp/groups/groups.jsp" />
+    <definition name="products" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/products/products.jsp" />
     </definition>
     
-     <definition name="add_group" extends="base.definition">
-        <put-attribute name="title" value="User Manager" />
-        <put-attribute name="body" value="/WEB-INF/jsp/groups/addGroup.jsp" />
+     <definition name="add_product" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/products/addProduct.jsp" />
     </definition>
     
     <definition name="home" extends="base.definition">

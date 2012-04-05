@@ -6,7 +6,13 @@ import javax.validation.constraints.NotNull;
 
 import javax.persistence.ManyToOne;
 
+import javax.persistence.OneToMany;
+
+import javax.persistence.CascadeType;
+
 import javax.persistence.JoinColumn;
+
+import javax.persistence.FetchType;
 
 import javax.validation.constraints.Size;
 
@@ -15,6 +21,10 @@ import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 
 import javax.persistence.Column;
+
+import java.util.Collection;
+
+import java.util.ArrayList;
 
 import javax.persistence.GenerationType;
 
@@ -29,20 +39,12 @@ public class Group
 	@Id
 	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;	
-	
-	private Long NCP;
+    private Key key;
 	
 	private String name;
 	
-	
-	public Long getNCP() {
-		return NCP;
-	}
-
-	public void setNCP(Long nCP) {
-		NCP = nCP;
-	}
+	@OneToMany(cascade=CascadeType.PERSIST, mappedBy="group",fetch=FetchType.LAZY)
+	private Collection<Product> products = new ArrayList();
 
 	public String getName() {
 		return name;
@@ -50,6 +52,14 @@ public class Group
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Collection<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Collection<Product> products) {
+		this.products = products;
 	}
 
 	public Long getKey() 
@@ -66,7 +76,11 @@ public class Group
 	
 	public void setKey(Long id) 
 	{
-		key = KeyFactory.createKey(Group.class.getSimpleName(), id);
+		key = KeyFactory.createKey(User.class.getSimpleName(), id);
 	}
 	
+	public void setKey(Key key) 
+	{
+		this.key = key;
+	}
 }

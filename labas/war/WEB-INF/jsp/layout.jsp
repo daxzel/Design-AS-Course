@@ -28,7 +28,7 @@
 			<div class="ym-hlist" >
 				<ul>
 					<li><a href="/users/">Пользователи</a></li>
-					<li><a href="/groups/">Группы товаров</a></li>
+					<li><a href="/products/">Товары</a></li>
 					<li><a href="/roles/create">Заполнить роли</a></li>
 				</ul>
 			</div>
