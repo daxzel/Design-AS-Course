@@ -15,11 +15,13 @@
 %>
 
 
-<h2><%=name%> нового продукта товаров</h2>
+<h2><%=name%> продукта</h2>
 
 <form:form method="post" action="/products/" commandName="product" class="ym-form ">
 
 	<form:hidden path="key"/>
+	
+	<form:hidden path="group"/>
 
 	<div class="ym-fbox-text">
 		<form:label path="NCP">код ОКП<sup
@@ -36,24 +38,27 @@
 	</div>
 	
 	<div class="ym-fbox-text">
-		<form:label path="size">Размер товара<sup
-				class="ym-required" title="Это поле обязательно.">*</sup>
+		<form:label path="size">Размер товара
 		</form:label>
 		<form:input path="size" size="10" />
 	</div>
 	
 	<div class="ym-fbox-text">
-		<form:label path="developer">Изготовитель<sup
-				class="ym-required" title="Это поле обязательно.">*</sup>
+		<form:label path="developer">Изготовитель</sup>
 		</form:label>
-		<form:textarea path="developer" rows="3" cols="20"  />
+		<form:input path="developer" size="10" />
 	</div>
 	
 	<div class="ym-fbox-text">
-		<form:label path="manufacturer">Разработчик<sup
-				class="ym-required" title="Это поле обязательно.">*</sup>
+		<form:label path="manufacturer">Разработчик</sup>
 		</form:label>
-		<form:textarea path="manufacturer" rows="3" cols="20"  />
+		<form:input path="manufacturer" size="10" />
+	</div>
+	
+	<div class="ym-fbox-text">
+		<form:label path="features">Характеристики</sup>
+		</form:label>
+		<form:textarea path="features" rows="3" cols="20"  />
 	</div>
 
 	<div class="ym-fbox-button">

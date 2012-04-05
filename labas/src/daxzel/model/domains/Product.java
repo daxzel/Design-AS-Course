@@ -44,7 +44,7 @@ public class Product
 	
 	private String manufacturer;
 	
-	@ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.LAZY)
+	@ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
     @JoinColumn(nullable=false)
 	private Group group;
 	

@@ -4,6 +4,8 @@ import daxzel.model.services.ProductService;
  
 import daxzel.model.domains.Product;
 
+import daxzel.model.domains.Group;
+
 import java.beans.PropertyEditorSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,17 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import java.beans.PropertyEditorSupport;
+import org.apache.commons.lang3.StringUtils;
+
+
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
 
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -76,5 +89,59 @@ public class ProductController {
     	modelView.addObject("add", new Boolean(true));
         return modelView;
     }
+    
+    
+    @RequestMapping(value="/{key}/add/",method = RequestMethod.GET)
+    public ModelAndView newProductToGroup(@PathVariable("key") Long key) 
+    {       
+    	
+    	Group group = productService.findGroup(key);
+    	if (group!=null)
+    	{
+	    	Product product = new Product();
+	    	product.setGroup(group);
+	    	ModelAndView modelView = new ModelAndView("add_product");
+	    	modelView.addObject("product", product);
+	    	modelView.addObject("add", new Boolean(true));
+	    	return modelView;
+	    }
+    	else
+    	{
+    		return new ModelAndView("redirect:/products");
+    	}
+    }
+    
+    @InitBinder
+	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) {
+		binder.registerCustomEditor(Group.class, new PropertyEditorSupport() {
+
+			public void setAsText(String text) {
+				if (StringUtils.isNumeric(text))
+				{
+					Long id  = Long.parseLong(text);
+					Group group = productService.findGroup(id);
+					this.setValue(group);
+				}
+				else
+				{
+					this.setValue(null);
+				}			
+				
+			}
+			
+			public String getAsText() {
+				Group group = (Group) this.getValue();
+				if (group!=null)
+				{
+					return Long.toString(group.getKey());
+				}
+				else
+				{
+					return "";
+				}
+			}
+		});
+	}
+    
     
 }

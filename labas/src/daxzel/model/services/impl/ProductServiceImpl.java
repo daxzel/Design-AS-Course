@@ -16,15 +16,13 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductDAO productDAO;
-	
+
 	@Autowired
 	private GroupDAO groupDAO;
 
 	@Transactional
-	public void add(Product entity)
-	{
-		if (entity.getGroup()==null)
-		{
+	public void add(Product entity) {
+		if (entity.getGroup() == null) {
 			Group group = new Group();
 			entity.setGroup(group);
 		}
@@ -32,48 +30,55 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Transactional
-	public List<Product> getAll()
-    {
+	public List<Product> getAll() {
 		return productDAO.getAll();
-    }
+	}
 
 	@Transactional
-	public Product getByID(Long id)
-    {
+	public Product getByID(Long id) {
 		return productDAO.getByID(id);
-    }
-    	
+	}
+
 	@Transactional
-	public void remove(Long id)
-    {
+	public void remove(Long id) {
 		Product product = productDAO.getByID(id);
-		if (product!=null)
-		{
+		if (product != null) {
 			Group group = product.getGroup();
-			if (group.getProducts().size()==1)
-			{
+			if (group.getProducts().size() == 1) {
 				groupDAO.remove(group.getKey());
-			}			
-			productDAO.remove(id);
+			} else {
+				productDAO.remove(id);
+			}
 		}
-    }
-	
+	}
+
 	@Transactional
-	public Product findProductByNCP(Long NCP)
-	{
+	public Product findProductByNCP(Long NCP) {
 		return productDAO.findProductByNCP(NCP);
 	}
-	
+
 	@Transactional
-	public void removeProductByNCP(Long NCP)
-	{
-		productDAO.removeProductByNCP(NCP);
+	public void removeProductByNCP(Long NCP) {
+		Product product = productDAO.findProductByNCP(NCP);
+		if (product != null) {
+			Group group = product.getGroup();
+			if (group.getProducts().size() == 1) {
+				groupDAO.remove(group.getKey());
+			} else {
+				productDAO.removeProductByNCP(NCP);
+			}
+		}
+	}
+
+	@Transactional
+	public List<Group> getAllGroups() {
+		return groupDAO.getAll();
 	}
 	
 	@Transactional
-	public List<Group> getAllGroups()
-    {
-		return groupDAO.getAll();
-    }
-	
+	public Group findGroup(Long key)
+	{
+		return groupDAO.getByID(key);
+	}
+
 }

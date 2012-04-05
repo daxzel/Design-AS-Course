@@ -26,7 +26,7 @@
         <put-attribute name="body" value="/WEB-INF/jsp/users/addUser.jsp" />
     </definition>
     
-     <definition name="product" extends="base.definition">
+    <definition name="product" extends="base.definition">
         <put-attribute name="title" value="Product Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/products/product.jsp" />
     </definition>
@@ -39,6 +39,21 @@
      <definition name="add_product" extends="base.definition">
         <put-attribute name="title" value="Product Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/products/addProduct.jsp" />
+    </definition>
+    
+    <definition name="kindAd" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/kindsAd/kindAd.jsp" />
+    </definition>
+    
+    <definition name="kindsAd" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/kindsAd/kindsAd.jsp" />
+    </definition>
+    
+     <definition name="add_kindAd" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/kindsAd/kindAd.jsp" />
     </definition>
     
     <definition name="home" extends="base.definition">
