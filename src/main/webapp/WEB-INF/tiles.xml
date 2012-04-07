@@ -60,5 +60,10 @@
         <put-attribute name="title" value="Home page" />
         <put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
     </definition>
+
+      <definition name="error" extends="base.definition">
+        <put-attribute name="title" value="Error page" />
+        <put-attribute name="body" value="/WEB-INF/jsp/error.jsp" />
+    </definition>
  
 </tiles-definitions>
