@@ -55,6 +55,21 @@
         <put-attribute name="title" value="Product Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/kindsAd/addKindAd.jsp" />
     </definition>
+
+    <definition name="organization" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/organizations/organization.jsp" />
+    </definition>
+
+    <definition name="organizations" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/organizations/organizations.jsp" />
+    </definition>
+
+    <definition name="add_organization" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/organizations/addOrganization.jsp" />
+    </definition>
     
     <definition name="home" extends="base.definition">
         <put-attribute name="title" value="Home page" />

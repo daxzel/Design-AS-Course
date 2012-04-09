@@ -15,7 +15,7 @@
 %>
 
 
-<h2><%=name%> нового пользователя</h2>
+<h2><%=name%> пользователя</h2>
 
 <form:form method="post" action="/users/" commandName="user" class="ym-form ">
 

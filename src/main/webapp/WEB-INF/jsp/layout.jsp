@@ -37,6 +37,7 @@
 					<li><a href="/users/">Пользователи</a></li>
 					<li><a href="/products/">Товары</a></li>
 					<li><a href="/kindsAd/">Типы реклам</a></li>
+					<li><a href="/organizations/">Организации</a></li>
 					<li><a href="/roles/create">Заполнить роли</a></li>
 				</ul>
 			</div>
