@@ -11,7 +11,8 @@
         http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<context:component-scan base-package="daxzel" />
-	
+
+
 	<mvc:annotation-driven />
 	
 	<mvc:resources mapping="/resources/**" location="/resources/" /> 
@@ -33,28 +34,14 @@
 	    </property>
 	</bean>
 
-	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	<bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
-	    <property name="persistenceXmlLocation">
-	        <value>/WEB-INF/persistence.xml</value>
-	    </property>
-	</bean>
 
-
-
-	<bean id="entityManagerFactory" 
-		class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">
-		<property name="persistenceUnitName" value="transactions-optional" />
-	</bean>
-	
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-	    <property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
-	
 	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
 	
 	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
 	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+
+
+
 </beans>
