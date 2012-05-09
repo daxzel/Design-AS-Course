@@ -1,7 +1,10 @@
 package daxzel.model.services.impl;
 
+import daxzel.model.DAO.RoleDAO;
 import daxzel.model.DAO.UserDAO;
+import daxzel.model.domains.Role;
 import daxzel.model.domains.User;
+import daxzel.model.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
@@ -21,18 +24,62 @@ import java.util.Collection;
 public class UserSecurityService implements UserDetailsService {
 
     @Autowired
-    private UserDAO userDAO;
+    private UserService userService;
+
 
     @SuppressWarnings("deprecation")
     public UserDetails loadUserByUsername(String username){
 
-        User user = userDAO.getUserByName(username);
+        User user = userService.getUserByName(username);
+
+        String permission = getRolePermissionByName(user.getRole().getName());
+
+        //String roleName = user.getRole().getName();
+
+        user.getRole().getName();
+
+        //String permission = "ROLE_ADMIN";
 
         Collection<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
-        authList.add(new GrantedAuthorityImpl("ROLE_ADMIN"));
+        authList.add(new GrantedAuthorityImpl(permission));
+        
+        String password = user.getPassword();
 
-        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), true, true, true, true,authList);
+        return new org.springframework.security.core.userdetails.User(user.getName(), password, true, true, true, true,authList);
 
         }
+    
+    private String getRolePermissionByName(String name)
+    {
+        if (name.equals("Администратор")){
+            return "ROLE_ADMIN";
+        }
+        else{
+            if (name=="Менеджер по продажам"){
+                return "ROLE_MANAGER";
+            }
+            else
+            {
+                if (name=="Директор"){
+                    return "ROLE_DIRECTOR";
+                }
+                else{
+                    if (name=="Главный бухгалтер"){
+                        return "ROLE_ACCOUNTANT";
+                    }
+                    else
+                    {
+                        if (name=="Экономист"){
+                            return "ROLE_ECONOMIST";
+                        }
+                        else
+                        {
+                            throw new RuntimeException(name);
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }

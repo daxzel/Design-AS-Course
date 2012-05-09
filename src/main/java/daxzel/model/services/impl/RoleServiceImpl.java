@@ -39,18 +39,42 @@ public class RoleServiceImpl implements RoleService {
     {
 		roleDAO.remove(id);
     }
-	
+
+    @Transactional
+    public void drop()
+    {
+        roleDAO.drop();
+    }
+
+    @Transactional
+    public Role getRoleByName(String name)
+    {
+        return roleDAO.getRoleByName(name);
+    }
+
 	public void create() {
-		roleDAO.drop();
+		this.drop();
+
 		Role role;
 		role = new Role();
 		role.setName("Администратор");
 		this.add(role);
+
 		role = new Role();
-		role.setName("Бухгалтер");
+		role.setName("Менеджер по продажам");
 		this.add(role);
+
 		role = new Role();
 		role.setName("Директор");
 		this.add(role);
+
+        role = new Role();
+        role.setName("Главный бухгалтер");
+        this.add(role);
+
+        role = new Role();
+        role.setName("Экономист");
+        this.add(role);
+
 	}
 }

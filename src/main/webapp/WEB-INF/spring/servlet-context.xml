@@ -12,7 +12,6 @@
 
 	<context:component-scan base-package="daxzel" />
 
-
 	<mvc:annotation-driven />
 	
 	<mvc:resources mapping="/resources/**" location="/resources/" /> 
@@ -34,13 +33,14 @@
 	    </property>
 	</bean>
 
-	
 
-	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-	
-	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
-	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
 
 
 

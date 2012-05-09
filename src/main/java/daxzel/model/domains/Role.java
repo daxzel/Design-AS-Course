@@ -2,20 +2,16 @@ package daxzel.model.domains;
 
 
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 import javax.validation.constraints.NotNull;
 
 import javax.validation.constraints.Size;
 
-import javax.persistence.Id;
-
-import javax.persistence.Column;
-
-import javax.persistence.GeneratedValue;
-
-import javax.persistence.GenerationType;
 import com.google.appengine.api.datastore.Key;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Role {
@@ -28,6 +24,17 @@ public class Role {
 	@NotNull
 	@Size(min=3, max=20)
 	private String name;
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="role")
+    private List<User> users = new ArrayList<User>();
 
 	public Long getKey() {
 		return key.getId();

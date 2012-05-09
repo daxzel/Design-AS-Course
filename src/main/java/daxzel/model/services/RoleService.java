@@ -6,4 +6,6 @@ public interface RoleService extends AbstractService<Role> {
 	
 	void create();
 
+    Role getRoleByName(String name);
+
 }

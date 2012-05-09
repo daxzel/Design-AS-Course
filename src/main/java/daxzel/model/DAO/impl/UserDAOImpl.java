@@ -7,6 +7,8 @@ import javax.persistence.Query;
 import javax.persistence.EntityTransaction;
 import java.util.List;
 import java.util.ArrayList;
+
+import daxzel.model.domains.Role;
 import org.springframework.stereotype.Repository;
 import javax.persistence.PersistenceContext;
 
@@ -58,6 +60,7 @@ public class UserDAOImpl implements UserDAO {
 		User user = (User) em.createQuery(
 				"Select u From User u Where u.name='" + name + "'")
 				.getSingleResult();
+        user.getRole().getName();
 		return user;
 	}
 }

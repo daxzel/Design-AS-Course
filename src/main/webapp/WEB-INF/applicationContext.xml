@@ -26,15 +26,19 @@
         http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
     <context:annotation-config />
+
+    <context:component-scan base-package="daxzel"/>
+
     <!--context:component-scan base-package="daxzel.controllers">
         <context:exclude-filter type="aspectj" expression="daxzel.controllers.*"/>
     </context:component-scan-->
 
-    <context:component-scan base-package="daxzel" />
-
     <import resource="spring/applicationContext-data.xml" />
     <import resource="spring/applicationContext-security.xml" />
     <import resource="spring/applicationContext-service.xml" />
+
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
     <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
 
 </beans>

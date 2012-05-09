@@ -39,6 +39,7 @@
 					<li><a href="/kindsAd/">Типы реклам</a></li>
 					<li><a href="/organizations/">Организации</a></li>
 					<li><a href="/roles/create">Заполнить роли</a></li>
+					<li><a href="/j_spring_security_logout">Выход</a></li>
 				</ul>
 			</div>
 		</nav>

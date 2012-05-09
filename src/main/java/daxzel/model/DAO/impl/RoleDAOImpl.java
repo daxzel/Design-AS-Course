@@ -7,6 +7,8 @@ import javax.persistence.Query;
 import javax.persistence.EntityTransaction;
 import java.util.List;
 import java.util.ArrayList;
+
+import daxzel.model.domains.User;
 import org.springframework.stereotype.Repository;
 import javax.persistence.PersistenceContext;
 
@@ -32,8 +34,7 @@ public class RoleDAOImpl implements RoleDAO {
 	}
 
 	public List<Role> getAll() {
-		
-		List<Role> lr = em.createQuery("Select r From Role r").getResultList();
+		List<Role> lr = em.createQuery("Select From Role").getResultList();
 		lr.size();
 		return lr;
 	}
@@ -47,4 +48,19 @@ public class RoleDAOImpl implements RoleDAO {
 	{
 		em.createQuery("Delete From Role").executeUpdate();
 	}
+    
+    public Role getUserRole(String username)
+    {
+        return (Role)em.createQuery("Select u.role From User u Where u.name = '"+username+"'").getSingleResult();
+    }
+
+    public Role getRoleByName(String name)
+    {
+        Role role = (Role) em.createQuery(
+                "Select From Role Where name='" + name + "'")
+                .getSingleResult();
+        return role;
+
+    }
+    
 }

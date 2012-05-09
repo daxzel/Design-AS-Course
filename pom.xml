@@ -10,6 +10,7 @@
     <inceptionYear>2012</inceptionYear>
     <url>git@github.com:daxzel/labas.git</url>
 
+
     <developers>
         <developer>
             <id>daxzel</id>
@@ -29,10 +30,9 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <gae.port>8004</gae.port> 
 
-        <gae.version>1.6.3</gae.version>
-        <gae.runtime>1.6.3</gae.runtime>
-
-        <gae.home>/home/daxzel/programs/sdk /appengine-java-sdk-1.6.3.1</gae.home>
+        <gae.version>1.6.5</gae.version>
+        <gae.runtime>1.6.5</gae.runtime>
+        <gae.home>/home/daxzel/programs/sdk /appengine-java-sdk-1.6.5</gae.home>
         <maven.gae.plugin.version>0.9.2</maven.gae.plugin.version>
         <datanucleus.version>1.1.5</datanucleus.version>
         <springframework.version>3.1.1.RELEASE</springframework.version>
@@ -343,7 +343,7 @@
                     <jvmFlag>-Dmail.log_mail_body=true</jvmFlag>
                 </jvmFlags>
                 <severity>0</severity>
-                <serverId>${google.app.id}</serverId>
+                <serverId>1</serverId>
             </configuration>
             <executions>
                 <execution>

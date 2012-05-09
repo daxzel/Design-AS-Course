@@ -6,6 +6,7 @@
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 
+
     <tx:annotation-driven />
 
     <bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
@@ -13,9 +14,6 @@
             <value>/WEB-INF/persistence.xml</value>
         </property>
     </bean>
-
-
-
 
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean" lazy-init="true">
@@ -25,7 +23,5 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
-
-    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>
