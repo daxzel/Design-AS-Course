@@ -28,7 +28,6 @@ public class Production {
 
     private int costsProduction;
 
-
     private int costsStorage;
 
     public Product getProduct() {
