@@ -17,30 +17,30 @@ import daxzel.model.domains.KindAd;
 public class KindAdDAOImpl implements KindAdDAO {
 
 	@PersistenceContext
-	private EntityManager em;
+    private EntityManager em;
 
-	public void remove(Long id) {
-		KindAd kindAd = getByID(id);
-		if (kindAd != null) {
-			em.remove(kindAd);	
-		}
-	}
+    public void remove(Long id) {
+        KindAd kindAd = getByID(id);
+        if (kindAd != null) {
+            em.remove(kindAd);
+        }
+    }
 
-	public KindAd getByID(Long id) {
-		return em.find(KindAd.class, id);
-	}
+    public KindAd getByID(Long id) {
+        return em.find(KindAd.class, id);
+    }
 
-	public List<KindAd> getAll() {
-		
-		List<KindAd> lr = em.createQuery("Select From KindAd").getResultList();
-		lr.size();
-		return lr;
-	}
+    public List<KindAd> getAll() {
 
-	public void addOrUpdate(KindAd kindAd) {
-		em.persist(kindAd);
+        List<KindAd> lr = em.createQuery("Select From KindAd").getResultList();
+        lr.size();
+        return lr;
+    }
 
-	}
+    public void addOrUpdate(KindAd kindAd) {
+        em.persist(kindAd);
+
+    }
 	
 	
 }

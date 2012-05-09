@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
@@ -33,12 +35,48 @@
 	    <nav id="nav">
 			<div class="ym-hlist" >
 				<ul>
-					<li><a href="/">Главная</a></li>
-					<li><a href="/users/">Пользователи</a></li>
-					<li><a href="/products/">Товары</a></li>
-					<li><a href="/kindsAd/">Типы реклам</a></li>
-					<li><a href="/organizations/">Организации</a></li>
-					<li><a href="/roles/create">Заполнить роли</a></li>
+
+                    <li><a href="/">Главная</a></li>
+                      <sec:authorize access="hasRole('ROLE_ADMIN')">
+
+
+                                          <li><a href="/users/">Пользователи</a></li>
+                                          <li><a href="/products/">Товары</a></li>
+                                          <li><a href="/kindsAd/">Типы реклам</a></li>
+                                          <li><a href="/organizations/">Организации</a></li>
+                                          <li><a href="/roles/create">Заполнить роли</a></li>
+
+                                        </sec:authorize>
+
+
+                                        <sec:authorize access="hasRole('ROLE_MANAGER')">
+
+                                            <li><a href="/advertising/">Рекламы</a></li>
+                                            <li><a href="/sales/">Продажи</a></li>
+                                            <li><a href="/orders/">Заказы</a></li>
+                                            <li><a href="/production/">Производство</a></li>
+
+                                        </sec:authorize>
+
+                                        <sec:authorize access="hasRole('ROLE_ECONOMIST')">
+
+                                            <li><a href="/report_orders_goods/">Отчёт по заказм на товар</a></li>
+                                            <li><a href="/dynamics_changes_sales/">Динамика изменения продаж</a></li>
+
+                                        </sec:authorize>
+
+                                        <sec:authorize access="hasRole('ROLE_ACCOUNTANT')">
+
+                                            <li><a href="/determining_cost_advertising/">Отчёт по затратам на рекламу</a></li>
+                                            <li><a href="/average_cost_product/">Определение средних затрат по товару</a></li>
+
+                                        </sec:authorize>
+
+                                        <sec:authorize access="hasRole('ROLE_DIRECTOR')">
+                                            <li><a href="/report_dynamics_costs/">Отчёт по динамике изменения фактических затрат</a></li>
+                                        </sec:authorize>
+
+
 					<li><a href="/j_spring_security_logout">Выход</a></li>
 				</ul>
 			</div>

@@ -14,11 +14,27 @@
         <form-login login-page="/login.jsp" default-target-url="/" authentication-failure-url="/login.jsp?error=true"/>
     </http-->
 
+    <beans:bean id="webExpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
 
-    <http auto-config="true" access-denied-page="/login.jsp">
+
+    <http  auto-config="true" access-denied-page="/login.jsp" >
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
-        <intercept-url pattern="/login.jsp" access="ROLE_ANONYMOUS" />
-        <intercept-url pattern="/**" access="ROLE_ADMIN" />
+        <intercept-url pattern="/login.jsp" access="ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_MANAGER" />
+
+        <intercept-url pattern="/home" access="ROLE_ADMIN,ROLE_MANAGER" />
+        <intercept-url pattern="/" access="ROLE_ADMIN,ROLE_MANAGER" />
+
+
+        <intercept-url pattern="/users/**" access="ROLE_ADMIN" />
+        <intercept-url pattern="/products/**" access="ROLE_ADMIN" />
+        <intercept-url pattern="/kindsAd/**" access="ROLE_ADMIN" />
+        <intercept-url pattern="/organizations/**" access="ROLE_ADMIN" />
+        <intercept-url pattern="/roles/create" access="ROLE_ADMIN" />
+
+        <intercept-url pattern="/advertising/**" access="ROLE_MANAGER" />
+        <intercept-url pattern="/sales/**" access="ROLE_MANAGER" />
+        <intercept-url pattern="/orders/**" access="ROLE_MANAGER" />
+        <intercept-url pattern="/production/**" access="ROLE_MANAGER" />
 
 
         <form-login login-page="/login.jsp" default-target-url="/" authentication-failure-url="/login.jsp?error=true"/>

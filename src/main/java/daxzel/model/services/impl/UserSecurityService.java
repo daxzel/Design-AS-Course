@@ -55,21 +55,21 @@ public class UserSecurityService implements UserDetailsService {
             return "ROLE_ADMIN";
         }
         else{
-            if (name=="Менеджер по продажам"){
+            if (name.equals("Менеджер по продажам")){
                 return "ROLE_MANAGER";
             }
             else
             {
-                if (name=="Директор"){
+                if (name.equals("Директор")){
                     return "ROLE_DIRECTOR";
                 }
                 else{
-                    if (name=="Главный бухгалтер"){
+                    if (name.equals("Главный бухгалтер")){
                         return "ROLE_ACCOUNTANT";
                     }
                     else
                     {
-                        if (name=="Экономист"){
+                        if (name.equals("Экономист")){
                             return "ROLE_ECONOMIST";
                         }
                         else

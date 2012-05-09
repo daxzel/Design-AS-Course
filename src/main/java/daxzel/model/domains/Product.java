@@ -1,29 +1,17 @@
 package daxzel.model.domains;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.*;
 
 import javax.validation.constraints.NotNull;
 
-import javax.persistence.ManyToOne;
-
-import javax.persistence.JoinColumn;
-
 import javax.validation.constraints.Size;
-
-import javax.persistence.Id;
-
-import javax.persistence.CascadeType;
-
-import javax.persistence.GeneratedValue;
-
-import javax.persistence.Column;
-
-import javax.persistence.GenerationType;
 
 import com.google.appengine.api.datastore.Key;
 
 import com.google.appengine.api.datastore.KeyFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Product 
@@ -47,7 +35,10 @@ public class Product
 	@ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
     @JoinColumn(nullable=false)
 	private Group group;
-	
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
+    private List<Production> productions = new ArrayList<Production>();
+
 	public Group getGroup() {
 		return group;
 	}
@@ -90,8 +81,14 @@ public class Product
 		this.manufacturer = manufacturer;
 	}
 
-	
-	
+
+    public List<Production> getProductions() {
+        return productions;
+    }
+
+    public void setProductions(List<Production> productions) {
+        this.productions = productions;
+    }
 	
 	public Long getNCP() {
 		return NCP;
