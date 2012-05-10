@@ -36,8 +36,15 @@ public class Product
     @JoinColumn(nullable=false)
 	private Group group;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
-    private List<Production> productions = new ArrayList<Production>();
+//    @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
+//    private List<Production> productions = new ArrayList<Production>();
+
+    @Transient
+    private List<Ad> ads = new ArrayList<Ad>();
+
+    @Basic(fetch = FetchType.EAGER)
+    private List<Key> adsKeys = new ArrayList<Key>();
+
 
 	public Group getGroup() {
 		return group;
@@ -82,13 +89,13 @@ public class Product
 	}
 
 
-    public List<Production> getProductions() {
-        return productions;
-    }
-
-    public void setProductions(List<Production> productions) {
-        this.productions = productions;
-    }
+//    public List<Production> getProductions() {
+//        return productions;
+//    }
+//
+//    public void setProductions(List<Production> productions) {
+//        this.productions = productions;
+//    }
 	
 	public Long getNCP() {
 		return NCP;
@@ -127,5 +134,13 @@ public class Product
 	{
 		this.key = key;
 	}
-	
+
+    public List<Ad> getAds() {
+        return ads;
+    }
+
+    public void setAds(List<Ad> ads) {
+        this.ads = ads;
+    }
+
 }

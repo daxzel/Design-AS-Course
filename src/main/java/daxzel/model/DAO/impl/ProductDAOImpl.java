@@ -52,6 +52,15 @@ public class ProductDAOImpl implements ProductDAO {
 	{
 		em.createQuery("Delete From Product p Where p.NCP="+NCP).executeUpdate();
 	}
+
+    public Product getProductByName(String name)
+    {
+        Product product = (Product) em.createQuery(
+                "Select From Product Where name='" + name + "'")
+                .getSingleResult();
+        return product;
+    }
+
 	
 	
 }

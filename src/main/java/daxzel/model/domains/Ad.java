@@ -3,9 +3,7 @@ package daxzel.model.domains;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.crypto.Data;
 import java.util.Date;
@@ -17,6 +15,7 @@ import java.util.Date;
  * Time: 1:35 AM
  * To change this template use File | Settings | File Templates.
  */
+@Entity
 public class Ad {
     @Id
     @NotNull
@@ -30,6 +29,15 @@ public class Ad {
     private String paymentMethod;
 
     private int amount;
+
+    private Date paymentDate;
+
+    @ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+    @JoinColumn(nullable=false)
+    private KindAd kindAd;
+
+    @Transient
+    private Product product;
 
     public Long getKey()
     {
@@ -45,7 +53,7 @@ public class Ad {
 
     public void setKey(Long id)
     {
-        key = KeyFactory.createKey(Product.class.getSimpleName(), id);
+        key = KeyFactory.createKey(Ad.class.getSimpleName(), id);
     }
 
     public void setKey(Key key) {
@@ -92,6 +100,21 @@ public class Ad {
         this.paymentDate = paymentDate;
     }
 
-    private Date paymentDate;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public KindAd getKindAd() {
+        return kindAd;
+    }
+
+    public void setKindAd(KindAd kindAd) {
+        this.kindAd = kindAd;
+    }
 
 }

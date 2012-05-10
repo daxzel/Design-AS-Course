@@ -31,7 +31,7 @@
         <intercept-url pattern="/organizations/**" access="ROLE_ADMIN" />
         <intercept-url pattern="/roles/create" access="ROLE_ADMIN" />
 
-        <intercept-url pattern="/advertising/**" access="ROLE_MANAGER" />
+        <intercept-url pattern="/ads/**" access="ROLE_MANAGER" />
         <intercept-url pattern="/sales/**" access="ROLE_MANAGER" />
         <intercept-url pattern="/orders/**" access="ROLE_MANAGER" />
         <intercept-url pattern="/production/**" access="ROLE_MANAGER" />

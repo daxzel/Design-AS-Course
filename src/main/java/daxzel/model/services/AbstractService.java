@@ -2,7 +2,7 @@ package daxzel.model.services;
 
 import java.util.List;
 
-public interface AbstractService<T> {
+public interface AbstractService<T>  {
 	
 	void add(T entity);
 

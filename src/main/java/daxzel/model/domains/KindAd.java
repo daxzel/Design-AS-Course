@@ -1,26 +1,17 @@
 package daxzel.model.domains;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 import javax.validation.constraints.NotNull;
 
-import javax.persistence.ManyToOne;
-
-import javax.persistence.JoinColumn;
-
 import javax.validation.constraints.Size;
-
-import javax.persistence.Id;
-
-import javax.persistence.GeneratedValue;
-
-import javax.persistence.Column;
-
-import javax.persistence.GenerationType;
 
 import com.google.appengine.api.datastore.Key;
 
 import com.google.appengine.api.datastore.KeyFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class KindAd {
@@ -31,6 +22,9 @@ public class KindAd {
 	private Key key;
 
 	private String name;
+
+    @OneToMany( mappedBy = "kindAd", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<Ad> adList = new ArrayList<Ad>();
 
 	public String getName() {
 		return name;
@@ -55,5 +49,13 @@ public class KindAd {
 	public void setKey(Key key) {
 		this.key = key;
 	}
+
+    public List<Ad> getAdList() {
+        return adList;
+    }
+
+    public void setAdList(List<Ad> adList) {
+        this.adList = adList;
+    }
 
 }

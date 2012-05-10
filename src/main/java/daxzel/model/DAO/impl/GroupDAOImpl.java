@@ -23,9 +23,22 @@ public class GroupDAOImpl implements GroupDAO {
 		}
 	}
 
-	public Group getByID(Long id) {
-		return em.find(Group.class, id);
-	}
+//	public Group getByID(Long id) {
+//		return em.find(Group.class, id);
+//	}
+
+    public Group getByID(Long id) {
+
+        for(Group group : getAll())
+        {
+            if (group.getKey().equals(id))
+            {
+                return  group;
+            }
+        }
+
+        throw new RuntimeException("Not Found");
+    }
 
 	public List<Group> getAll() {
 		

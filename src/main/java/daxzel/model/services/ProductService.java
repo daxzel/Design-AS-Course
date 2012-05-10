@@ -10,4 +10,5 @@ public interface ProductService extends AbstractService<Product> {
 	Group findGroup(Long key);
 	void removeProductByNCP(Long NCP);
 	List<Group> getAllGroups();
+    Product getProductByName(String name);
 }

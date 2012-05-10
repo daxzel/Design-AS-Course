@@ -44,8 +44,12 @@ public class Production {
     @OneToOne(mappedBy = "production")
     private Sale sale;
 
-    @OneToOne(mappedBy = "production")
-    private Order order;
+//    @OneToOne(mappedBy = "production")
+//    private Order order;
+
+
+
+
 
 
     public Long getKey()
@@ -62,7 +66,7 @@ public class Production {
 
     public void setKey(Long id)
     {
-        key = KeyFactory.createKey(Product.class.getSimpleName(), id);
+        key = KeyFactory.createKey(Production.class.getSimpleName(), id);
     }
 
     public void setKey(Key key) {
@@ -109,13 +113,13 @@ public class Production {
         this.sale = sale;
     }
 
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
-    }
+//    public Order getOrder() {
+//        return order;
+//    }
+//
+//    public void setOrder(Order order) {
+//        this.order = order;
+//    }
 
 
 

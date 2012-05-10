@@ -96,6 +96,7 @@ public class ProductController {
     {       
     	
     	Group group = productService.findGroup(key);
+
     	if (group!=null)
     	{
 	    	Product product = new Product();
@@ -107,7 +108,8 @@ public class ProductController {
 	    }
     	else
     	{
-    		return new ModelAndView("redirect:/products");
+            throw new RuntimeException(key.toString());
+    		//return new ModelAndView("redirect:/products");
     	}
     }
     

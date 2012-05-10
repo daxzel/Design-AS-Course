@@ -81,4 +81,10 @@ public class ProductServiceImpl implements ProductService {
 		return groupDAO.getByID(key);
 	}
 
+    @Transactional
+    public Product getProductByName(String name)
+    {
+        return productDAO.getProductByName(name);
+    }
+
 }

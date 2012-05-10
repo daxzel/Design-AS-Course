@@ -85,6 +85,21 @@
         <put-attribute name="title" value="Product Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/production/addProduction.jsp" />
     </definition>
+
+    <definition name="ad" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/ads/ad.jsp" />
+    </definition>
+
+    <definition name="ads" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/ads/ads.jsp" />
+    </definition>
+
+    <definition name="add_ad" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/ads/addAd.jsp" />
+    </definition>
     
     <definition name="home" extends="base.definition">
         <put-attribute name="title" value="Home page" />

@@ -47,7 +47,7 @@ public class Organization
 
     public void setKey(Long id)
     {
-        key = KeyFactory.createKey(Product.class.getSimpleName(), id);
+        key = KeyFactory.createKey(Organization.class.getSimpleName(), id);
     }
 
     public void setKey(Key key)

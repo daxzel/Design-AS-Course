@@ -40,4 +40,10 @@ public class KindAdServiceImpl implements KindAdService {
     {
 		kindAdDAO.remove(id);
     }
+
+    @Transactional
+    public KindAd getKindAdByName(String name)
+    {
+        return kindAdDAO.getKindAdByName(name);
+    }
 }

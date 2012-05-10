@@ -1,32 +1,15 @@
 package daxzel.model.domains;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 import javax.validation.constraints.NotNull;
 
-import javax.persistence.ManyToOne;
-
-import javax.persistence.OneToMany;
-
-import javax.persistence.CascadeType;
-
-import javax.persistence.JoinColumn;
-
-import javax.persistence.FetchType;
-
 import javax.validation.constraints.Size;
-
-import javax.persistence.Id;
-
-import javax.persistence.GeneratedValue;
-
-import javax.persistence.Column;
 
 import java.util.Collection;
 
 import java.util.ArrayList;
-
-import javax.persistence.GenerationType;
+import java.util.List;
 
 import com.google.appengine.api.datastore.Key;
 
@@ -43,8 +26,9 @@ public class Group
 	
 	private String name;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="group",fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL,mappedBy = "group", fetch=FetchType.LAZY)
 	private Collection<Product> products = new ArrayList();
+
 
 	public String getName() {
 		return name;
@@ -76,7 +60,7 @@ public class Group
 	
 	public void setKey(Long id) 
 	{
-		key = KeyFactory.createKey(User.class.getSimpleName(), id);
+		key = KeyFactory.createKey(Group.class.getSimpleName(), id);
 	}
 	
 	public void setKey(Key key) 

@@ -47,7 +47,7 @@ public class Order {
 
     public void setKey(Long id)
     {
-        key = KeyFactory.createKey(Product.class.getSimpleName(), id);
+        key = KeyFactory.createKey(Order.class.getSimpleName(), id);
     }
 
     public void setKey(Key key) {

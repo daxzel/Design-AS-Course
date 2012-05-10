@@ -51,7 +51,7 @@
 
                                         <sec:authorize access="hasRole('ROLE_MANAGER')">
 
-                                            <li><a href="/advertising/">Рекламы</a></li>
+                                            <li><a href="/ads/">Рекламы</a></li>
                                             <li><a href="/sales/">Продажи</a></li>
                                             <li><a href="/orders/">Заказы</a></li>
                                             <li><a href="/production/">Производство</a></li>

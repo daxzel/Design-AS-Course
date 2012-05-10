@@ -41,6 +41,14 @@ public class KindAdDAOImpl implements KindAdDAO {
         em.persist(kindAd);
 
     }
+
+    public KindAd getKindAdByName(String name){
+        KindAd kind = (KindAd) em.createQuery(
+                "Select From KindAd Where name='" + name + "'")
+                .getSingleResult();
+        return kind;
+    }
+
 	
 	
 }
