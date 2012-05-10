@@ -40,11 +40,6 @@
         <input type="password" name="j_password" />
      </div>
 
-     <div class="ym-fbox-text">
-        <label for="_spring_security_remember_me">Запомнить</label>
-        <input type="checkbox" name="_spring_security_remember_me" />
-     </div>
-
     <div class="ym-fbox-button">
     		<input type="submit" class="save" value="Принять" />
     </div>

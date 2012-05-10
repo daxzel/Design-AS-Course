@@ -11,12 +11,12 @@
   -->
 
   <!-- Configure java.util.logging -->
-  <system-properties>
+  <!--system-properties>
     <property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
-  </system-properties>
+  </system-properties-->
 
   <sessions-enabled>true</sessions-enabled>
-  <threadsafe/>
+  <threadsafe>true</threadsafe>
 
     <!--
       HTTP Sessions are disabled by default. To enable HTTP sessions specify:

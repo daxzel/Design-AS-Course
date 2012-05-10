@@ -11,6 +11,7 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -23,8 +24,8 @@ public class KindAd {
 
 	private String name;
 
-    @OneToMany( mappedBy = "kindAd", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
-    private List<Ad> adList = new ArrayList<Ad>();
+    @OneToMany( mappedBy = "kindAd", cascade = CascadeType.ALL)
+    private Collection<Ad> adList = new ArrayList<Ad>();
 
 	public String getName() {
 		return name;
@@ -50,11 +51,11 @@ public class KindAd {
 		this.key = key;
 	}
 
-    public List<Ad> getAdList() {
+    public Collection<Ad> getAdList() {
         return adList;
     }
 
-    public void setAdList(List<Ad> adList) {
+    public void setAdList(Collection<Ad> adList) {
         this.adList = adList;
     }
 
