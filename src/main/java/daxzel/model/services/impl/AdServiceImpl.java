@@ -22,16 +22,16 @@ public class AdServiceImpl  implements AdService {
     @Autowired
     private AdDAO adDAO;
 
-    @Transactional
     public void add(Ad entity)
     {
         adDAO.addOrUpdate(entity);
     }
 
-    @Transactional
     public List<Ad> getAll()
     {
-        return adDAO.getAll();
+        List<Ad> lr = adDAO.getAds();
+        adDAO.fillAdsProducts(lr);
+        return lr;
     }
 
     @Transactional

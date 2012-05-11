@@ -32,7 +32,7 @@ public class OrganizationController {
                              Long id)
     {
         organizationService.remove(id);
-        return "redirect:/users";
+        return "redirect:/organizations";
     }
 
     @RequestMapping(value="/",method = RequestMethod.POST)
@@ -40,7 +40,7 @@ public class OrganizationController {
                                       Organization organization, BindingResult result)
     {
         organizationService.add(organization);
-        return "redirect:/users";
+        return "redirect:/organizations";
     }
 
     @RequestMapping(method= RequestMethod.GET)

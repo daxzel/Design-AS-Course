@@ -10,7 +10,7 @@
 		<tr>
 			<th style="width: 40%;">Продукт</th>
 			<th style="width: 30%;">Тип рекламы</th>
-			<th style="width: 30%;">Действия/th>
+			<th style="width: 30%;">Действия</th>
 		</tr>
 	</thead>
 	<tbody>

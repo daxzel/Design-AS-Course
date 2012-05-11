@@ -43,10 +43,19 @@ public class KindAdDAOImpl implements KindAdDAO {
     }
 
     public KindAd getKindAdByName(String name){
+
+//        for (KindAd kind : getAll())
+//        {
+//            if (kind.getName()==name)
+//            {
+//                return kind;
+//            }
+//        }
         KindAd kind = (KindAd) em.createQuery(
                 "Select From KindAd Where name='" + name + "'")
                 .getSingleResult();
         return kind;
+//        return null;
     }
 
 	

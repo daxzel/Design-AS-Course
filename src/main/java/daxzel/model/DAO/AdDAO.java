@@ -3,6 +3,8 @@ package daxzel.model.DAO;
 import daxzel.model.domains.Ad;
 import daxzel.model.domains.Group;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: daxzel
@@ -11,4 +13,7 @@ import daxzel.model.domains.Group;
  * To change this template use File | Settings | File Templates.
  */
 public interface AdDAO extends AbstractDAO<Ad>  {
+    List<Ad>  getAds();
+    void fillAdsProducts(List<Ad> lr);
+
 }

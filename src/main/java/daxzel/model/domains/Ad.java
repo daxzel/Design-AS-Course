@@ -39,6 +39,11 @@ public class Ad {
     @Transient
     private Product product;
 
+    private Long keyToProduct;
+
+    private Long keyToGroup;
+
+
     public Long getKey()
     {
         if (key!=null)
@@ -50,6 +55,18 @@ public class Ad {
             return null;
         }
     }
+
+    public Key getRealKey()
+    {
+        return key;
+    }
+
+    public Long getKeyToProduct()
+    {
+        return keyToProduct;
+    }
+
+
 
     public void setKey(Long id)
     {
@@ -105,8 +122,28 @@ public class Ad {
         return product;
     }
 
+    public Long getKeyToGroup() {
+        return keyToGroup;
+    }
+
+    public void setKeyToGroup(Long keyToGroup) {
+        this.keyToGroup = keyToGroup;
+    }
+
     public void setProduct(Product product) {
-        this.product = product;
+        if (product!=null)
+        {
+            this.keyToProduct = product.getKey();
+            this.keyToGroup  = product.getGroup().getKey();
+            this.product = product;
+        }
+        else
+        {
+            this.keyToProduct = null;
+            this.keyToGroup = null;
+
+            this.product = null;
+        }
     }
 
     public KindAd getKindAd() {

@@ -41,11 +41,18 @@ public class Product
 
     @Transient
     private List<Ad> ads = new ArrayList<Ad>();
-
     @Basic(fetch = FetchType.EAGER)
-    private List<Key> adsKeys = new ArrayList<Key>();
+    private List<Long> adsKeys = new ArrayList<Long>();
 
 
+    public List<Long> getAdsKeys() {
+        return adsKeys;
+    }
+
+    public void setAdsKeys(List<Long> adsKeys) {
+        this.adsKeys = adsKeys;
+    }
+    
 	public Group getGroup() {
 		return group;
 	}
@@ -124,6 +131,11 @@ public class Product
 			return null;
 		}
 	}
+
+    public Key getRealKey()
+    {
+        return key;
+    }
 	
 	public void setKey(Long id) 
 	{

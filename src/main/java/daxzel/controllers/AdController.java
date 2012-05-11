@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.beans.PropertyEditorSupport;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -58,7 +59,7 @@ public class AdController {
     @RequestMapping(method= RequestMethod.GET)
     public ModelAndView showAd()
     {
-        return new ModelAndView("ads","adList", adService.getAll());
+        return new ModelAndView("ads","adsList",adService.getAll());
     }
 
     @RequestMapping(value="/add", method= RequestMethod.GET)
@@ -115,7 +116,7 @@ public class AdController {
 
     @InitBinder
     protected void initBinderProduct(HttpServletRequest request, ServletRequestDataBinder binder) {
-        binder.registerCustomEditor(KindAd.class, new PropertyEditorSupport() {
+        binder.registerCustomEditor(Product.class, new PropertyEditorSupport() {
 
             public void setAsText(String text) {
                 Product product = productService.getProductByName(text);
