@@ -2,6 +2,7 @@ package daxzel.model.domains;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import org.omg.CORBA.LongHolder;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -20,7 +21,7 @@ public class Production {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;
+    private Long key;
 
     private int count;
 
@@ -38,26 +39,27 @@ public class Production {
         this.product = product;
     }
 
-    @ManyToOne
+    @Transient
     private Product product;
 
-    @OneToOne(mappedBy = "production")
-    private Sale sale;
+    public Long getProductKey() {
+        return productKey;
+    }
 
-//    @OneToOne(mappedBy = "production")
-//    private Order order;
+    public void setProductKey(Long productKey) {
+        this.productKey = productKey;
+    }
+
+    @Basic(fetch = FetchType.EAGER)
+    private Long productKey;
 
 
-
-
-
-
-    public Key getKey()
+    public Long getKey()
     {
         return key;
     }
 
-    public void setKey(Key key) {
+    public void setKey(Long key) {
         this.key = key;
     }
 
@@ -92,23 +94,5 @@ public class Production {
     public void setCostsStorage(int costsStorage) {
         this.costsStorage = costsStorage;
     }
-
-    public Sale getSale() {
-        return sale;
-    }
-
-    public void setSale(Sale sale) {
-        this.sale = sale;
-    }
-
-//    public Order getOrder() {
-//        return order;
-//    }
-//
-//    public void setOrder(Order order) {
-//        this.order = order;
-//    }
-
-
 
 }

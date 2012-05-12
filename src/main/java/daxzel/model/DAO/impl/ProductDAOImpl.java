@@ -8,6 +8,8 @@ import javax.persistence.Query;
 import javax.persistence.EntityTransaction;
 import java.util.List;
 import java.util.ArrayList;
+
+import daxzel.model.domains.Group;
 import org.springframework.stereotype.Repository;
 import javax.persistence.PersistenceContext;
 
@@ -24,24 +26,18 @@ public class ProductDAOImpl implements ProductDAO {
 	public void remove(Long id) {
 		Product product = getByID(id);
 		if (product != null) {
-			em.remove(product);	
+            Group group = product.getGroup();
+            group.getProductKeys().remove(product.getKey());
+            em.remove(product);
+            em.merge(group);
 		}
 	}
 
-    public void remove(Key key) {
-        Product product = getByID(key);
-        if (product != null) {
-            em.remove(product);
-        }
-    }
 
 	public Product getByID(Long id) {
 		return em.find(Product.class, id);
 	}
 
-    public Product getByID(Key key) {
-        return em.find(Product.class, key);
-    }
 
 	public List<Product> getAll() {
 		
@@ -51,7 +47,26 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	public void addOrUpdate(Product product) {
-		em.persist(product);
+        if (product.getKey()==null)
+        {
+		    em.persist(product);
+            if (product.getGroup()!=null)
+            {
+                Group group = product.getGroup();
+                List<Long> keys = group.getProductKeys();
+                if (keys==null)
+                {
+                    keys = new ArrayList<Long>();    
+                }
+                keys.add(product.getKey());
+                group.setProductKeys(keys);
+                em.merge(group);
+            }
+        }
+        else
+        {
+            
+        }
 
 	}
 	

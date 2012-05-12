@@ -21,7 +21,7 @@ public class Order {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;
+    private Long key;
 
     private int price;
 
@@ -33,12 +33,12 @@ public class Order {
 
     private Date dateBegin;
 
-    public Key getKey()
+    public Long getKey()
     {
         return key;
     }
 
-    public void setKey(Key key) {
+    public void setKey(Long key) {
         this.key = key;
     }
 

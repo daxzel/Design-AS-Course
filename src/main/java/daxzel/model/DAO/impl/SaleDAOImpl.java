@@ -30,19 +30,8 @@ public class SaleDAOImpl implements SaleDAO {
         }
     }
 
-    public void remove(Key key) {
-        Sale sale = getByID(key);
-        if (sale != null) {
-            em.remove(sale);
-        }
-    }
-
     public Sale getByID(Long id) {
         return em.find(Sale.class, id);
-    }
-
-    public Sale getByID(Key key) {
-        return em.find(Sale.class, key);
     }
 
     public List<Sale> getAll() {

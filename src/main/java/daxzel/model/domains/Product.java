@@ -20,7 +20,7 @@ public class Product
 	@Id
 	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;	
+    private Long key;
 	
 	private Long NCP;
 	
@@ -31,36 +31,47 @@ public class Product
 	private String size;
 	
 	private String manufacturer;
-	
-	@ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
-    @JoinColumn(nullable=false)
-	private Group group;
 
 //    @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
 //    private List<Production> productions = new ArrayList<Production>();
 
     @Transient
-    private List<Ad> ads = new ArrayList<Ad>();
+    private Group group;
+
     @Basic(fetch = FetchType.EAGER)
-    private List<Key> adsKeys = new ArrayList<Key>();
+    private Long groupKey;
+
+    @Transient
+    private List<Ad> ads = new ArrayList<Ad>();
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    public Long getGroupKey() {
+        return groupKey;
+    }
+
+    public void setGroupKey(Long groupKey) {
+        this.groupKey = groupKey;
+    }
+
+    @Basic(fetch = FetchType.EAGER)
+    private List<Long> adsKeys = new ArrayList<Long>();
 
 
-    public List<Key> getAdsKeys() {
+    public List<Long> getAdsKeys() {
         return adsKeys;
     }
 
-    public void setAdsKeys(List<Key> adsKeys) {
+    public void setAdsKeys(List<Long> adsKeys) {
         this.adsKeys = adsKeys;
     }
     
-	public Group getGroup() {
-		return group;
-	}
-
-	public void setGroup(Group group) {
-		this.group = group;
-	}
-
 	public String getSize() {
 		return size;
 	}
@@ -120,12 +131,12 @@ public class Product
 		this.name = name;
 	}
 
-    public Key getKey()
+    public Long getKey()
     {
         return key;
     }
 	
-	public void setKey(Key key) 
+	public void setKey(Long key)
 	{
 		this.key = key;
 	}

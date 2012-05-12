@@ -30,21 +30,9 @@ public class ProductionDAOImpl implements ProductionDAO {
         }
     }
 
-    public void remove(Key key) {
-        Production production = getByID(key);
-        if (production != null) {
-            em.remove(production);
-        }
-    }
-
     public Production getByID(Long id) {
         return em.find(Production.class, id);
     }
-
-    public Production getByID(Key key) {
-        return em.find(Production.class, key);
-    }
-
 
     public List<Production> getAll() {
         List<Production> lr = em.createQuery("Select From Production").getResultList();

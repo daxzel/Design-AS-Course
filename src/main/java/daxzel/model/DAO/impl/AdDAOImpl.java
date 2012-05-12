@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,10 +27,16 @@ import java.util.List;
 @Repository
 public class AdDAOImpl implements AdDAO {
 
-    @PersistenceContext
-    private EntityManager em;
+    private EntityManagerFactory emf;
+
+    @PersistenceUnit
+    public void setEntityManagerFactory(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
 
     public void remove(Long id) {
+        EntityManager em = emf.createEntityManager();
+
         Ad ad = getByID(id);
         if (ad != null) {
             Product product = ad.getProduct();
@@ -36,95 +44,55 @@ public class AdDAOImpl implements AdDAO {
             em.persist(product);
             em.remove(ad);
         }
-    }
-
-    public void remove(Key key) {
-        Ad ad = getByID(key);
-        if (ad != null) {
-            Product product = ad.getProduct();
-            product.getAdsKeys().remove(ad.getKey());
-            em.persist(product);
-            em.remove(ad);
-        }
+        em.close();
     }
 
     public Ad getByID(Long id) {
+        EntityManager em = emf.createEntityManager();
 
         Key keyAd = KeyFactory.createKey(Ad.class.getSimpleName(), id);
         Ad ad =  em.find(Ad.class, keyAd);
-
-        //Key keyProduct = KeyFactory.createKey(ad.getKeyToGroup(),Product.class.getSimpleName(), ad.getKeyToProduct());
-        //Key keyProduct = KeyFactory.createKey(ad.getKeyToGroup(),Product.class.getSimpleName(), ad.getKeyToProduct());
         ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
-        return  ad;
-    }
-
-    public Ad getByID(Key key) {
-
-        Ad ad =  em.find(Ad.class, key);
-
-        //Key keyProduct = KeyFactory.createKey(ad.getKeyToGroup(),Product.class.getSimpleName(), ad.getKeyToProduct());
-        //Key keyProduct = KeyFactory.createKey(ad.getKeyToGroup(),Product.class.getSimpleName(), ad.getKeyToProduct());
-        ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
+        ad.setKindAd(em.find(KindAd.class, ad.getKeyToKindAd()));
+        em.close();
         return  ad;
     }
 
     public List<Ad> getAll() {
+        EntityManager em = emf.createEntityManager();
 
-        return null;
-    }
-
-    @Transactional
-    public  List<Ad>  getAds()
-    {
         List<Ad> lr = em.createQuery("Select From Ad").getResultList();
         for(Ad ad : lr)
         {
             ad.getKindAd().getName();
         }
+        for(Ad ad : lr)
+        {
+            ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
+            ad.setKindAd(em.find(KindAd.class, ad.getKeyToKindAd()));
+        }
+        em.close();
         return lr;
     }
 
-    @Transactional
-    public void fillAdsProducts(List<Ad> lr)
-    {
-        for(Ad ad : lr)
-        {
-//            Key keyGroup = KeyFactory.createKey(Group.class.getSimpleName(), ad.getKeyToGroup());
-//
-//            Key keyProduct = KeyFactory.createKey(keyGroup, Product.class.getSimpleName(), ad.getKeyToProduct());
-//
-//            ad.setProduct(em.find(Product.class, keyProduct));
-
-            ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
-        }
-    }
-
-    @Transactional
-    private  void addAd(Ad ad)
-    {
-        em.persist(ad);
-    }
-    
-    
     public void addOrUpdate(Ad ad) {
-        addAd(ad);
-        addToProduct(ad);
-    }
+        EntityManager em = emf.createEntityManager();
 
-    @Transactional
-    private void addToProduct(Ad ad)
-    {
+        em.persist(ad);
+
         Product product = ad.getProduct();
 
-        List<Key> keys = product.getAdsKeys();
+        List<Long> keys = product.getAdsKeys();
         if (keys == null)
         {
-            keys = new ArrayList<Key>();
+            keys = new ArrayList<Long>();
         }
         keys.add(ad.getKey());
         product.setAdsKeys(keys);
         em.merge(product);
+
+        em.close();
     }
-    
+
+
 }

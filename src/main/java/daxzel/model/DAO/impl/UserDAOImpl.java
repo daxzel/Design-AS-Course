@@ -30,24 +30,11 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-    public void remove(Key key) {
-        User user = getByID(key);
-        if (user != null) {
-            em.remove(user);
-        }
-    }
-
 	public User getByID(Long id) {
 		User user = em.find(User.class, id);
         loadRole(user);
         return user;
 	}
-
-    public User getByID(Key key) {
-        User user = em.find(User.class, key);
-        loadRole(user);
-        return user;
-    }
 
 	public List<User> getAll() {
 

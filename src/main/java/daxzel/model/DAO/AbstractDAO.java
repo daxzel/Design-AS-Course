@@ -12,10 +12,6 @@ public interface AbstractDAO<T> {
  
     void remove(Long id);
 
-    void remove(Key key);
-    
     T getByID(Long id);
-
-    T getByID(Key key);
     
 }

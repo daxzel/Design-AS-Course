@@ -20,7 +20,7 @@ public class Ad {
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;
+    private Long key;
 
     private Date dateBegin;
 
@@ -32,29 +32,36 @@ public class Ad {
 
     private Date paymentDate;
 
-    @ManyToOne(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
-    @JoinColumn(nullable=false)
-    private KindAd kindAd;
-
     @Transient
     private Product product;
 
-    private Key keyToProduct;
+    private Long keyToProduct;
 
-    private Key keyToGroup;
+    @Transient
+    private KindAd kindAd;
+
+    public Long getKeyToKindAd() {
+        return keyToKindAd;
+    }
+
+    public void setKeyToKindAd(Long keyToKindAd) {
+        this.keyToKindAd = keyToKindAd;
+    }
+
+    private Long keyToKindAd;
 
 
-    public Key getKey()
+    public Long getKey()
     {
         return key;
     }
 
-    public Key getKeyToProduct()
+    public Long getKeyToProduct()
     {
         return keyToProduct;
     }
 
-    public void setKey(Key key) {
+    public void setKey(Long key) {
         this.key = key;
     }
 
@@ -103,26 +110,15 @@ public class Ad {
         return product;
     }
 
-    public Key getKeyToGroup() {
-        return keyToGroup;
-    }
-
-    public void setKeyToGroup(Key keyToGroup) {
-        this.keyToGroup = keyToGroup;
-    }
-
     public void setProduct(Product product) {
         if (product!=null)
         {
             this.keyToProduct = product.getKey();
-            this.keyToGroup  = product.getGroup().getKey();
             this.product = product;
         }
         else
         {
             this.keyToProduct = null;
-            this.keyToGroup = null;
-
             this.product = null;
         }
     }
@@ -133,6 +129,15 @@ public class Ad {
 
     public void setKindAd(KindAd kindAd) {
         this.kindAd = kindAd;
+        if (product!=null)
+        {
+            this.keyToKindAd = kindAd.getKey();
+            this.kindAd = kindAd;
+        }
+        else
+        {
+            this.keyToKindAd = null;
+            this.kindAd = null;
+        }
     }
-
 }

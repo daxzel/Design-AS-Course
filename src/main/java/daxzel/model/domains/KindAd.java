@@ -20,12 +20,9 @@ public class KindAd {
 	@Id
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Key key;
+	private Long key;
 
 	private String name;
-
-    @OneToMany( mappedBy = "kindAd", cascade = CascadeType.ALL)
-    private Collection<Ad> adList = new ArrayList<Ad>();
 
 	public String getName() {
 		return name;
@@ -35,21 +32,13 @@ public class KindAd {
 		this.name = name;
 	}
 
-    public Key getKey()
+    public Long getKey()
     {
         return key;
     }
 
-	public void setKey(Key key) {
+	public void setKey(Long key) {
 		this.key = key;
 	}
-
-    public Collection<Ad> getAdList() {
-        return adList;
-    }
-
-    public void setAdList(Collection<Ad> adList) {
-        this.adList = adList;
-    }
 
 }

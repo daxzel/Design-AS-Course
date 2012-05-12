@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2ee45ca-bcf1-4de6-8b5f-ad41476c8356" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AbstractDAO.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AbstractDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AdDAO.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AdDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/GroupDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/GroupDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java" />
@@ -20,11 +22,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Organization.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Organization.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Production.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Production.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Role.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Role.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Sale.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Sale.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/User.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/RoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
     </list>
     <ignored path="labas-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,19 +87,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="User.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/User.java">
+      <file leaf-file-name="GroupDAOImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/GroupDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="10" selection-start="520" selection-end="520" vertical-scroll-proportion="-10.0">
+            <state line="28" column="0" selection-start="631" selection-end="678" vertical-scroll-proportion="-11.56">
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1261#1270#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KindAdDAO.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/KindAdDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="47" selection-start="165" selection-end="165" vertical-scroll-proportion="-4.2">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java">
+      <file leaf-file-name="KindAdDAOImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="26" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-18.76">
+            <state line="50" column="0" selection-start="1263" selection-end="1428" vertical-scroll-proportion="-19.56">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,22 +119,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/UserController.java">
+      <file leaf-file-name="AdDAOImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="55" selection-start="2480" selection-end="2480" vertical-scroll-proportion="-13.2">
+            <state line="35" column="42" selection-start="1013" selection-end="1013" vertical-scroll-proportion="-9.16">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractDAO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AbstractDAO.java">
+      <file leaf-file-name="Production.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Production.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="17" selection-start="116" selection-end="116" vertical-scroll-proportion="-3.6">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="37" column="24" selection-start="747" selection-end="747" vertical-scroll-proportion="0.4022082">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -130,34 +140,36 @@
       <file leaf-file-name="Role.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Role.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="430" selection-end="430" vertical-scroll-proportion="-10.8">
+            <state line="21" column="16" selection-start="364" selection-end="368" vertical-scroll-proportion="-7.2">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ad.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Ad.java">
+      <file leaf-file-name="Organization.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Organization.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="25" selection-start="1207" selection-end="1207" vertical-scroll-proportion="-14.4">
+            <state line="16" column="13" selection-start="379" selection-end="379" vertical-scroll-proportion="-7.2">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserDAOImpl.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Product.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="30" selection-start="743" selection-end="803" vertical-scroll-proportion="-18.0">
+              <folding>
+                <element signature="e#1235#1241#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDAOImpl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/UserDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="76" selection-start="997" selection-end="997" vertical-scroll-proportion="0.56782335">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserDAO.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/UserDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="17" selection-start="79" selection-end="79" vertical-scroll-proportion="-2.4">
+            <state line="23" column="16" selection-start="570" selection-end="605" vertical-scroll-proportion="-4.8">
               <folding />
             </state>
           </provider>
@@ -166,16 +178,7 @@
       <file leaf-file-name="AdDAO.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AdDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="17" selection-start="290" selection-end="290" vertical-scroll-proportion="-6.6">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AdDAOImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="22" selection-start="3038" selection-end="3558" vertical-scroll-proportion="-21.6">
+            <state line="15" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="-7.2">
               <folding />
             </state>
           </provider>
@@ -196,22 +199,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AbstractDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/GroupDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrderDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrganizationDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductionDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/RoleDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/RoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/SaleDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Role.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/UserDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Group.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/KindAd.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Ad.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AdDAO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/GroupDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Role.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Production.java" />
       </list>
     </option>
   </component>
@@ -1253,122 +1256,124 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Group.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="13" selection-start="595" selection-end="595" vertical-scroll-proportion="-1.2">
+        <state line="17" column="7" selection-start="341" selection-end="341" vertical-scroll-proportion="-1.8">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#549#558#0" expanded="true" />
+            <element signature="e#997#1003#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/GroupDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="13" selection-start="389" selection-end="389" vertical-scroll-proportion="-8.76">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/RoleDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="50" selection-start="1136" selection-end="1136" vertical-scroll-proportion="-8.56">
+        <state line="19" column="14" selection-start="656" selection-end="656" vertical-scroll-proportion="-11.4">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/AdServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="20" selection-start="807" selection-end="807" vertical-scroll-proportion="-16.2">
+        <state line="56" column="34" selection-start="1313" selection-end="1313" vertical-scroll-proportion="-8.56">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/SaleDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/GroupDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="34" selection-start="608" selection-end="608" vertical-scroll-proportion="-9.6">
+        <state line="4" column="17" selection-start="80" selection-end="80" vertical-scroll-proportion="-2.4">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Sale.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/KindAd.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="405" selection-end="405" vertical-scroll-proportion="-0.6">
+        <state line="42" column="0" selection-start="692" selection-end="692" vertical-scroll-proportion="-18.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Ad.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="25" selection-start="1207" selection-end="1207" vertical-scroll-proportion="-14.4">
+        <state line="15" column="22" selection-start="367" selection-end="367" vertical-scroll-proportion="-5.4">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/UserDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/KindAdDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="17" selection-start="79" selection-end="79" vertical-scroll-proportion="-2.4">
+        <state line="7" column="47" selection-start="165" selection-end="165" vertical-scroll-proportion="-4.2">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1263" selection-end="1428" vertical-scroll-proportion="-19.56">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AdDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="17" selection-start="290" selection-end="290" vertical-scroll-proportion="-6.6">
+        <state line="15" column="0" selection-start="323" selection-end="323" vertical-scroll-proportion="-7.2">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/UserDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="16" selection-start="570" selection-end="605" vertical-scroll-proportion="-4.8">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/GroupDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="631" selection-end="678" vertical-scroll-proportion="-11.56">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1261#1270#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="22" selection-start="3038" selection-end="3558" vertical-scroll-proportion="-21.6">
+        <state line="35" column="42" selection-start="1013" selection-end="1013" vertical-scroll-proportion="-9.16">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Organization.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="55" selection-start="2480" selection-end="2480" vertical-scroll-proportion="-13.2">
+        <state line="16" column="13" selection-start="379" selection-end="379" vertical-scroll-proportion="-7.2">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/AbstractDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="17" selection-start="116" selection-end="116" vertical-scroll-proportion="-3.6">
+        <state line="41" column="30" selection-start="743" selection-end="803" vertical-scroll-proportion="-18.0">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1235#1241#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Role.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="430" selection-end="430" vertical-scroll-proportion="-10.8">
+        <state line="21" column="16" selection-start="364" selection-end="368" vertical-scroll-proportion="-7.2">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/domains/Production.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="10" selection-start="520" selection-end="520" vertical-scroll-proportion="-10.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="26" selection-start="1035" selection-end="1035" vertical-scroll-proportion="-18.76">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/UserDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="76" selection-start="997" selection-end="997" vertical-scroll-proportion="0.56782335">
+        <state line="37" column="24" selection-start="747" selection-end="747" vertical-scroll-proportion="0.4022082">
           <folding />
         </state>
       </provider>

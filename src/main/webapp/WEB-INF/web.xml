@@ -36,7 +36,6 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
     </servlet>
 
 
-
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>--
@@ -45,6 +44,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>OpenPersistenceManagerInView</filter-name>
+        <filter-class>org.springframework.orm.jdo.support.OpenPersistenceManagerInViewFilter</filter-class>
+    </filter>
 
 
 

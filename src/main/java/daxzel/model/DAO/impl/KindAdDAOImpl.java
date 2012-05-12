@@ -30,19 +30,8 @@ public class KindAdDAOImpl implements KindAdDAO {
         }
     }
 
-    public void remove(Key key) {
-        KindAd kindAd = getByID(key);
-        if (kindAd != null) {
-            em.remove(kindAd);
-        }
-    }
-
     public KindAd getByID(Long id) {
         return em.find(KindAd.class, KeyFactory.createKey(KindAd.class.getSimpleName(), id));
-    }
-
-    public KindAd getByID(Key key) {
-        return em.find(KindAd.class, key);
     }
 
     public List<KindAd> getAll() {

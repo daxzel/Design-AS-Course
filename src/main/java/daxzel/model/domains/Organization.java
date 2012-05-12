@@ -20,7 +20,7 @@ public class Organization
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;
+    private Long key;
     
     private String name;
 
@@ -33,12 +33,12 @@ public class Organization
     private String telephoneOfMarketing;
 
 
-    public Key getKey()
+    public Long getKey()
     {
         return key;
     }
 
-    public void setKey(Key key)
+    public void setKey(Long key)
     {
         this.key = key;
     }

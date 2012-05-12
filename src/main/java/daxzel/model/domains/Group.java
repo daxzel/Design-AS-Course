@@ -22,12 +22,31 @@ public class Group
 	@Id
 	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;
+    private Long key;
 	
 	private String name;
-	
-	@OneToMany(cascade=CascadeType.ALL,mappedBy = "group", fetch=FetchType.LAZY)
-	private Collection<Product> products = new ArrayList();
+
+    @Transient
+    private List<Product> products = new ArrayList<Product>();
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
+
+    public List<Long> getProductKeys() {
+        return productKeys;
+    }
+
+    public void setProductKeys(List<Long> productKeys) {
+        this.productKeys = productKeys;
+    }
+
+    @Basic(fetch = FetchType.EAGER)
+    private List<Long> productKeys = new ArrayList<Long>();
 
 
 	public String getName() {
@@ -37,21 +56,13 @@ public class Group
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public Collection<Product> getProducts() {
-		return products;
-	}
 
-	public void setProducts(Collection<Product> products) {
-		this.products = products;
-	}
-
-    public Key getKey()
+    public Long getKey()
     {
         return key;
     }
 	
-	public void setKey(Key key) 
+	public void setKey(Long key)
 	{
 		this.key = key;
 	}

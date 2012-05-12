@@ -20,7 +20,6 @@ public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private GroupDAO groupDAO;
 
-	@Transactional
 	public void add(Product entity) {
 		if (entity.getGroup() == null) {
 			Group group = new Group();
@@ -29,7 +28,7 @@ public class ProductServiceImpl implements ProductService {
 		productDAO.addOrUpdate(entity);
 	}
 
-	@Transactional
+    @Transactional
 	public List<Product> getAll() {
 		return productDAO.getAll();
 	}
@@ -70,7 +69,7 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
-	@Transactional
+    @Transactional
 	public List<Group> getAllGroups() {
 		return groupDAO.getAll();
 	}
