@@ -31,12 +31,17 @@ public class Production {
 
     private int costsStorage;
 
-    public Product getProduct() {
-        return product;
-    }
-
     public void setProduct(Product product) {
-        this.product = product;
+        if (product!=null)
+        {
+            this.productKey = product.getKey();
+            this.product = product;
+        }
+        else
+        {
+            this.productKey = null;
+            this.product = null;
+        }
     }
 
     @Transient
@@ -53,6 +58,10 @@ public class Production {
     @Basic(fetch = FetchType.EAGER)
     private Long productKey;
 
+
+    public Product getProduct() {
+        return product;
+    }
 
     public Long getKey()
     {

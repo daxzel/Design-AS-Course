@@ -2,12 +2,15 @@ package daxzel.model.DAO.impl;
 
 import com.google.appengine.api.datastore.Key;
 import daxzel.model.DAO.ProductionDAO;
+import daxzel.model.domains.Product;
 import daxzel.model.domains.Production;
 import daxzel.model.domains.Sale;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 /**
@@ -20,29 +23,45 @@ import java.util.List;
 @Repository
 public class ProductionDAOImpl implements ProductionDAO {
 
-    @PersistenceContext
-    private EntityManager em;
+    private EntityManagerFactory emf;
+
+    @PersistenceUnit
+    public void setEntityManagerFactory(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
 
     public void remove(Long id) {
+        EntityManager em = emf.createEntityManager();
         Production production = getByID(id);
         if (production != null) {
             em.remove(production);
         }
+        em.close();
     }
 
     public Production getByID(Long id) {
-        return em.find(Production.class, id);
+        EntityManager em = emf.createEntityManager();
+        Production production =  em.find(Production.class, id);
+        production.setProduct(em.find(Product.class,production.getProductKey()));
+        em.close();
+        return production;
     }
 
     public List<Production> getAll() {
+        EntityManager em = emf.createEntityManager();
         List<Production> lr = em.createQuery("Select From Production").getResultList();
-        lr.size();
+        for(Production production : lr)
+        {
+            production.setProduct(em.find(Product.class,production.getProductKey()));
+        }
+        em.close();
         return lr;
     }
 
     public void addOrUpdate(Production production) {
+        EntityManager em = emf.createEntityManager();
         em.persist(production);
-
+        em.close();
     }
 
 }

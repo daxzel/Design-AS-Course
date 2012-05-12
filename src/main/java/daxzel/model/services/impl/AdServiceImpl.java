@@ -29,9 +29,7 @@ public class AdServiceImpl  implements AdService {
 
     public List<Ad> getAll()
     {
-        List<Ad> lr = adDAO.getAds();
-        adDAO.fillAdsProducts(lr);
-        return lr;
+        return adDAO.getAll();
     }
 
     @Transactional

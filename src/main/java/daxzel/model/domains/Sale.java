@@ -33,8 +33,15 @@ public class Sale {
 
     private int amount;
 
-    @OneToOne
+    @Transient
     private Production production;
+    
+    private Long productionKey;
+
+    @Transient
+    private Organization organization;
+
+    private Long organizationKey;
 
     public Long getKey()
     {
@@ -98,7 +105,49 @@ public class Sale {
     }
 
     public void setProduction(Production production) {
-        this.production = production;
+        if (production!=null)
+        {
+            this.productionKey = production.getKey();
+            this.production = production;
+        }
+        else
+        {
+            this.productionKey = null;
+            this.production = null;
+        }
+    }
+
+    public Long getProductionKey() {
+        return productionKey;
+    }
+
+    public void setProductionKey(Long productionKey) {
+        this.productionKey = productionKey;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        if (production!=null)
+        {
+            this.organizationKey = organization.getKey();
+            this.organization = organization;
+        }
+        else
+        {
+            this.organizationKey = null;
+            this.organization = null;
+        }
+    }
+
+    public Long getOrganizationKey() {
+        return organizationKey;
+    }
+
+    public void setOrganizationKey(Long organizationKey) {
+        this.organizationKey = organizationKey;
     }
 
 

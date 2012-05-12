@@ -100,6 +100,27 @@
         <put-attribute name="title" value="Product Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/ads/addAd.jsp" />
     </definition>
+
+
+    <definition name="sales" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/sales/sales.jsp" />
+    </definition>
+
+    <definition name="add_sale" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/sales/addSale.jsp" />
+    </definition>
+
+    <definition name="orders" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/orders/orders.jsp" />
+    </definition>
+
+    <definition name="add_order" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/orders/addOrder.jsp" />
+    </definition>
     
     <definition name="home" extends="base.definition">
         <put-attribute name="title" value="Home page" />

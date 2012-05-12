@@ -33,6 +33,25 @@ public class Order {
 
     private Date dateBegin;
 
+    private int amount;
+
+    private Date datePayment;
+
+    @Transient
+    private Production production;
+
+    private Long productionKey;
+
+    @Transient
+    private Organization organization;
+
+    public void setOrganizationKey(Long organizationKey) {
+        this.organizationKey = organizationKey;
+    }
+
+    private Long organizationKey;
+
+
     public Long getKey()
     {
         return key;
@@ -103,16 +122,46 @@ public class Order {
     }
 
     public void setProduction(Production production) {
-        this.production = production;
+        if (production!=null)
+        {
+            this.productionKey = production.getKey();
+            this.production = production;
+        }
+        else
+        {
+            this.productionKey = null;
+            this.production = null;
+        }
     }
 
-    private int amount;
+    public Long getProductionKey() {
+        return productionKey;
+    }
 
+    public void setProductionKey(Long productionKey) {
+        this.productionKey = productionKey;
+    }
 
-    private Date datePayment;
+    public Organization getOrganization() {
+        return organization;
+    }
 
-    @OneToOne
-    private Production production;
+    public void setOrganization(Organization organization) {
+        if (production!=null)
+        {
+            this.organizationKey = organization.getKey();
+            this.organization = organization;
+        }
+        else
+        {
+            this.organizationKey = null;
+            this.organization = null;
+        }
+    }
+
+    public Long getOrganizationKey() {
+        return organizationKey;
+    }
 
 
 }

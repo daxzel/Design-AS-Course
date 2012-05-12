@@ -48,6 +48,14 @@
             		<form:input path="costsStorage" size="10" />
     </div>
 
+    <div class="ym-fbox-select">
+            	<form:label path="product"></sup>
+            	</form:label>
+            	<form:select path="product">
+            		<form:options items="${productList}" itemLabel="name" />
+                </form:select>
+     </div>
+
 
 	<div class="ym-fbox-button">
 		<input type="submit" class="save" value="<%=action%>" /> <a href="/production"class="ym-button">Отмена</a>
