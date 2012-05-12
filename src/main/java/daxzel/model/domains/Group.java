@@ -46,22 +46,10 @@ public class Group
 		this.products = products;
 	}
 
-	public Long getKey() 
-	{
-		if (key!=null)
-		{
-			return key.getId();
-		}
-		else
-		{
-			return null;
-		}
-	}
-	
-	public void setKey(Long id) 
-	{
-		key = KeyFactory.createKey(Group.class.getSimpleName(), id);
-	}
+    public Key getKey()
+    {
+        return key;
+    }
 	
 	public void setKey(Key key) 
 	{

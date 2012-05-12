@@ -1,5 +1,6 @@
 package daxzel.model.DAO.impl;
 
+import com.google.appengine.api.datastore.Key;
 import daxzel.model.DAO.OrderDAO;
 import daxzel.model.domains.Order;
 import org.springframework.stereotype.Repository;
@@ -28,8 +29,19 @@ public class OrderDAOImpl implements OrderDAO {
         }
     }
 
+    public void remove(Key key) {
+        Order order = getByID(key);
+        if (order != null) {
+            em.remove(order);
+        }
+    }
+
     public Order getByID(Long id) {
         return em.find(Order.class, id);
+    }
+
+    public Order getByID(Key key) {
+        return em.find(Order.class, key);
     }
 
     public List<Order> getAll() {

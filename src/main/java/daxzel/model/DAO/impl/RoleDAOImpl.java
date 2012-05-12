@@ -1,5 +1,6 @@
 package daxzel.model.DAO.impl;
 
+import com.google.appengine.api.datastore.Key;
 import daxzel.model.DAO.RoleDAO;
 
 import javax.persistence.EntityManager;
@@ -29,9 +30,20 @@ public class RoleDAOImpl implements RoleDAO {
 		}
 	}
 
+    public void remove(Key key) {
+        Role role = getByID(key);
+        if (role != null) {
+            em.remove(role);
+        }
+    }
+
 	public Role getByID(Long id) {
 		return em.find(Role.class, id);
 	}
+
+    public Role getByID(Key key) {
+        return em.find(Role.class, key);
+    }
 
 	public List<Role> getAll() {
 		List<Role> lr = em.createQuery("Select From Role").getResultList();

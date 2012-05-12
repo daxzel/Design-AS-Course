@@ -25,36 +25,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RoleDAO roleDAO;
 
-	@Transactional
+    @Transactional
 	public void add(User entity)
 	{
-//        Role role = entity.getRole();
-//
-//        if (role == null)
-//        {
-//            throw new RuntimeException("sddsfsdfa");
-//        }
-//        List<User> users = role.getUsers();
-//
-//        if (users==null)
-//        {
-//            ArrayList<User> userArrayList = new ArrayList<User>();
-//            userArrayList.add(entity);
-//            role.setUsers(userArrayList);
-//        }
-//        else
-//        {
-//            users.add(entity);
-//            role.setUsers(users);
-//        }
-//
-//
-//        roleDAO.addOrUpdate(role);
-
         userDAO.addOrUpdate(entity);
 	}
 
-	@Transactional
 	public List<User> getAll()
     {
 		return userDAO.getAll();
@@ -77,10 +53,6 @@ public class UserServiceImpl implements UserService {
     @Transactional
 	public void remove(Long id)
     {
-		User user = getByID(id);
-        user.getRole();
-        //role.getUsers().remove(user);
-        //roleDAO.addOrUpdate(role);
-
+        userDAO.remove(id);
     }
 }

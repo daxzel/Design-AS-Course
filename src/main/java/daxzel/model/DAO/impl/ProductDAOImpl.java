@@ -1,6 +1,7 @@
 package daxzel.model.DAO.impl;
 
 
+import com.google.appengine.api.datastore.Key;
 import daxzel.model.DAO.ProductDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -27,9 +28,20 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
+    public void remove(Key key) {
+        Product product = getByID(key);
+        if (product != null) {
+            em.remove(product);
+        }
+    }
+
 	public Product getByID(Long id) {
 		return em.find(Product.class, id);
 	}
+
+    public Product getByID(Key key) {
+        return em.find(Product.class, key);
+    }
 
 	public List<Product> getAll() {
 		

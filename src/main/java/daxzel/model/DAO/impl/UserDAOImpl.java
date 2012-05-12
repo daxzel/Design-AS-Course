@@ -1,5 +1,6 @@
 package daxzel.model.DAO.impl;
 
+import com.google.appengine.api.datastore.Key;
 import daxzel.model.DAO.UserDAO;
 
 import javax.persistence.EntityManager;
@@ -23,15 +24,30 @@ public class UserDAOImpl implements UserDAO {
 	private EntityManager em;
 
 	public void remove(Long id) {
-		User user = getByID(id);
+		User user = em.find(User.class, id);
 		if (user != null) {
 			em.remove(user);
 		}
 	}
 
+    public void remove(Key key) {
+        User user = getByID(key);
+        if (user != null) {
+            em.remove(user);
+        }
+    }
+
 	public User getByID(Long id) {
-		return em.find(User.class, id);
+		User user = em.find(User.class, id);
+        loadRole(user);
+        return user;
 	}
+
+    public User getByID(Key key) {
+        User user = em.find(User.class, key);
+        loadRole(user);
+        return user;
+    }
 
 	public List<User> getAll() {
 
@@ -43,7 +59,9 @@ public class UserDAOImpl implements UserDAO {
 	public void addOrUpdate(User user) {
 		if (user.getKey()==null)
 		{
-			em.persist(user);
+            em.persist(user);
+
+
 			return;
 		}
 		User userx = em.find(User.class, user.getKey());
@@ -56,11 +74,17 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
+    private void loadRole(User user)
+    {
+        Role role = em.find(Role.class,user.getKeyToRole());
+        user.setRole(role);
+    }        
+
 	public User getUserByName(String name) {
 		User user = (User) em.createQuery(
 				"Select u From User u Where u.name='" + name + "'")
 				.getSingleResult();
-        user.getRole().getName();
+        loadRole(user);
 		return user;
 	}
 }

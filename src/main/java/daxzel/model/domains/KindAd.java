@@ -35,17 +35,10 @@ public class KindAd {
 		this.name = name;
 	}
 
-	public Long getKey() {
-		if (key != null) {
-			return key.getId();
-		} else {
-			return null;
-		}
-	}
-
-	public void setKey(Long id) {
-		key = KeyFactory.createKey(KindAd.class.getSimpleName(), id);
-	}
+    public Key getKey()
+    {
+        return key;
+    }
 
 	public void setKey(Key key) {
 		this.key = key;

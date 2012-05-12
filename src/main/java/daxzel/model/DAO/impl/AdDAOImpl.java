@@ -38,14 +38,34 @@ public class AdDAOImpl implements AdDAO {
         }
     }
 
+    public void remove(Key key) {
+        Ad ad = getByID(key);
+        if (ad != null) {
+            Product product = ad.getProduct();
+            product.getAdsKeys().remove(ad.getKey());
+            em.persist(product);
+            em.remove(ad);
+        }
+    }
+
     public Ad getByID(Long id) {
 
         Key keyAd = KeyFactory.createKey(Ad.class.getSimpleName(), id);
         Ad ad =  em.find(Ad.class, keyAd);
 
-        Key keyGroup = KeyFactory.createKey(Group.class.getSimpleName(), ad.getKeyToGroup());
-        Key keyProduct = KeyFactory.createKey(keyGroup,Product.class.getSimpleName(), ad.getKeyToProduct());
-        ad.setProduct(em.find(Product.class, keyProduct));
+        //Key keyProduct = KeyFactory.createKey(ad.getKeyToGroup(),Product.class.getSimpleName(), ad.getKeyToProduct());
+        //Key keyProduct = KeyFactory.createKey(ad.getKeyToGroup(),Product.class.getSimpleName(), ad.getKeyToProduct());
+        ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
+        return  ad;
+    }
+
+    public Ad getByID(Key key) {
+
+        Ad ad =  em.find(Ad.class, key);
+
+        //Key keyProduct = KeyFactory.createKey(ad.getKeyToGroup(),Product.class.getSimpleName(), ad.getKeyToProduct());
+        //Key keyProduct = KeyFactory.createKey(ad.getKeyToGroup(),Product.class.getSimpleName(), ad.getKeyToProduct());
+        ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
         return  ad;
     }
 
@@ -70,11 +90,13 @@ public class AdDAOImpl implements AdDAO {
     {
         for(Ad ad : lr)
         {
-            Key keyGroup = KeyFactory.createKey(Group.class.getSimpleName(), ad.getKeyToGroup());
+//            Key keyGroup = KeyFactory.createKey(Group.class.getSimpleName(), ad.getKeyToGroup());
+//
+//            Key keyProduct = KeyFactory.createKey(keyGroup, Product.class.getSimpleName(), ad.getKeyToProduct());
+//
+//            ad.setProduct(em.find(Product.class, keyProduct));
 
-            Key keyProduct = KeyFactory.createKey(keyGroup, Product.class.getSimpleName(), ad.getKeyToProduct());
-
-            ad.setProduct(em.find(Product.class, keyProduct));
+            ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
         }
     }
 
@@ -95,10 +117,10 @@ public class AdDAOImpl implements AdDAO {
     {
         Product product = ad.getProduct();
 
-        List<Long> keys = product.getAdsKeys();
+        List<Key> keys = product.getAdsKeys();
         if (keys == null)
         {
-            keys = new ArrayList<Long>();
+            keys = new ArrayList<Key>();
         }
         keys.add(ad.getKey());
         product.setAdsKeys(keys);

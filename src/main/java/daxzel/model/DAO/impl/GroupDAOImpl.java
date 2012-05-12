@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import org.springframework.stereotype.Repository;
 
 import daxzel.model.DAO.GroupDAO;
@@ -17,27 +19,25 @@ public class GroupDAOImpl implements GroupDAO {
 	private EntityManager em;
 
 	public void remove(Long id) {
-		Group group = getByID(id);
+		Group group = getByID(id) ;
 		if (group != null) {
 			em.remove(group);	
 		}
 	}
 
-//	public Group getByID(Long id) {
-//		return em.find(Group.class, id);
-//	}
+    public void remove(Key key) {
+        Group group = em.find(Group.class, key);
+        if (group != null) {
+            em.remove(group);
+        }
+    }
 
     public Group getByID(Long id) {
+        return  em.find(Group.class, KeyFactory.createKey(Group.class.getSimpleName(), id));
+    }
 
-        for(Group group : getAll())
-        {
-            if (group.getKey().equals(id))
-            {
-                return  group;
-            }
-        }
-
-        throw new RuntimeException("Not Found");
+    public Group getByID(Key key) {
+        return  em.find(Group.class, key);
     }
 
 	public List<Group> getAll() {

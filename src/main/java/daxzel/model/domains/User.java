@@ -17,20 +17,25 @@ public class User
 {
 	
 	@Id
-	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Key key;
+    private Long key;
 	
-	@NotNull
-	@Size(min=3, max=20)
 	private String name;
-	
-	@NotNull
-	@Size(min=5, max=20)
+
 	private String password;
-	
-	@ManyToOne
+
+    @Transient
 	private Role role;
+
+    public Long getKeyToRole() {
+        return keyToRole;
+    }
+
+    public void setKeyToRole(Long keyToRole) {
+        this.keyToRole = keyToRole;
+    }
+
+    private Long keyToRole;
 	
 	public String getPassword() 
 	{
@@ -51,24 +56,12 @@ public class User
 	{
 		this.name = name;
 	}
-	
-	public Long getKey() 
-	{
-		if (key!=null)
-		{
-			return key.getId();
-		}
-		else
-		{
-			return null;
-		}
-	}
-	
-	public void setKey(Long id) 
-	{
-		key = KeyFactory.createKey(User.class.getSimpleName(), id);
-	}
-	
+
+    public Long getKey()
+    {
+        return key;
+    }
+
 	public Role getRole() 
 	{
 		return role;
@@ -77,9 +70,13 @@ public class User
 	public void setRole(Role role) 
 	{
 		this.role=role;
+        if (role!=null)
+        {
+            keyToRole = role.getKey();
+        }
 	}
 	
-	public void setKey(Key key) 
+	public void setKey(Long key) 
 	{
 		this.key = key;
 	}

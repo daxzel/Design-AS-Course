@@ -42,14 +42,14 @@ public class Product
     @Transient
     private List<Ad> ads = new ArrayList<Ad>();
     @Basic(fetch = FetchType.EAGER)
-    private List<Long> adsKeys = new ArrayList<Long>();
+    private List<Key> adsKeys = new ArrayList<Key>();
 
 
-    public List<Long> getAdsKeys() {
+    public List<Key> getAdsKeys() {
         return adsKeys;
     }
 
-    public void setAdsKeys(List<Long> adsKeys) {
+    public void setAdsKeys(List<Key> adsKeys) {
         this.adsKeys = adsKeys;
     }
     
@@ -120,27 +120,10 @@ public class Product
 		this.name = name;
 	}
 
-	public Long getKey() 
-	{
-		if (key!=null)
-		{
-			return key.getId();
-		}
-		else
-		{
-			return null;
-		}
-	}
-
-    public Key getRealKey()
+    public Key getKey()
     {
         return key;
     }
-	
-	public void setKey(Long id) 
-	{
-		key = KeyFactory.createKey(Product.class.getSimpleName(), id);
-	}
 	
 	public void setKey(Key key) 
 	{

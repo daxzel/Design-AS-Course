@@ -1,11 +1,15 @@
 package daxzel.model.DAO.impl;
 
+import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.datastore.KeyFactory;
 import daxzel.model.DAO.KindAdDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.EntityTransaction;
 import java.util.List;
 import java.util.ArrayList;
+
+import daxzel.model.domains.Group;
 import org.springframework.stereotype.Repository;
 import javax.persistence.PersistenceContext;
 
@@ -26,8 +30,19 @@ public class KindAdDAOImpl implements KindAdDAO {
         }
     }
 
+    public void remove(Key key) {
+        KindAd kindAd = getByID(key);
+        if (kindAd != null) {
+            em.remove(kindAd);
+        }
+    }
+
     public KindAd getByID(Long id) {
-        return em.find(KindAd.class, id);
+        return em.find(KindAd.class, KeyFactory.createKey(KindAd.class.getSimpleName(), id));
+    }
+
+    public KindAd getByID(Key key) {
+        return em.find(KindAd.class, key);
     }
 
     public List<KindAd> getAll() {

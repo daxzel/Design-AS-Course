@@ -22,7 +22,8 @@ public class RoleServiceImpl implements RoleService {
 		roleDAO.addOrUpdate(entity);
 	}
 
-	@Transactional
+
+    @Transactional
 	public List<Role> getAll()
     {
 		return roleDAO.getAll();

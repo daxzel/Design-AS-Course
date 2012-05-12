@@ -1,5 +1,6 @@
 package daxzel.model.DAO.impl;
 
+import com.google.appengine.api.datastore.Key;
 import daxzel.model.DAO.OrganizationDAO;
 import daxzel.model.domains.KindAd;
 import daxzel.model.domains.Organization;
@@ -30,8 +31,19 @@ public class OrganizationDAOImpl implements OrganizationDAO {
         }
     }
 
+    public void remove(Key key) {
+        Organization organization = getByID(key);
+        if (organization != null) {
+            em.remove(organization);
+        }
+    }
+
     public Organization getByID(Long id) {
         return em.find(Organization.class, id);
+    }
+
+    public Organization getByID(Key key) {
+        return em.find(Organization.class, key);
     }
 
     public List<Organization> getAll() {

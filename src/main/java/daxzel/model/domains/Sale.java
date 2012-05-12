@@ -36,21 +36,9 @@ public class Sale {
     @OneToOne
     private Production production;
 
-    public Long getKey()
+    public Key getKey()
     {
-        if (key!=null)
-        {
-            return key.getId();
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    public void setKey(Long id)
-    {
-        key = KeyFactory.createKey(Sale.class.getSimpleName(), id);
+        return key;
     }
 
     public void setKey(Key key) {

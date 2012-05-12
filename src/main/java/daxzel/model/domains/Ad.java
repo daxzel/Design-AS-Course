@@ -39,38 +39,19 @@ public class Ad {
     @Transient
     private Product product;
 
-    private Long keyToProduct;
+    private Key keyToProduct;
 
-    private Long keyToGroup;
+    private Key keyToGroup;
 
 
-    public Long getKey()
-    {
-        if (key!=null)
-        {
-            return key.getId();
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    public Key getRealKey()
+    public Key getKey()
     {
         return key;
     }
 
-    public Long getKeyToProduct()
+    public Key getKeyToProduct()
     {
         return keyToProduct;
-    }
-
-
-
-    public void setKey(Long id)
-    {
-        key = KeyFactory.createKey(Ad.class.getSimpleName(), id);
     }
 
     public void setKey(Key key) {
@@ -122,11 +103,11 @@ public class Ad {
         return product;
     }
 
-    public Long getKeyToGroup() {
+    public Key getKeyToGroup() {
         return keyToGroup;
     }
 
-    public void setKeyToGroup(Long keyToGroup) {
+    public void setKeyToGroup(Key keyToGroup) {
         this.keyToGroup = keyToGroup;
     }
 

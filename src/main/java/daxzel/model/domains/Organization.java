@@ -33,21 +33,9 @@ public class Organization
     private String telephoneOfMarketing;
 
 
-    public Long getKey()
+    public Key getKey()
     {
-        if (key!=null)
-        {
-            return key.getId();
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    public void setKey(Long id)
-    {
-        key = KeyFactory.createKey(Organization.class.getSimpleName(), id);
+        return key;
     }
 
     public void setKey(Key key)
