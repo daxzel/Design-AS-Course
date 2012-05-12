@@ -17,31 +17,26 @@ public class KindAdServiceImpl implements KindAdService {
 	@Autowired
 	private KindAdDAO kindAdDAO;
 
-	@Transactional
 	public void add(KindAd entity)
 	{
 		kindAdDAO.addOrUpdate(entity);
 	}
 
-	@Transactional
 	public List<KindAd> getAll()
     {
 		return kindAdDAO.getAll();
     }
 
-	@Transactional
 	public KindAd getByID(Long id)
     {
 		return kindAdDAO.getByID(id);
     }
-	
-	@Transactional
+
 	public void remove(Long id)
     {
 		kindAdDAO.remove(id);
     }
 
-    @Transactional
     public KindAd getKindAdByName(String name)
     {
         return kindAdDAO.getKindAdByName(name);

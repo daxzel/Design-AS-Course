@@ -7,7 +7,9 @@ import daxzel.model.domains.Organization;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 import java.util.List;
 
 /**
@@ -21,30 +23,43 @@ import java.util.List;
 @Repository
 public class OrganizationDAOImpl implements OrganizationDAO {
 
-    @PersistenceContext
-    private EntityManager em;
+    private EntityManagerFactory emf;
+
+    @PersistenceUnit
+    public void setEntityManagerFactory(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
 
     public void remove(Long id) {
+        EntityManager em = emf.createEntityManager();
         Organization organization = getByID(id);
         if (organization != null) {
             em.remove(organization);
         }
+        em.close();
     }
 
 
     public Organization getByID(Long id) {
-        return em.find(Organization.class, id);
+        EntityManager em = emf.createEntityManager();
+        Organization organization =  em.find(Organization.class, id);
+        em.close();
+        return organization;
     }
 
     public List<Organization> getAll() {
 
+        EntityManager em = emf.createEntityManager();
         List<Organization> lr = em.createQuery("Select From Organization").getResultList();
         lr.size();
+        em.close();
         return lr;
     }
 
     public void addOrUpdate(Organization organization) {
+        EntityManager em = emf.createEntityManager();   
         em.persist(organization);
+        em.close();
 
     }
 

@@ -15,7 +15,7 @@
 	<tbody>
 		<c:forEach items="${orderList}" var="order">
 				<tr>
-						<td onclick="location.href=''">${sale.key}</td>
+						<td onclick="location.href=''">${order.key}</td>
 						<td><a href="/orders/delete/${order.key}" class="ym-button ym-delete">Удалить</a><a href="/orders/edit/${order.key}" class="ym-button ym-edit">Изменить</a></td>
 				</tr>
 		</c:forEach>

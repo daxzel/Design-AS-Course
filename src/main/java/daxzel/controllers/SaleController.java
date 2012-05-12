@@ -47,7 +47,7 @@ public class SaleController {
     }
 
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public String addOrder(@ModelAttribute("order")
+    public String addSale(@ModelAttribute("sale")
                                Sale sale, BindingResult result)
     {
         saleService.add(sale);
@@ -89,11 +89,11 @@ public class SaleController {
     }
 
     @InitBinder
-    protected void initBinderProduction(HttpServletRequest request, ServletRequestDataBinder binder) {
+    protected void initBinderOrganization(HttpServletRequest request, ServletRequestDataBinder binder) {
         binder.registerCustomEditor(Organization.class, new PropertyEditorSupport() {
 
             public void setAsText(String text) {
-                Organization organization = organizationService.getByID(Long.parseLong(text));
+                Organization organization = organizationService.getByID(Long.valueOf(text));
                 this.setValue(organization);
             }
 
@@ -113,11 +113,11 @@ public class SaleController {
     }
 
     @InitBinder
-    protected void initBinderOrganization(HttpServletRequest request, ServletRequestDataBinder binder) {
+    protected void initBinderProduction(HttpServletRequest request, ServletRequestDataBinder binder) {
         binder.registerCustomEditor(Production.class, new PropertyEditorSupport() {
 
             public void setAsText(String text) {
-                Production production = productionService.getByID(Long.parseLong(text));
+                Production production = productionService.getByID(Long.valueOf(text));
                 this.setValue(production);
             }
 

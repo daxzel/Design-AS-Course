@@ -35,12 +35,14 @@ public class Sale {
 
     @Transient
     private Production production;
-    
+
+    @Basic(fetch = FetchType.EAGER)
     private Long productionKey;
 
     @Transient
     private Organization organization;
 
+    @Basic(fetch = FetchType.EAGER)
     private Long organizationKey;
 
     public Long getKey()
@@ -107,8 +109,8 @@ public class Sale {
     public void setProduction(Production production) {
         if (production!=null)
         {
-            this.productionKey = production.getKey();
             this.production = production;
+            this.productionKey = production.getKey();
         }
         else
         {
@@ -130,10 +132,10 @@ public class Sale {
     }
 
     public void setOrganization(Organization organization) {
-        if (production!=null)
+        if (organization!=null)
         {
-            this.organizationKey = organization.getKey();
             this.organization = organization;
+            this.organizationKey = organization.getKey();
         }
         else
         {

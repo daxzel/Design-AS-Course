@@ -22,25 +22,21 @@ public class SaleServiceImpl implements SaleService {
     @Autowired
     private SaleDAO saleDAO;
 
-    @Transactional
     public void add(Sale entity)
     {
         saleDAO.addOrUpdate(entity);
     }
 
-    @Transactional
     public List<Sale> getAll()
     {
         return saleDAO.getAll();
     }
 
-    @Transactional
     public Sale getByID(Long id)
     {
         return saleDAO.getByID(id);
     }
 
-    @Transactional
     public void remove(Long id)
     {
         saleDAO.remove(id);

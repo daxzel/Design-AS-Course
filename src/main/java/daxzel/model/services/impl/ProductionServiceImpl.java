@@ -22,25 +22,21 @@ public class ProductionServiceImpl implements ProductionService {
     @Autowired
     private ProductionDAO productionDAO;
 
-    @Transactional
     public void add(Production entity)
     {
         productionDAO.addOrUpdate(entity);
     }
 
-    @Transactional
     public List<Production> getAll()
     {
         return productionDAO.getAll();
     }
 
-    @Transactional
     public Production getByID(Long id)
     {
         return productionDAO.getByID(id);
     }
 
-    @Transactional
     public void remove(Long id)
     {
         productionDAO.remove(id);

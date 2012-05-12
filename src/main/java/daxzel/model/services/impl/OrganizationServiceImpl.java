@@ -24,25 +24,21 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Autowired
     private OrganizationDAO organizationDAO;
 
-    @Transactional
     public void add(Organization entity)
     {
         organizationDAO.addOrUpdate(entity);
     }
 
-    @Transactional
     public List<Organization> getAll()
     {
         return organizationDAO.getAll();
     }
 
-    @Transactional
     public Organization getByID(Long id)
     {
         return organizationDAO.getByID(id);
     }
 
-    @Transactional
     public void remove(Long id)
     {
         organizationDAO.remove(id);

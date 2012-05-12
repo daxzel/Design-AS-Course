@@ -147,7 +147,7 @@ public class Order {
     }
 
     public void setOrganization(Organization organization) {
-        if (production!=null)
+        if (organization!=null)
         {
             this.organizationKey = organization.getKey();
             this.organization = organization;

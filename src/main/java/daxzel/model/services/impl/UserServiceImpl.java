@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private RoleDAO roleDAO;
 
-    @Transactional
 	public void add(User entity)
 	{
         userDAO.addOrUpdate(entity);
@@ -36,13 +35,11 @@ public class UserServiceImpl implements UserService {
 		return userDAO.getAll();
     }
 
-	@Transactional
 	public User getByID(Long id)
     {
 		return userDAO.getByID(id);
     }
-    
-	@Transactional
+
 	public User getUserByName(String name)
 	{
 	    User user = userDAO.getUserByName(name);
@@ -50,7 +47,6 @@ public class UserServiceImpl implements UserService {
         return user;
 	}
 
-    @Transactional
 	public void remove(Long id)
     {
         userDAO.remove(id);

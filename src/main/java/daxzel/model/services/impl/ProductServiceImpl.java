@@ -28,17 +28,14 @@ public class ProductServiceImpl implements ProductService {
 		productDAO.addOrUpdate(entity);
 	}
 
-    @Transactional
 	public List<Product> getAll() {
 		return productDAO.getAll();
 	}
 
-	@Transactional
 	public Product getByID(Long id) {
 		return productDAO.getByID(id);
 	}
 
-	@Transactional
 	public void remove(Long id) {
 		Product product = productDAO.getByID(id);
 		if (product != null) {
@@ -51,12 +48,10 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
-	@Transactional
 	public Product findProductByNCP(Long NCP) {
 		return productDAO.findProductByNCP(NCP);
 	}
 
-	@Transactional
 	public void removeProductByNCP(Long NCP) {
 		Product product = productDAO.findProductByNCP(NCP);
 		if (product != null) {
@@ -69,18 +64,15 @@ public class ProductServiceImpl implements ProductService {
 		}
 	}
 
-    @Transactional
 	public List<Group> getAllGroups() {
 		return groupDAO.getAll();
 	}
-	
-	@Transactional
+
 	public Group findGroup(Long key)
 	{
 		return groupDAO.getByID(key);
 	}
 
-    @Transactional
     public Product getProductByName(String name)
     {
         return productDAO.getProductByName(name);

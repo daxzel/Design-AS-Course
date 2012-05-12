@@ -22,25 +22,21 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDAO orderDAO;
 
-    @Transactional
     public void add(Order entity)
     {
         orderDAO.addOrUpdate(entity);
     }
 
-    @Transactional
     public List<Order> getAll()
     {
         return orderDAO.getAll();
     }
 
-    @Transactional
     public Order getByID(Long id)
     {
         return orderDAO.getByID(id);
     }
 
-    @Transactional
     public void remove(Long id)
     {
         orderDAO.remove(id);

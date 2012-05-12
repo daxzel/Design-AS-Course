@@ -32,13 +32,11 @@ public class AdServiceImpl  implements AdService {
         return adDAO.getAll();
     }
 
-    @Transactional
     public Ad getByID(Long id)
     {
         return adDAO.getByID(id);
     }
 
-    @Transactional
     public void remove(Long id)
     {
         adDAO.remove(id);

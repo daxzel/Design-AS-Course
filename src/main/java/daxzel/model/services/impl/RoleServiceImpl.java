@@ -16,38 +16,31 @@ public class RoleServiceImpl implements RoleService {
 	@Autowired
 	private RoleDAO roleDAO;
 
-	@Transactional
 	public void add(Role entity)
 	{
 		roleDAO.addOrUpdate(entity);
 	}
 
-
-    @Transactional
 	public List<Role> getAll()
     {
 		return roleDAO.getAll();
     }
 
-	@Transactional
 	public Role getByID(Long id)
     {
 		return roleDAO.getByID(id);
     }
-    	
-	@Transactional
+
 	public void remove(Long id)
     {
 		roleDAO.remove(id);
     }
 
-    @Transactional
     public void drop()
     {
         roleDAO.drop();
     }
 
-    @Transactional
     public Role getRoleByName(String name)
     {
         return roleDAO.getRoleByName(name);
