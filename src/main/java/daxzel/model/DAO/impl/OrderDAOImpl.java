@@ -4,6 +4,7 @@ import com.google.appengine.api.datastore.Key;
 import daxzel.model.DAO.OrderDAO;
 import daxzel.model.domains.Order;
 import daxzel.model.domains.Organization;
+import daxzel.model.domains.Product;
 import daxzel.model.domains.Production;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -43,7 +45,9 @@ public class OrderDAOImpl implements OrderDAO {
         EntityManager em = emf.createEntityManager();
         Order order = em.find(Order.class, id);
         order.setOrganization(em.find(Organization.class,order.getOrganizationKey()));
-        order.setProduction(em.find(Production.class, order.getProductionKey()));
+        Production production = em.find(Production.class, order.getProductionKey());
+        production.setProduct(em.find(Product.class, production.getProductKey()));
+        order.setProduction(production);
         em.close();
         return order;
     }
@@ -54,14 +58,33 @@ public class OrderDAOImpl implements OrderDAO {
         for(Order order : lr)
         {
             order.setOrganization(em.find(Organization.class,order.getOrganizationKey()));
-            order.setProduction(em.find(Production.class, order.getProductionKey()));
+            Production production = em.find(Production.class, order.getProductionKey());
+            production.setProduct(em.find(Product.class, production.getProductKey()));
+            order.setProduction(production);
         }
         return lr;
     }
 
     public void addOrUpdate(Order order) {
         EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
         em.persist(order);
+        em.getTransaction().commit();
+
+
+        Product product = order.getProduction().getProduct();
+
+        List<Long> keys = product.getKeysOrders();
+        if (keys == null)
+        {
+            keys = new ArrayList<Long>();
+        }
+        keys.add(order.getKey());
+        product.setAdsKeys(keys);
+        em.merge(product);
+
+
         em.close();
 
     }

@@ -60,20 +60,20 @@
 
                                         <sec:authorize access="hasRole('ROLE_ECONOMIST')">
 
-                                            <li><a href="/report_orders_goods/">Отчёт по заказм на товар</a></li>
-                                            <li><a href="/dynamics_changes_sales/">Динамика изменения продаж</a></li>
+                                            <li><a href="/reports/orders_by_product/">Отчёт по заказам на товар</a></li>
+                                            <li><a href="/reports/dynamics_changes_sales/">Динамика изменения продаж</a></li>
 
                                         </sec:authorize>
 
                                         <sec:authorize access="hasRole('ROLE_ACCOUNTANT')">
 
-                                            <li><a href="/determining_cost_advertising/">Отчёт по затратам на рекламу</a></li>
-                                            <li><a href="/average_cost_product/">Определение средних затрат по товару</a></li>
+                                            <li><a href="/reports/determining_cost_advertising/">Отчёт по затратам на рекламу</a></li>
+                                            <li><a href="/reports/average_cost_product/">Определение средних затрат по товару</a></li>
 
                                         </sec:authorize>
 
                                         <sec:authorize access="hasRole('ROLE_DIRECTOR')">
-                                            <li><a href="/report_dynamics_costs/">Отчёт по динамике изменения фактических затрат</a></li>
+                                            <li><a href="/reports/report_dynamics_costs/">Отчёт по динамике изменения фактических затрат</a></li>
                                         </sec:authorize>
 
 

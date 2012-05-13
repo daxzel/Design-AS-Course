@@ -121,6 +121,17 @@
         <put-attribute name="title" value="Product Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/orders/addOrder.jsp" />
     </definition>
+
+    <definition name="report_orders_by_product" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/reports/orders_by_product.jsp" />
+    </definition>
+
+    <definition name="input_product_for_orders" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/inputForReport/orders_by_product.jsp" />
+    </definition>
+
     
     <definition name="home" extends="base.definition">
         <put-attribute name="title" value="Home page" />

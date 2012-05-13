@@ -8,13 +8,15 @@
 <table class="bordertable">
 	<thead>
 		<tr>
-			<th style="width: 70%;">Название организации</th>
+		    <th style="width: 30%;">код ОКПО</th>
+			<th style="width: 40%;">Название организации</th>
 			<th style="width: 30%;">Действия</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach items="${organizationList}" var="organization">
 				<tr>
+				        <td onclick="location.href=''">${organization.NCEO}</td>
 						<td onclick="location.href=''">${organization.name}</td>
 						<td><a href="/organizations/delete/${organization.key}" class="ym-button ym-delete">Удалить</a><a href="/organizations/edit/${organization.key}" class="ym-button ym-edit">Изменить</a></td>
 				</tr>

@@ -8,14 +8,20 @@
 <table class="bordertable">
 	<thead>
 		<tr>
-		    <th style="width: 70%;">Название товара</th>
-			<th style="width: 30%;">Действия</th>
+		    <th style="width: 15%;">Номер заказа</th>
+           	<th style="width: 20%;">Название товара</th>
+           	<th style="width: 20%;">Название организации</th>
+           	<th style="width: 15%;">Количество</th>
+           	<th style="width: 30%;">Действия</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach items="${orderList}" var="order">
 				<tr>
-						<td onclick="location.href=''">${order.key}</td>
+				        <td onclick="location.href=''">${order.key}</td>
+                		<td onclick="location.href=''">${order.production.product.name}</td>
+                		<td onclick="location.href=''">${order.organization.name}</td>
+                		<td onclick="location.href=''">${order.production.count}</td>
 						<td><a href="/orders/delete/${order.key}" class="ym-button ym-delete">Удалить</a><a href="/orders/edit/${order.key}" class="ym-button ym-edit">Изменить</a></td>
 				</tr>
 		</c:forEach>

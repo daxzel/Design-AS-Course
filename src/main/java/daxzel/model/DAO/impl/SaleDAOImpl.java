@@ -2,10 +2,7 @@ package daxzel.model.DAO.impl;
 
 import com.google.appengine.api.datastore.Key;
 import daxzel.model.DAO.SaleDAO;
-import daxzel.model.domains.Organization;
-import daxzel.model.domains.Production;
-import daxzel.model.domains.Role;
-import daxzel.model.domains.Sale;
+import daxzel.model.domains.*;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -44,7 +41,9 @@ public class SaleDAOImpl implements SaleDAO {
         EntityManager em = emf.createEntityManager();
         Sale sale = em.find(Sale.class, id);
         sale.setOrganization(em.find(Organization.class,sale.getOrganizationKey()));
-        sale.setProduction(em.find(Production.class, sale.getProductionKey()));
+        Production production = em.find(Production.class, sale.getProductionKey());
+        production.setProduct(em.find(Product.class, production.getProductKey()));
+        sale.setProduction(production);
         em.close();
         return sale;
     }
@@ -55,7 +54,9 @@ public class SaleDAOImpl implements SaleDAO {
         for(Sale sale : lr)
         {
             sale.setOrganization(em.find(Organization.class,sale.getOrganizationKey()));
-            sale.setProduction(em.find(Production.class, sale.getProductionKey()));
+            Production production = em.find(Production.class, sale.getProductionKey());
+            production.setProduct(em.find(Product.class, production.getProductKey()));
+            sale.setProduction(production);
         }
         em.close();
         return lr;

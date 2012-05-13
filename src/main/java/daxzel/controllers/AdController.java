@@ -1,11 +1,9 @@
 package daxzel.controllers;
 
-import daxzel.model.domains.Ad;
-import daxzel.model.domains.KindAd;
-import daxzel.model.domains.Product;
-import daxzel.model.domains.Production;
+import daxzel.model.domains.*;
 import daxzel.model.services.AdService;
 import daxzel.model.services.KindAdService;
+import daxzel.model.services.OrganizationService;
 import daxzel.model.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,6 +36,9 @@ public class AdController {
 
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private OrganizationService organizationService;
 
 
     @RequestMapping("/delete/{id}")
@@ -73,6 +74,8 @@ public class AdController {
         modelView.addObject("kindAdList", kindes);
         java.util.List<Product> products = productService.getAll();
         modelView.addObject("productList", products);
+        java.util.List<Organization> organizations = organizationService.getAll();
+        modelView.addObject("organizationList", organizations);
         return modelView;
     }
 
@@ -87,6 +90,8 @@ public class AdController {
         modelView.addObject("kindAdList", kindes);
         java.util.List<Product> products = productService.getAll();
         modelView.addObject("productList", products);
+        java.util.List<Organization> organizations = organizationService.getAll();
+        modelView.addObject("organizationList", organizations);
         return modelView;
     }
 
@@ -137,5 +142,30 @@ public class AdController {
             }
         });
     }
+
+    @InitBinder
+    protected void initBinderOrganization(HttpServletRequest request, ServletRequestDataBinder binder) {
+        binder.registerCustomEditor(Organization.class, new PropertyEditorSupport() {
+
+            public void setAsText(String text) {
+                Organization organization = organizationService.getOrganizationByName(text);
+                this.setValue(organization);
+            }
+
+            public String getAsText() {
+                Organization organization = (Organization) this.getValue();
+
+                if (organization!=null)
+                {
+                    return organization.getName();
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        });
+    }
+
 
 }

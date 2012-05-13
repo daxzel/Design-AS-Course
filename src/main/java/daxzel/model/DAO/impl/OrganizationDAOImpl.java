@@ -63,5 +63,14 @@ public class OrganizationDAOImpl implements OrganizationDAO {
 
     }
 
+    public Organization getOrganizationByName(String name){
+        EntityManager em = emf.createEntityManager();
+        Organization organization = (Organization) em.createQuery(
+                "Select From Organization Where name='" + name + "'")
+                .getSingleResult();
+        em.close();
+        return organization;
+    }
+
 
 }

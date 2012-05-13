@@ -2,6 +2,7 @@ package daxzel.model.domains;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -22,15 +23,18 @@ public class Ad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
 
-    private Date dateBegin;
+    @DateTimeFormat(pattern="dd/MM/yyyy")
+    private Date dateBegin =  new Date(System.currentTimeMillis());
 
-    private Date dateEnd;
+    @DateTimeFormat(pattern="dd/MM/yyyy")
+    private Date dateEnd = new Date(System.currentTimeMillis());
 
     private String paymentMethod;
 
     private int amount;
 
-    private Date paymentDate;
+    @DateTimeFormat(pattern="dd/MM/yyyy")
+    private Date paymentDate = new Date(System.currentTimeMillis());
 
     @Transient
     private Product product;
@@ -39,6 +43,12 @@ public class Ad {
 
     @Transient
     private KindAd kindAd;
+
+    @Transient
+    private Organization organization;
+
+    @Basic(fetch = FetchType.EAGER)
+    private Long organizationKey;
 
     public Long getKeyToKindAd() {
         return keyToKindAd;
@@ -128,8 +138,7 @@ public class Ad {
     }
 
     public void setKindAd(KindAd kindAd) {
-        this.kindAd = kindAd;
-        if (product!=null)
+        if (kindAd!=null)
         {
             this.keyToKindAd = kindAd.getKey();
             this.kindAd = kindAd;
@@ -140,4 +149,30 @@ public class Ad {
             this.kindAd = null;
         }
     }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        if (organization!=null)
+        {
+            this.organization = organization;
+            this.organizationKey = organization.getKey();
+        }
+        else
+        {
+            this.organizationKey = null;
+            this.organization = null;
+        }
+    }
+
+    public Long getOrganizationKey() {
+        return organizationKey;
+    }
+
+    public void setOrganizationKey(Long organizationKey) {
+        this.organizationKey = organizationKey;
+    }
+
 }

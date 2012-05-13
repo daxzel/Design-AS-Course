@@ -88,11 +88,11 @@ public class OrderController {
     }
 
     @InitBinder
-    protected void initBinderProduction(HttpServletRequest request, ServletRequestDataBinder binder) {
+    protected void initBinderOrganization(HttpServletRequest request, ServletRequestDataBinder binder) {
         binder.registerCustomEditor(Organization.class, new PropertyEditorSupport() {
 
             public void setAsText(String text) {
-                Organization organization = organizationService.getByID(Long.parseLong(text));
+                Organization organization = organizationService.getOrganizationByName(text);
                 this.setValue(organization);
             }
 
@@ -101,7 +101,7 @@ public class OrderController {
 
                 if (organization!=null)
                 {
-                    return organization.getKey().toString();
+                    return organization.getName();
                 }
                 else
                 {
@@ -112,7 +112,7 @@ public class OrderController {
     }
 
     @InitBinder
-    protected void initBinderOrganization(HttpServletRequest request, ServletRequestDataBinder binder) {
+    protected void initBinderProduction(HttpServletRequest request, ServletRequestDataBinder binder) {
         binder.registerCustomEditor(Production.class, new PropertyEditorSupport() {
 
             public void setAsText(String text) {

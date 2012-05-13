@@ -3,10 +3,7 @@ package daxzel.model.DAO.impl;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 import daxzel.model.DAO.AdDAO;
-import daxzel.model.domains.Ad;
-import daxzel.model.domains.Group;
-import daxzel.model.domains.KindAd;
-import daxzel.model.domains.Product;
+import daxzel.model.domains.*;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -54,6 +51,7 @@ public class AdDAOImpl implements AdDAO {
         Ad ad =  em.find(Ad.class, keyAd);
         ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
         ad.setKindAd(em.find(KindAd.class, ad.getKeyToKindAd()));
+        ad.setOrganization(em.find(Organization.class, ad.getOrganizationKey()));
         em.close();
         return  ad;
     }
@@ -64,12 +62,10 @@ public class AdDAOImpl implements AdDAO {
         List<Ad> lr = em.createQuery("Select From Ad").getResultList();
         for(Ad ad : lr)
         {
-            ad.getKindAd().getName();
-        }
-        for(Ad ad : lr)
-        {
             ad.setProduct(em.find(Product.class, ad.getKeyToProduct()));
             ad.setKindAd(em.find(KindAd.class, ad.getKeyToKindAd()));
+            Organization organization = em.find(Organization.class, ad.getOrganizationKey());
+            ad.setOrganization(organization);
         }
         em.close();
         return lr;
@@ -78,7 +74,10 @@ public class AdDAOImpl implements AdDAO {
     public void addOrUpdate(Ad ad) {
         EntityManager em = emf.createEntityManager();
 
+        em.getTransaction().begin();
         em.persist(ad);
+        em.getTransaction().commit();
+
 
         Product product = ad.getProduct();
 

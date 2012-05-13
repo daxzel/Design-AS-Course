@@ -34,6 +34,20 @@
     		<form:input path="otherCosts" size="10" />
     </div>
 
+      <div class="ym-fbox-text">
+                    		<form:label path="dateBegin">Дата заказа<sup
+                    				class="ym-required" title="Это поле обязательно.">*</sup>
+                    		</form:label>
+                    		<form:input path="dateBegin" size="10" />
+            </div>
+
+        <div class="ym-fbox-text">
+                           		<form:label path="datePayment">Дата предоплаты<sup
+                           				class="ym-required" title="Это поле обязательно.">*</sup>
+                           		</form:label>
+                           		<form:input path="datePayment" size="10" />
+                   </div>
+
     <div class="ym-fbox-text">
         		<form:label path="idShop">Код точки продажи<sup
         				class="ym-required" title="Это поле обязательно.">*</sup>
@@ -60,7 +74,7 @@
                	<form:label path="organization"></sup>
                	</form:label>
                	<form:select path="organization">
-               		<form:options items="${organizationList}" itemLabel="key" />
+               		<form:options items="${organizationList}" itemLabel="name" />
                 </form:select>
     </div>
 

@@ -10,10 +10,10 @@
 
     <http  auto-config="true" access-denied-page="/login.jsp" >
         <anonymous username="guest" granted-authority="ROLE_ANONYMOUS"/>
-        <intercept-url pattern="/login.jsp" access="ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_MANAGER" />
+        <intercept-url pattern="/login.jsp" access="ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_MANAGER,ROLE_ECONOMIST,ROLE_ACCOUNTANT,ROLE_DIRECTOR" />
 
-        <intercept-url pattern="/home" access="ROLE_ADMIN,ROLE_MANAGER" />
-        <intercept-url pattern="/" access="ROLE_ADMIN,ROLE_MANAGER" />
+        <intercept-url pattern="/home" access="ROLE_ADMIN,ROLE_MANAGER,ROLE_ECONOMIST,ROLE_ACCOUNTANT,ROLE_DIRECTOR" />
+        <intercept-url pattern="/" access="ROLE_ADMIN,ROLE_MANAGER,ROLE_ECONOMIST,ROLE_ACCOUNTANT,ROLE_DIRECTOR" />
 
 
         <intercept-url pattern="/users/**" access="ROLE_ADMIN,ROLE_ANONYMOUS" />
@@ -26,6 +26,14 @@
         <intercept-url pattern="/sales/**" access="ROLE_MANAGER" />
         <intercept-url pattern="/orders/**" access="ROLE_MANAGER" />
         <intercept-url pattern="/production/**" access="ROLE_MANAGER" />
+
+        <intercept-url pattern="/reports/orders_by_product/**" access="ROLE_ECONOMIST" />
+        <intercept-url pattern="/reports/dynamics_changes_sales/**" access="ROLE_ECONOMIST" />
+
+        <intercept-url pattern="/reports/determining_cost_advertising/**" access="ROLE_ACCOUNTANT" />
+        <intercept-url pattern="/reports/average_cost_product/**" access="ROLE_ACCOUNTANT" />
+
+        <intercept-url pattern="/reports/average_cost_product/**" access="ROLE_DIRECTOR" />
 
 
         <form-login login-page="/login.jsp" default-target-url="/" authentication-failure-url="/login.jsp?error=true"/>

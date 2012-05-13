@@ -22,6 +22,14 @@
 
 	<form:hidden path="key"/>
 
+    <div class="ym-fbox-text">
+		<form:label path="NCEO">
+		    код ОКПО
+		    <sup class="ym-required" title="Это поле обязательно.">*</sup>
+		</form:label>
+		<form:input path="NCEO" size="10" />
+	</div>
+
 	<div class="ym-fbox-text">
 		<form:label path="name">
 		    Название фирмы
@@ -65,4 +73,5 @@
 	<div class="ym-fbox-button">
 		<input type="submit" class="save" value="<%=action%>" /> <a href="/users"class="ym-button">Отмена</a>
 	</div>
+
 </form:form>

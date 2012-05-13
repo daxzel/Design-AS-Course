@@ -44,6 +44,17 @@ public class Product
     @Transient
     private List<Ad> ads = new ArrayList<Ad>();
 
+    @Basic(fetch = FetchType.EAGER)
+    private List<Long> adsKeys = new ArrayList<Long>();
+
+
+    @Transient
+    private List<Order> orders = new ArrayList<Order>();
+
+
+    @Basic(fetch = FetchType.EAGER)
+    private List<Long> keysOrders = new ArrayList<Long>();
+
     public Group getGroup() {
         return group;
     }
@@ -59,10 +70,6 @@ public class Product
     public void setGroupKey(Long groupKey) {
         this.groupKey = groupKey;
     }
-
-    @Basic(fetch = FetchType.EAGER)
-    private List<Long> adsKeys = new ArrayList<Long>();
-
 
     public List<Long> getAdsKeys() {
         return adsKeys;
@@ -147,6 +154,22 @@ public class Product
 
     public void setAds(List<Ad> ads) {
         this.ads = ads;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
+
+    public List<Long> getKeysOrders() {
+        return keysOrders;
+    }
+
+    public void setKeysOrders(List<Long> keysOrders) {
+        this.keysOrders = keysOrders;
     }
 
 }

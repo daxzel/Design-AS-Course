@@ -8,7 +8,9 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
 
+import daxzel.model.domains.Ad;
 import daxzel.model.domains.Group;
+import daxzel.model.domains.Order;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
@@ -41,6 +43,27 @@ public class ProductDAOImpl implements ProductDAO {
 	public Product getByID(Long id) {
         EntityManager em = emf.createEntityManager();
 		Product product = em.find(Product.class, id);
+
+        List<Ad> ads = new ArrayList<Ad>();
+
+        for(Long key : product.getAdsKeys())
+        {
+            ads.add(em.find(Ad.class, key));
+        }
+
+        product.setAds(ads);
+
+
+        List<Order> orders = new ArrayList<Order>();
+
+        for(Long key : product.getKeysOrders())
+        {
+            orders.add(em.find(Order.class, key));
+        }
+
+        product.setOrders(orders);
+
+
         em.close();
         return product;
 	}
@@ -50,7 +73,30 @@ public class ProductDAOImpl implements ProductDAO {
         EntityManager em = emf.createEntityManager();
                
 		List<Product> lr = em.createQuery("Select From Product").getResultList();
-		lr.size();
+        for(Product product : lr)
+        {
+            List<Ad> ads = new ArrayList<Ad>();
+
+            for(Long key : product.getAdsKeys())
+            {
+                ads.add(em.find(Ad.class, key));
+            }
+
+            product.setAds(ads);
+
+
+
+            List<Order> orders = new ArrayList<Order>();
+
+            for(Long key : product.getKeysOrders())
+            {
+                orders.add(em.find(Order.class, key));
+            }
+
+            product.setOrders(orders);
+
+        }
+
         em.close();
 		return lr;
 	}
@@ -59,7 +105,9 @@ public class ProductDAOImpl implements ProductDAO {
         EntityManager em = emf.createEntityManager();
         if (product.getKey()==null)
         {
+            em.getTransaction().begin();
 		    em.persist(product);
+            em.getTransaction().commit();
             if (product.getGroup()!=null)
             {
                 Group group = product.getGroup();

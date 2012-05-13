@@ -10,4 +10,5 @@ import daxzel.model.domains.Organization;
  * To change this template use File | Settings | File Templates.
  */
 public interface OrganizationDAO extends AbstractDAO<Organization> {
+    Organization getOrganizationByName(String name);
 }

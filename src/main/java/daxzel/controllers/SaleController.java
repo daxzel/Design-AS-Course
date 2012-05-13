@@ -93,7 +93,7 @@ public class SaleController {
         binder.registerCustomEditor(Organization.class, new PropertyEditorSupport() {
 
             public void setAsText(String text) {
-                Organization organization = organizationService.getByID(Long.valueOf(text));
+                Organization organization = organizationService.getOrganizationByName(text);
                 this.setValue(organization);
             }
 
@@ -102,7 +102,7 @@ public class SaleController {
 
                 if (organization!=null)
                 {
-                    return organization.getKey().toString();
+                    return organization.getName();
                 }
                 else
                 {

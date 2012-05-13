@@ -34,8 +34,31 @@
         <form:input path="amount" size="10" />
     </div>
 
+    <div class="ym-fbox-text">
+        	<form:label path="dateBegin">Дата начала рекламы<sup
+        			class="ym-required" title="Это поле обязательно.">*</sup>
+        	</form:label>
+            <form:input path="dateBegin" size="10" />
+        </div>
+
+
+    <div class="ym-fbox-text">
+        	<form:label path="dateEnd">Дата окончания рекламы<sup
+        			class="ym-required" title="Это поле обязательно.">*</sup>
+        	</form:label>
+            <form:input path="dateEnd" size="10" />
+        </div>
+
+      <div class="ym-fbox-text">
+            	<form:label path="paymentDate">Дата оплаты<sup
+            			class="ym-required" title="Это поле обязательно.">*</sup>
+            	</form:label>
+                <form:input path="paymentDate" size="10" />
+            </div>
+
+
     <div class="ym-fbox-select">
-    	<form:label path="kindAd"></sup>
+    	<form:label path="kindAd">Тип рекламы</sup>
     	</form:label>
     	<form:select path="kindAd">
     		<form:options items="${kindAdList}" itemLabel="name" />
@@ -43,12 +66,21 @@
     </div>
 
     <div class="ym-fbox-select">
-        	<form:label path="product"></sup>
+        	<form:label path="product">Продукт</sup>
         	</form:label>
         	<form:select path="product">
         		<form:options items="${productList}" itemLabel="name" />
             </form:select>
     </div>
+
+     <div class="ym-fbox-select">
+                   	<form:label path="organization"></sup>
+                   	</form:label>
+                   	<form:select path="organization">
+                   		<form:options items="${organizationList}" itemLabel="name" />
+                    </form:select>
+        </div>
+
 
 	<div class="ym-fbox-button">
 		<input type="submit" class="save" value="<%=action%>" /> <a href="/ads"class="ym-button">Отмена</a>

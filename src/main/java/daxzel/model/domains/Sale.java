@@ -2,6 +2,7 @@ package daxzel.model.domains;
 
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -29,7 +30,8 @@ public class Sale {
 
     private String idShop;
 
-    private Date dateBegin;
+    @DateTimeFormat(pattern="dd/MM/yyyy")
+    private Date dateBegin = new Date(System.currentTimeMillis());
 
     private int amount;
 

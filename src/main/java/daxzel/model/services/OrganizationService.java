@@ -11,4 +11,5 @@ import daxzel.model.domains.Organization;
  */
 
 public interface OrganizationService extends AbstractService<Organization> {
+    Organization getOrganizationByName(String name);
 }

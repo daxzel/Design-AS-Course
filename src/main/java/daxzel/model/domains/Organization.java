@@ -21,7 +21,9 @@ public class Organization
     @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
-    
+
+    private Long NCEO;
+
     private String name;
 
     private String address;
@@ -32,6 +34,13 @@ public class Organization
 
     private String telephoneOfMarketing;
 
+    public Long getNCEO() {
+        return NCEO;
+    }
+
+    public void setNCEO(Long NCEO) {
+        this.NCEO = NCEO;
+    }
 
     public Long getKey()
     {

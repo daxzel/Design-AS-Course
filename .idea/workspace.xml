@@ -2,24 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2ee45ca-bcf1-4de6-8b5f-ad41476c8356" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/daxzel/controllers/ReportController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/daxzel/controllers/helpers/CommandProductHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/ReportService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ReportServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/inputForReport/orders_by_product.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reports/orders_by_product.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/controllers/AdController.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/controllers/AdController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/controllers/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/controllers/OrderController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/controllers/SaleController.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/controllers/SaleController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/OrganizationDAO.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/OrganizationDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/AdDAOImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrderDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrderDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrganizationDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrganizationDAOImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/RoleDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/RoleDAOImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/SaleDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/SaleDAOImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/UserDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/UserDAOImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Ad.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Ad.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Order.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Order.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Organization.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Organization.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Sale.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Sale.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/AdServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/AdServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/KindAdServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/KindAdServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrderServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrderServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/OrganizationService.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/OrganizationService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrganizationServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrganizationServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductionServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductionServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/RoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/SaleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/SaleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/ads/addAd.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/ads/addAd.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/ads/ads.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/ads/ads.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/layout.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/layout.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders/addOrder.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders/addOrder.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders/orders.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders/orders.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/organizations/addOrganization.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/organizations/addOrganization.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/organizations/organizations.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/organizations/organizations.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/production/allProduction.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/production/allProduction.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sales/addSale.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sales/addSale.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sales/sales.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sales/sales.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/applicationContext-security.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/applicationContext-security.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml" />
     </list>
     <ignored path="labas-web.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -82,82 +101,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AdServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/AdServiceImpl.java">
+      <file leaf-file-name="orders_by_product.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/inputForReport/orders_by_product.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="825" selection-end="825" vertical-scroll-proportion="-18.6">
+            <state line="12" column="72" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KindAdServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/KindAdServiceImpl.java">
+      <file leaf-file-name="ProductDAOImpl.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="-6.0">
+            <state line="20" column="13" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#1385#1392#0" expanded="true" />
+                <element signature="e#2084#2091#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProductController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/ProductController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="124" column="51" selection-start="3994" selection-end="3994" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrderServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrderServiceImpl.java">
+      <file leaf-file-name="ProductionController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/ProductionController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="864" selection-end="864" vertical-scroll-proportion="-18.6">
+            <state line="101" column="30" selection-start="2715" selection-end="3426" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OrganizationServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrganizationServiceImpl.java">
+      <file leaf-file-name="kindsAd.jsp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/kindsAd/kindsAd.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="0" selection-start="967" selection-end="967" vertical-scroll-proportion="-18.16">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductionServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductionServiceImpl.java">
+      <file leaf-file-name="CommandProductHelper.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/helpers/CommandProductHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="541" selection-end="541" vertical-scroll-proportion="-7.2">
+            <state line="11" column="20" selection-start="249" selection-end="262" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProductServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java">
+      <file leaf-file-name="AdController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/AdController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="0" selection-start="1693" selection-end="1693" vertical-scroll-proportion="-19.2">
+            <state line="28" column="13" selection-start="886" selection-end="886" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RoleServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/RoleServiceImpl.java">
+      <file leaf-file-name="ReportController.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/ReportController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="12.44">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserSecurityService.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserSecurityService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="13" selection-start="771" selection-end="771" vertical-scroll-proportion="-6.6">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserServiceImpl.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="52" selection-start="911" selection-end="911" vertical-scroll-proportion="0.65299684">
+            <state line="47" column="29" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.59028834">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,10 +178,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SaleServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/SaleServiceImpl.java">
+      <file leaf-file-name="SaleController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/SaleController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="13" selection-start="523" selection-end="523" vertical-scroll-proportion="-7.2">
+            <state line="28" column="13" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OrderController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/OrderController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="13" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -182,29 +204,28 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
-    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
     <option name="LINE_SEPARATORS_CONVERSION" value="ASK" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Sale.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/controllers/SaleController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrganizationDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductionServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/SaleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders/orders.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/RoleDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/AdServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/KindAdServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrganizationServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/RoleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/sales/sales.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/orders/orders.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/ReportService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/reports/orders_by_product.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/domains/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrderDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ReportServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/UserDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/layout.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/applicationContext-security.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/controllers/helpers/CommandProductHelper.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/inputForReport/orders_by_product.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/daxzel/controllers/ReportController.java" />
       </list>
     </option>
   </component>
@@ -250,8 +271,21 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labas-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labas-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -474,6 +508,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="reports" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labas-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="products" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -611,6 +679,40 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kindsAd" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labas-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inputForReport" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -888,6 +990,40 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="daxzel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labas-web" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="labAS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -909,9 +1045,9 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RunManager" selected="Maven.Unnamed">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -955,13 +1091,16 @@
         </option>
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
             <option name="goals">
               <list>
                 <option value="gae:run" />
               </list>
             </option>
-            <option name="profiles">
-              <set />
+            <option name="profilesMap">
+              <map />
             </option>
             <option name="workingDirPath" value="$PROJECT_DIR$" />
           </MavenRunnerParameters>
@@ -983,6 +1122,24 @@
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
+        <option name="Maven.BeforeRunTask" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="AntTarget" enabled="false" />
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
         <option name="Maven.BeforeRunTask" enabled="false" />
       </method>
     </configuration>
@@ -1011,24 +1168,6 @@
       <envs />
       <properties />
       <listeners />
-      <method>
-        <option name="AntTarget" enabled="false" />
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-        <option name="Maven.BeforeRunTask" enabled="false" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method>
         <option name="AntTarget" enabled="false" />
         <option name="BuildArtifacts" enabled="false" />
@@ -1110,13 +1249,16 @@
         </option>
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
             <option name="goals">
               <list>
                 <option value="gae:run" />
               </list>
             </option>
-            <option name="profiles">
-              <set />
+            <option name="profilesMap">
+              <map />
             </option>
             <option name="workingDirPath" value="$PROJECT_DIR$" />
           </MavenRunnerParameters>
@@ -1162,13 +1304,16 @@
         </option>
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
             <option name="goals">
               <list>
                 <option value="gae:deploy" />
               </list>
             </option>
-            <option name="profiles">
-              <set />
+            <option name="profilesMap">
+              <map />
             </option>
             <option name="workingDirPath" value="$PROJECT_DIR$" />
           </MavenRunnerParameters>
@@ -1224,6 +1369,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24984026" sideWeight="0.67412585" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39918256" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1232,12 +1378,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10042735" sideWeight="0.7526652" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.10149573" sideWeight="0.75427353" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.6727273" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18589744" sideWeight="0.7526652" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24733475" sideWeight="0.49786323" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18589744" sideWeight="0.75427353" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2457265" sideWeight="0.49786323" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32905984" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1278,7 +1423,10 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" value="Implemented autorization. Add Spring security/" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -1314,114 +1462,117 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/KindAdDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="29" selection-start="1371" selection-end="1371" vertical-scroll-proportion="-9.76">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrderDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/appengine-web.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="18" selection-start="1229" selection-end="1229" vertical-scroll-proportion="-19.8">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/OrganizationDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="60" selection-start="875" selection-end="920" vertical-scroll-proportion="-13.8">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/applicationContext-service.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/KindAdController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="13" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/kindsAd/addKindAd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="10" selection-start="407" selection-end="411" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/kindsAd/kindsAd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="13" selection-start="914" selection-end="914" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/SaleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="13" selection-start="948" selection-end="948" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/inputForReport/orders_by_product.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="72" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductDAOImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="19" selection-start="2775" selection-end="2775" vertical-scroll-proportion="-22.8">
+        <state line="20" column="13" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#1385#1392#0" expanded="true" />
+            <element signature="e#2084#2091#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/ProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="51" selection-start="3994" selection-end="3994" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/ProductionDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/ProductionController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="57" selection-start="896" selection-end="950" vertical-scroll-proportion="-12.6">
+        <state line="101" column="30" selection-start="2715" selection-end="3426" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/DAO/impl/RoleDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/helpers/CommandProductHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="23" selection-start="1138" selection-end="1138" vertical-scroll-proportion="-12.04">
+        <state line="11" column="20" selection-start="249" selection-end="262" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/AdServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/AdController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="825" selection-end="825" vertical-scroll-proportion="-18.6">
+        <state line="28" column="13" selection-start="886" selection-end="886" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/KindAdServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/controllers/ReportController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="480" selection-end="480" vertical-scroll-proportion="-6.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrderServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="864" selection-end="864" vertical-scroll-proportion="-18.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/OrganizationServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="0" selection-start="967" selection-end="967" vertical-scroll-proportion="-18.16">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductionServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="541" selection-end="541" vertical-scroll-proportion="-7.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="1693" selection-end="1693" vertical-scroll-proportion="-19.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/RoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="12.44">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/SaleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="523" selection-end="523" vertical-scroll-proportion="-7.2">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserSecurityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="13" selection-start="771" selection-end="771" vertical-scroll-proportion="-6.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/daxzel/model/services/impl/UserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="52" selection-start="911" selection-end="911" vertical-scroll-proportion="0.65299684">
+        <state line="47" column="29" selection-start="1601" selection-end="1601" vertical-scroll-proportion="0.59028834">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

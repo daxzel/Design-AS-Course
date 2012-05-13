@@ -8,8 +8,9 @@
 <table class="bordertable">
 	<thead>
 		<tr>
-			<th style="width: 40%;">Продукт</th>
-			<th style="width: 30%;">Тип рекламы</th>
+			<th style="width: 20%;">Продукт</th>
+			<th style="width: 20%;">Тип рекламы</th>
+			<th style="width: 30%;">Организация</th>
 			<th style="width: 30%;">Действия</th>
 		</tr>
 	</thead>
@@ -18,6 +19,7 @@
 				<tr>
 						<td onclick="location.href=''">${ad.product.name}</td>
 						<td>${ad.kindAd.name}</td>
+						<td>${ad.organization.name}</td>
 						<td><a href="/ads/delete/${ad.key}" class="ym-button ym-delete">Удалить</a><a href="/ads/edit/${ad.key}" class="ym-button ym-edit">Изменить</a></td>
 				</tr>
 		</c:forEach>

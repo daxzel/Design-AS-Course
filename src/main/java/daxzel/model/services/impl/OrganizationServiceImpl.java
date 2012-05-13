@@ -43,4 +43,10 @@ public class OrganizationServiceImpl implements OrganizationService {
     {
         organizationDAO.remove(id);
     }
+
+    public Organization getOrganizationByName(String name)
+    {
+        return organizationDAO.getOrganizationByName(name);
+    }
+
 }
