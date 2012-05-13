@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<h2>Заказы</h2>
+<h2>Отчёт по заказам на товар</h2>
 
 <table class="bordertable">
 	<thead>

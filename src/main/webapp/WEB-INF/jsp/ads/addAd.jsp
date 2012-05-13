@@ -18,6 +18,8 @@
 
 <form:form method="post" action="/ads/" commandName="ad" class="ym-form ">
 
+    <form:errors path="*" cssClass="box error" element="div" />
+
 	<form:hidden path="key"/>
 
 	<div class="ym-fbox-text">

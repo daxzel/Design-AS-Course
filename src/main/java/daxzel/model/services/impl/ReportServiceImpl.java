@@ -86,41 +86,51 @@ public class ReportServiceImpl implements ReportService {
 
     public MonthsAmountsMargins getMonthsAmountsMargins(Product product)
     {
-        List<Sale> sales = product.getSales();
-
-        List<Ad> ads = product.getAds();
 
         Calendar cal = Calendar.getInstance();
 
         HashMap<String,SaleAndAd> mountSaleAd = new HashMap<String, SaleAndAd>();
 
-        for(Sale sale : sales)
+        for(Sale sale : product.getSales())
         {
             cal.setTime(sale.getDateBegin());
 
-            String month =Integer.toString(cal.get(Calendar.YEAR)) + Integer.toString(cal.get(Calendar.MONTH));
+            String month =Integer.toString(cal.get(Calendar.YEAR)) + ' ' + Integer.toString(cal.get(Calendar.MONTH));
 
             if (mountSaleAd.containsKey(month))
             {
                 mountSaleAd.get(month).getSales().add(sale);
             }
+            else
+            {
+                SaleAndAd saleAndAda = new SaleAndAd();
 
-            mountSaleAd.put(month, new SaleAndAd());
+                saleAndAda.getSales().add(sale);
 
+                mountSaleAd.put(month, saleAndAda);
+            }
         }
 
-        for(Ad ad : ads)
+        for(Ad ad : product.getAds())
         {
             cal.setTime(ad.getDateBegin());
 
-            String month =Integer.toString(cal.get(Calendar.YEAR)) + Integer.toString(cal.get(Calendar.MONTH));
+            String month =Integer.toString(cal.get(Calendar.YEAR)) + ' ' + Integer.toString(cal.get(Calendar.MONTH));
 
             if (mountSaleAd.containsKey(month))
             {
                 mountSaleAd.get(month).getAds().add(ad);
             }
+            else
+            {
+                SaleAndAd saleAndAda = new SaleAndAd();
 
-            mountSaleAd.put(month, new SaleAndAd());
+                saleAndAda.getAds().add(ad);
+
+                mountSaleAd.put(month, saleAndAda);
+            }
+
+
 
         }
 

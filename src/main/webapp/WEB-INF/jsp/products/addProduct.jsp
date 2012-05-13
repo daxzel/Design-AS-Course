@@ -19,6 +19,8 @@
 
 <form:form method="post" action="/products/" commandName="product" class="ym-form ">
 
+    <form:errors path="*" cssClass="box error" element="div" />
+
 	<form:hidden path="key"/>
 	
 	<form:hidden path="group"/>
@@ -62,7 +64,7 @@
 	</div>
 
 	<div class="ym-fbox-button">
-		<input type="submit" class="save" value="<%=action%>" /> <a href="/users"class="ym-button">Отмена</a>
+		<input type="submit" class="save" value="<%=action%>" /> <a href="/products"class="ym-button">Отмена</a>
 	</div>
 	
 	

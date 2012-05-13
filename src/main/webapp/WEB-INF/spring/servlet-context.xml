@@ -33,6 +33,11 @@
 	    </property>
 	</bean>
 
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename"> <value>/WEB-INF/messages.</value></property>
+        <property name="cacheSeconds" value="0" />
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
 
 
     <tx:annotation-driven transaction-manager="transactionManager"/>

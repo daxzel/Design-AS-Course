@@ -18,6 +18,8 @@
 
 <form:form method="post" action="/orders/" commandName="order" class="ym-form ">
 
+    <form:errors path="*" cssClass="box error" element="div" />
+
 	<form:hidden path="key"/>
 
 	<div class="ym-fbox-text">
@@ -61,6 +63,13 @@
             		</form:label>
             		<form:input path="amount" size="10" />
     </div>
+
+      <div class="ym-fbox-text">
+                		<form:label path="price">Цена за единицу<sup
+                				class="ym-required" title="Это поле обязательно.">*</sup>
+                		</form:label>
+                		<form:input path="price" size="10" />
+        </div>
 
     <div class="ym-fbox-select">
                 	<form:label path="production">Производство</sup>

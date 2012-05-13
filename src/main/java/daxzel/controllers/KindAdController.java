@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
- 
+
+import javax.validation.Valid;
+
 @Controller
 @RequestMapping("/kindsAd")
 public class KindAdController {
@@ -37,13 +39,22 @@ public class KindAdController {
     }
 	
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public String addKindAd(@ModelAttribute("kindAd")
-    				KindAd user, BindingResult result) 
-    {       
-    	kindAdService.add(user);
-    	return "redirect:/kindsAd";
+    public ModelAndView addKindAd(@ModelAttribute("kindAd") @Valid
+    				KindAd kindAd, BindingResult result)
+    {
+        if (result.hasErrors()) {
+            ModelAndView modelView = new ModelAndView("add_kindAd");
+            modelView.addObject("kindAd", kindAd);
+            modelView.addObject("add", new Boolean(true));
+
+            return modelView;
+        }
+
+
+        kindAdService.add(kindAd);
+        return new ModelAndView("redirect:/kindsAd");
     }
- 
+
     @RequestMapping(method=RequestMethod.GET)
     public ModelAndView showKindsAd() 
     {

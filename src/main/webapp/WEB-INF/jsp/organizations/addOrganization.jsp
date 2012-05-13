@@ -20,6 +20,8 @@
 
 <form:form method="post" action="/organizations/" commandName="organization" class="ym-form ">
 
+    <form:errors path="*" cssClass="box error" element="div" />
+
 	<form:hidden path="key"/>
 
     <div class="ym-fbox-text">

@@ -24,7 +24,7 @@ import org.apache.commons.lang.StringUtils;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import javax.validation.Valid;
 
 
 import org.springframework.web.bind.WebDataBinder;
@@ -50,11 +50,19 @@ public class ProductController {
     }
 	
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public String addProduct(@ModelAttribute("product")
-                            Product product, BindingResult result) 
-    {       
-    	productService.add(product);
-    	return "redirect:/products";
+    public ModelAndView addProduct(@ModelAttribute("product") @Valid
+                            Product product,  BindingResult result)
+    {
+        if (result.hasErrors()) {
+            ModelAndView modelView = new ModelAndView("add_product");
+            modelView.addObject("product", product);
+            modelView.addObject("add", new Boolean(true));
+
+            return modelView;
+        }
+
+        productService.add(product);
+        return new ModelAndView("redirect:/products");
     }
  
     @RequestMapping(method=RequestMethod.GET)

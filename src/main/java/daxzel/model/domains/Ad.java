@@ -5,6 +5,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.crypto.Data;
 import java.util.Date;
@@ -19,20 +20,23 @@ import java.util.Date;
 @Entity
 public class Ad {
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
 
+    @NotNull(message="Введите дату начала рекламы")
     @DateTimeFormat(pattern="dd/MM/yyyy")
     private Date dateBegin =  new Date(System.currentTimeMillis());
 
+    @NotNull(message="Введите дату окончания рекламы")
     @DateTimeFormat(pattern="dd/MM/yyyy")
     private Date dateEnd = new Date(System.currentTimeMillis());
 
     private String paymentMethod;
 
+    @Min(value = 0, message ="Сумма рекламы должна быть больше 0")
     private int amount;
 
+    @NotNull(message="Введите дату оплаты рекламы")
     @DateTimeFormat(pattern="dd/MM/yyyy")
     private Date paymentDate = new Date(System.currentTimeMillis());
 

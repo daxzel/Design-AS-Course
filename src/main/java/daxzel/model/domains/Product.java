@@ -18,12 +18,14 @@ public class Product
 {
 	
 	@Id
-	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
-	
+
+    @NotNull(message="Товар должен иметь код ОКП")
 	private Long NCP;
-	
+
+    @NotNull(message="Товар должен иметь имя")
+    @Size(min=6, max=50, message="Имя товара должно быть от 6 до 50 символов")
 	private String name;
 	
 	private String developer;

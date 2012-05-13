@@ -1,6 +1,7 @@
 package daxzel.controllers;
 
 import daxzel.model.domains.Group;
+import daxzel.model.domains.Product;
 import daxzel.model.services.UserService;
 
 import daxzel.model.services.RoleService;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/users")
@@ -49,12 +51,22 @@ public class UserController {
     }
 	
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public String addUser(@ModelAttribute("user")
+    public ModelAndView addUser(@ModelAttribute("user")  @Valid
                             User user, BindingResult result)
     {
 
+        if (result.hasErrors()) {
+            ModelAndView modelView = new ModelAndView("add_user");
+            modelView.addObject("user", user);
+            modelView.addObject("add", new Boolean(true));
+            java.util.List<Role> roles = roleService.getAll();
+            modelView.addObject("roleList", roles);
+
+            return modelView;
+        }
+
         userService.add(user);
-    	return "redirect:/users";
+        return new ModelAndView("redirect:/users");
     }
  
     @RequestMapping(method=RequestMethod.GET)

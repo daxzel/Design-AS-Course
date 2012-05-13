@@ -18,10 +18,11 @@ import java.util.List;
 public class KindAd {
 
 	@Id
-	@NotNull
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long key;
 
+    @NotNull(message="Тип рекламы должен иметь название")
+    @Size(min=4, max=50, message="Название типа рекламы должно быть от 4 до 20 символов")
 	private String name;
 
 	public String getName() {
