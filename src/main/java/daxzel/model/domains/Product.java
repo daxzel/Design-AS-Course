@@ -32,9 +32,6 @@ public class Product
 	
 	private String manufacturer;
 
-//    @OneToMany(cascade = CascadeType.ALL,mappedBy="product")
-//    private List<Production> productions = new ArrayList<Production>();
-
     @Transient
     private Group group;
 
@@ -47,13 +44,17 @@ public class Product
     @Basic(fetch = FetchType.EAGER)
     private List<Long> adsKeys = new ArrayList<Long>();
 
-
     @Transient
     private List<Order> orders = new ArrayList<Order>();
 
-
     @Basic(fetch = FetchType.EAGER)
     private List<Long> keysOrders = new ArrayList<Long>();
+
+    @Transient
+    private List<Sale> sales = new ArrayList<Sale>();
+
+    @Basic(fetch = FetchType.EAGER)
+    private List<Long> keysSales = new ArrayList<Long>();
 
     public Group getGroup() {
         return group;
@@ -114,13 +115,21 @@ public class Product
 	}
 
 
-//    public List<Production> getProductions() {
-//        return productions;
-//    }
-//
-//    public void setProductions(List<Production> productions) {
-//        this.productions = productions;
-//    }
+    public List<Long> getKeysSales() {
+        return keysSales;
+    }
+
+    public void setKeysSales(List<Long> keysSales) {
+        this.keysSales = keysSales;
+    }
+
+    public List<Sale> getSales() {
+        return sales;
+    }
+
+    public void setSales(List<Sale> sales) {
+        this.sales = sales;
+    }
 	
 	public Long getNCP() {
 		return NCP;

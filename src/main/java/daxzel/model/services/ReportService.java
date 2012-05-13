@@ -1,6 +1,7 @@
 package daxzel.model.services;
 
 import daxzel.model.domains.Product;
+import daxzel.model.services.ReportHelpers.MonthsAmountsMargins;
 import daxzel.model.services.ReportHelpers.ShareAdCosts;
 
 import java.util.Date;
@@ -14,6 +15,8 @@ import java.util.Date;
  */
 public interface ReportService {
 
-    ShareAdCosts GetShareAdCosts(Product product,Date begin,Date end);
+    ShareAdCosts getShareAdCosts(Product product,Date begin,Date end);
+
+    MonthsAmountsMargins getMonthsAmountsMargins(Product product);
 
 }

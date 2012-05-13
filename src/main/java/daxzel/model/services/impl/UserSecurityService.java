@@ -34,11 +34,7 @@ public class UserSecurityService implements UserDetailsService {
 
         String permission = getRolePermissionByName(user.getRole().getName());
 
-        //String roleName = user.getRole().getName();
-
         user.getRole().getName();
-
-        //String permission = "ROLE_ADMIN";
 
         Collection<GrantedAuthority> authList = new ArrayList<GrantedAuthority>();
         authList.add(new GrantedAuthorityImpl(permission));

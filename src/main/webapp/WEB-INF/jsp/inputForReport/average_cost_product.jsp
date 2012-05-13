@@ -5,7 +5,7 @@
 
 <h2>Выбор продукта</h2>
 
-<form:form method="post" action="/reports/orders_by_product/get/" class="ym-form " commandName="productHelper">
+<form:form method="post" action="/reports/ad_cost_by_product/get/" class="ym-form " commandName="productHelper">
 
     <div class="ym-fbox-select">
             	<form:label path="product"></sup>

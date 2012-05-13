@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -64,8 +65,29 @@ public class SaleDAOImpl implements SaleDAO {
 
     public void addOrUpdate(Sale sale) {
         EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
         em.persist(sale);
+        em.getTransaction().commit();
+
+
+        Product product = sale.getProduction().getProduct();
+
+        List<Long> keys = product.getKeysSales();
+        if (keys == null)
+        {
+            keys = new ArrayList<Long>();
+        }
+        keys.add(sale.getKey());
+        product.setKeysSales(keys);
+        em.merge(product);
+
+
         em.close();
+
+
+
+
     }
 
 }

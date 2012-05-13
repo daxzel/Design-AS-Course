@@ -73,7 +73,7 @@ public class ReportController {
 
         Date end = commandObjectForAdCosts.getDateEnd();
 
-        modelView.addObject("result", reportService.GetShareAdCosts(product,begin,end));
+        modelView.addObject("result", reportService.getShareAdCosts(product,begin,end));
         return modelView;
     }
 
@@ -91,6 +91,36 @@ public class ReportController {
 
         return modelView;
     }
+
+    @RequestMapping(value="/dynamics_changes_sales/get")
+    public ModelAndView getDynamicSales(@ModelAttribute("productHelper")
+                                            CommandProductHelper commandProductHelper)
+    {
+        ModelAndView modelView = new ModelAndView("report_average_cost_product");
+
+        Product product = commandProductHelper.getProduct();
+
+        modelView.addObject("result", reportService.getMonthsAmountsMargins(product));
+        return modelView;
+    }
+
+
+    @RequestMapping(value="/dynamics_changes_sales")
+    public ModelAndView getDynamicSalesInput()
+    {
+        ModelAndView modelView = new ModelAndView("input_average_cost_product");
+        java.util.List<Product> products = productService.getAll();
+        modelView.addObject("productList", products);
+
+        CommandProductHelper commandProductHelper = new CommandProductHelper();
+
+        modelView.addObject("productHelper", commandProductHelper);
+
+        return modelView;
+    }
+
+
+
 
 
 

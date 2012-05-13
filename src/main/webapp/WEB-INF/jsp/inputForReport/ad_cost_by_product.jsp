@@ -32,7 +32,7 @@
 
 
 	<div class="ym-fbox-button">
-		<input type="submit" class="save" value="send" /> <a href="/"class="ym-button">Отмена</a>
+		<input type="submit" class="save" value="Показать" /> <a href="/"class="ym-button">Отмена</a>
 	</div>
 
 </form:form>
