@@ -1,5 +1,6 @@
 package daxzel.controllers;
 
+import daxzel.controllers.helpers.CommandObjectForAdCosts;
 import daxzel.controllers.helpers.CommandProductHelper;
 import daxzel.model.domains.Product;
 import daxzel.model.services.ProductService;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.beans.PropertyEditorSupport;
+import java.util.Date;
 
 /**
  * Created with IntelliJ IDEA.
@@ -51,7 +53,6 @@ public class ReportController {
         ModelAndView modelView = new ModelAndView("input_product_for_orders");
         java.util.List<Product> products = productService.getAll();
         modelView.addObject("productList", products);
-        modelView.addObject("product", null);
 
         CommandProductHelper commandProductHelper = new CommandProductHelper();
 
@@ -59,6 +60,39 @@ public class ReportController {
 
         return modelView;
     }
+
+    @RequestMapping(value="/ad_cost_by_product/get")
+    public ModelAndView getOrderReport(@ModelAttribute("commandObjectForAdCosts")
+                                           CommandObjectForAdCosts commandObjectForAdCosts)
+    {
+        ModelAndView modelView = new ModelAndView("report_ad_cost_by_product");
+
+        Product product = commandObjectForAdCosts.getProduct();
+
+        Date begin = commandObjectForAdCosts.getDateBegin();
+
+        Date end = commandObjectForAdCosts.getDateEnd();
+
+        modelView.addObject("result", reportService.GetShareAdCosts(product,begin,end));
+        return modelView;
+    }
+
+
+    @RequestMapping(value="/ad_cost_by_product")
+    public ModelAndView getAdCostsReport()
+    {
+        ModelAndView modelView = new ModelAndView("input_cost_by_products");
+        java.util.List<Product> products = productService.getAll();
+        modelView.addObject("productList", products);
+
+        CommandObjectForAdCosts commandObjectForAdCosts = new CommandObjectForAdCosts();
+
+        modelView.addObject("commandObjectForAdCosts", commandObjectForAdCosts);
+
+        return modelView;
+    }
+
+
 
 
     @InitBinder

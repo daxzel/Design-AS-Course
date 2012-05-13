@@ -67,7 +67,7 @@
 
                                         <sec:authorize access="hasRole('ROLE_ACCOUNTANT')">
 
-                                            <li><a href="/reports/determining_cost_advertising/">Отчёт по затратам на рекламу</a></li>
+                                            <li><a href="/reports/ad_cost_by_product/">Отчёт по затратам на рекламу</a></li>
                                             <li><a href="/reports/average_cost_product/">Определение средних затрат по товару</a></li>
 
                                         </sec:authorize>

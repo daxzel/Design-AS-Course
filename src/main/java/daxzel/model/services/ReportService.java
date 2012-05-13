@@ -1,5 +1,10 @@
 package daxzel.model.services;
 
+import daxzel.model.domains.Product;
+import daxzel.model.services.ReportHelpers.ShareAdCosts;
+
+import java.util.Date;
+
 /**
  * Created with IntelliJ IDEA.
  * User: daxzel
@@ -8,5 +13,7 @@ package daxzel.model.services;
  * To change this template use File | Settings | File Templates.
  */
 public interface ReportService {
+
+    ShareAdCosts GetShareAdCosts(Product product,Date begin,Date end);
 
 }

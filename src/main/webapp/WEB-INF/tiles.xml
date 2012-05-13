@@ -132,6 +132,17 @@
         <put-attribute name="body" value="/WEB-INF/jsp/inputForReport/orders_by_product.jsp" />
     </definition>
 
+    <definition name="report_ad_cost_by_product" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/reports/ad_cost_by_product.jsp" />
+    </definition>
+
+    <definition name="input_cost_by_products" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/inputForReport/ad_cost_by_product.jsp" />
+    </definition>
+
+
     
     <definition name="home" extends="base.definition">
         <put-attribute name="title" value="Home page" />

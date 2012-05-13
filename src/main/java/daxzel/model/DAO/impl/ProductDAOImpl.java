@@ -8,14 +8,10 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.ArrayList;
 
-import daxzel.model.domains.Ad;
-import daxzel.model.domains.Group;
-import daxzel.model.domains.Order;
+import daxzel.model.domains.*;
 import org.springframework.stereotype.Repository;
 
 import org.springframework.transaction.annotation.Transactional;
-
-import daxzel.model.domains.Product;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -48,7 +44,10 @@ public class ProductDAOImpl implements ProductDAO {
 
         for(Long key : product.getAdsKeys())
         {
-            ads.add(em.find(Ad.class, key));
+            Ad ad = em.find(Ad.class, key);
+            ad.setOrganization(em.find(Organization.class,ad.getOrganizationKey()));
+            ad.setKindAd(em.find(KindAd.class,ad.getKeyToKindAd()));
+            ads.add(ad);
         }
 
         product.setAds(ads);
@@ -79,18 +78,23 @@ public class ProductDAOImpl implements ProductDAO {
 
             for(Long key : product.getAdsKeys())
             {
-                ads.add(em.find(Ad.class, key));
+                Ad ad = em.find(Ad.class, key);
+                ad.setOrganization(em.find(Organization.class,ad.getOrganizationKey()));
+                ad.setKindAd(em.find(KindAd.class,ad.getKeyToKindAd()));
+                ads.add(ad);
             }
 
             product.setAds(ads);
-
 
 
             List<Order> orders = new ArrayList<Order>();
 
             for(Long key : product.getKeysOrders())
             {
-                orders.add(em.find(Order.class, key));
+                Order order = em.find(Order.class, key);
+                order.setOrganization(em.find(Organization.class, order.getOrganizationKey()));
+                order.setProduction(em.find(Production.class, order.getProductionKey()));
+                orders.add(order);
             }
 
             product.setOrders(orders);
@@ -133,6 +137,27 @@ public class ProductDAOImpl implements ProductDAO {
 	{
         EntityManager em = emf.createEntityManager();
 		Product product = (Product)em.createQuery("Select p From Product p Where p.NCP="+NCP).getSingleResult();
+        List<Ad> ads = new ArrayList<Ad>();
+
+        for(Long key : product.getAdsKeys())
+        {
+            Ad ad = em.find(Ad.class, key);
+            ad.setOrganization(em.find(Organization.class,ad.getOrganizationKey()));
+            ad.setKindAd(em.find(KindAd.class,ad.getKeyToKindAd()));
+            ads.add(ad);
+        }
+
+        product.setAds(ads);
+
+
+        List<Order> orders = new ArrayList<Order>();
+
+        for(Long key : product.getKeysOrders())
+        {
+            orders.add(em.find(Order.class, key));
+        }
+
+        product.setOrders(orders);
         em.close();
         return product;
 	}
@@ -150,6 +175,27 @@ public class ProductDAOImpl implements ProductDAO {
         Product product = (Product) em.createQuery(
                 "Select From Product Where name='" + name + "'")
                 .getSingleResult();
+        List<Ad> ads = new ArrayList<Ad>();
+
+        for(Long key : product.getAdsKeys())
+        {
+            Ad ad = em.find(Ad.class, key);
+            ad.setOrganization(em.find(Organization.class,ad.getOrganizationKey()));
+            ad.setKindAd(em.find(KindAd.class,ad.getKeyToKindAd()));
+            ads.add(ad);
+        }
+
+        product.setAds(ads);
+
+
+        List<Order> orders = new ArrayList<Order>();
+
+        for(Long key : product.getKeysOrders())
+        {
+            orders.add(em.find(Order.class, key));
+        }
+
+        product.setOrders(orders);
         em.close();
         return product;
     }

@@ -56,7 +56,7 @@
     </div>
 
     <div class="ym-fbox-select">
-            	<form:label path="production"></sup>
+            	<form:label path="production">Производство</sup>
             	</form:label>
             	<form:select path="production">
             		<form:options items="${productionList}" itemLabel="key" />
@@ -64,7 +64,7 @@
     </div>
 
     <div class="ym-fbox-select">
-               	<form:label path="organization"></sup>
+               	<form:label path="organization">Организация</sup>
                	</form:label>
                	<form:select path="organization">
                		<form:options items="${organizationList}" itemLabel="name" />

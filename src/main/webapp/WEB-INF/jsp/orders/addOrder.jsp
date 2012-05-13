@@ -35,7 +35,7 @@
     </div>
 
       <div class="ym-fbox-text">
-                    		<form:label path="dateBegin">Дата заказа<sup
+                    		<form:label path="dateBegin">Срок поставки<sup
                     				class="ym-required" title="Это поле обязательно.">*</sup>
                     		</form:label>
                     		<form:input path="dateBegin" size="10" />
@@ -63,7 +63,7 @@
     </div>
 
     <div class="ym-fbox-select">
-                	<form:label path="production"></sup>
+                	<form:label path="production">Производство</sup>
                 	</form:label>
                 	<form:select path="production">
                 		<form:options items="${productionList}" itemLabel="key" />
@@ -71,7 +71,7 @@
         </div>
 
     <div class="ym-fbox-select">
-               	<form:label path="organization"></sup>
+               	<form:label path="organization">Организация</sup>
                	</form:label>
                	<form:select path="organization">
                		<form:options items="${organizationList}" itemLabel="name" />

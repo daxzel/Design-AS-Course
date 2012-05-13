@@ -3,18 +3,28 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<h2>Производства</h2>
+<h2>Заказы</h2>
 
 <table class="bordertable">
 	<thead>
 		<tr>
-		     <th style="width: 100%;">Номер заказа</th>
+		    <th style="width: 20%;">Заказчик</th>
+		     <th style="width: 20%;">Срок поставки</th>
+		     <th style="width: 10%;">Объём</th>
+		     <th style="width: 20%;">Стоимость</th>
+		     <th style="width: 20%;">Дата предоплаты</th>
+		     <th style="width: 10%;">Цена за единицу</th>
 		</tr>
 	</thead>
 	<tbody>
 		<c:forEach items="${orderList}" var="order">
 				<tr>
-				        <td onclick="location.href=''">${order.key}</td>
+				    <td>${order.organization.name}</td>
+				    <td>${order.dateBegin}</td>
+				    <td>${order.production.count}</td>
+				    <td>${order.amount}</td>
+				    <td>${order.datePayment}</td>
+				    <td>${order.price}</td>
 				</tr>
 		</c:forEach>
 	</tbody>
