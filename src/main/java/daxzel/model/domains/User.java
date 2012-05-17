@@ -21,11 +21,11 @@ public class User
     private Long key;
 
     @NotNull(message="Имя пользователя должно быть указано")
-    @Size(min=6, max=20, message="Имя пользователя должно быть от 6 до 20 символов")
+    @Size(min=3, max=20, message="Имя пользователя должно быть от 3 до 20 символов")
 	private String name;
 
     @NotNull(message="Пользователь должен иметь пароль")
-    @Size(min=6, max=20, message="Пароль пользователя должен быть от 6 до 20 символов")
+    @Size(min=3, max=20, message="Пароль пользователя должен быть от 3 до 20 символов")
 	private String password;
 
     @Transient

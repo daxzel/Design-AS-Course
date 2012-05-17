@@ -20,7 +20,6 @@ public class Group
 {
 	
 	@Id
-	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
 	

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.beans.PropertyEditorSupport;
 
 /**
@@ -40,11 +41,22 @@ public class ProductionController {
     }
 
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public String addProduction(@ModelAttribute("production")
+    public ModelAndView addProduction(@ModelAttribute("production") @Valid
                             Production production, BindingResult result)
     {
+        if (result.hasErrors()) {
+            ModelAndView modelView = new ModelAndView("add_production");
+            modelView.addObject("production", production);
+            modelView.addObject("add", new Boolean(true));
+
+            java.util.List<Product> products = productService.getAll();
+            modelView.addObject("productList", products);
+
+            return modelView;
+        }
+
         productionService.add(production);
-        return "redirect:/production";
+        return new ModelAndView("redirect:/production");
     }
 
     @RequestMapping(method= RequestMethod.GET)

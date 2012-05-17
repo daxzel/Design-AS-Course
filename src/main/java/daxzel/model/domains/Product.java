@@ -2,6 +2,7 @@ package daxzel.model.domains;
 
 import javax.persistence.*;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import javax.validation.constraints.Size;
@@ -22,16 +23,20 @@ public class Product
     private Long key;
 
     @NotNull(message="Товар должен иметь код ОКП")
+    @Min(value = 0, message ="Код ОКП должен быть больше 0")
 	private Long NCP;
 
     @NotNull(message="Товар должен иметь имя")
     @Size(min=6, max=50, message="Имя товара должно быть от 6 до 50 символов")
 	private String name;
-	
+
+    @Size(min=6, max=20, message="Поле разработчик должно содержать от 6 до 20 символов")
 	private String developer;
-	
+
+    @Size(min=6, max=20, message="Поле размер должно содержать от 6 до 20 символов")
 	private String size;
-	
+
+    @Size(min=6, max=20, message="Поле производитель должно содержать от 6 до 20 символов")
 	private String manufacturer;
 
     @Transient

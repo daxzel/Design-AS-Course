@@ -1,7 +1,9 @@
 package daxzel.model.services.impl;
 
 import daxzel.model.DAO.OrderDAO;
+import daxzel.model.DAO.ProductionDAO;
 import daxzel.model.domains.Order;
+import daxzel.model.domains.Production;
 import daxzel.model.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,9 +24,15 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDAO orderDAO;
 
+    @Autowired
+    private ProductionDAO productionDAO;
+
     public void add(Order entity)
     {
         orderDAO.addOrUpdate(entity);
+        Production production = entity.getProduction();
+        production.setSold(true);
+        productionDAO.addOrUpdate(production);
     }
 
     public List<Order> getAll()

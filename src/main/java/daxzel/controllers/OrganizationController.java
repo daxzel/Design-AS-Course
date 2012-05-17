@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
+
 /**
  * Created by IntelliJ IDEA.
  * User: daxzel
@@ -36,11 +38,19 @@ public class OrganizationController {
     }
 
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public String addOrganization(@ModelAttribute("organization")
+    public ModelAndView addOrganization(@ModelAttribute("organization") @Valid
                                       Organization organization, BindingResult result)
     {
+        if (result.hasErrors()) {
+            ModelAndView modelView = new ModelAndView("add_organization");
+            modelView.addObject("organization", organization);
+            modelView.addObject("add", new Boolean(true));
+
+            return modelView;
+        }
+
         organizationService.add(organization);
-        return "redirect:/organizations";
+        return new ModelAndView("redirect:/organizations");
     }
 
     @RequestMapping(method= RequestMethod.GET)

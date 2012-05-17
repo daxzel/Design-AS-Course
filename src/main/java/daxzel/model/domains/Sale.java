@@ -5,7 +5,9 @@ import com.google.appengine.api.datastore.KeyFactory;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 /**
@@ -18,33 +20,44 @@ import java.util.Date;
 @Entity
 public class Sale {
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
 
+    @NotNull(message="Введите предполагаемую цену за товар")
+    @Min(value = 0, message ="Цена за товар должна быть больше 0")
     private int price;
 
+    @NotNull(message="Введите затраты на транспортировку")
+    @Min(value = 0, message ="Затраты на транспортировку должны быть больше 0")
     private int transportationCosts;
 
-    private int otherCosts;
+    @Min(value = 0, message ="Дополнительные затраты должны быть больше 0")
+    private int otherCosts = 0;
 
+    @NotNull(message="Введите номер точки продажи")
+    @Size(min=3, max=20, message="Номер точки продажи должен быть от 3 до 20 символов")
     private String idShop;
 
+    @NotNull(message="Введите срок поставки")
     @DateTimeFormat(pattern="dd/MM/yyyy")
     private Date dateBegin = new Date(System.currentTimeMillis());
 
+    @NotNull(message="Введите размер оплаты")
+    @Min(value = 0, message ="Размер оплаты должен быть больше 0")
     private int amount;
 
     @Transient
     private Production production;
 
     @Basic(fetch = FetchType.EAGER)
+    @NotNull(message="У продажи должна быть продукция")
     private Long productionKey;
 
     @Transient
     private Organization organization;
 
     @Basic(fetch = FetchType.EAGER)
+    @NotNull(message="У продажи должна быть организация")
     private Long organizationKey;
 
     public Long getKey()

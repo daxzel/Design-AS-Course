@@ -17,7 +17,6 @@ import java.util.List;
 public class Role {
 	
 	@Id
-	@NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
 

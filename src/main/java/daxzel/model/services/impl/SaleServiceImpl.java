@@ -1,6 +1,8 @@
 package daxzel.model.services.impl;
 
+import daxzel.model.DAO.ProductionDAO;
 import daxzel.model.DAO.SaleDAO;
+import daxzel.model.domains.Production;
 import daxzel.model.domains.Sale;
 import daxzel.model.services.SaleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,15 @@ public class SaleServiceImpl implements SaleService {
     @Autowired
     private SaleDAO saleDAO;
 
+    @Autowired
+    private ProductionDAO productionDAO;
+
     public void add(Sale entity)
     {
         saleDAO.addOrUpdate(entity);
+        Production production = entity.getProduction();
+        production.setSold(true);
+        productionDAO.addOrUpdate(production);
     }
 
     public List<Sale> getAll()

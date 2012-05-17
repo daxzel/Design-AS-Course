@@ -21,10 +21,6 @@ public class ProductServiceImpl implements ProductService {
 	private GroupDAO groupDAO;
 
 	public void add(Product entity) {
-		if (entity.getGroup() == null) {
-			Group group = new Group();
-			entity.setGroup(group);
-		}
 		productDAO.addOrUpdate(entity);
 	}
 

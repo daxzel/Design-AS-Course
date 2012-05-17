@@ -7,6 +7,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.crypto.Data;
 import java.util.Date;
 
@@ -31,6 +32,7 @@ public class Ad {
     @DateTimeFormat(pattern="dd/MM/yyyy")
     private Date dateEnd = new Date(System.currentTimeMillis());
 
+    @Size(min=4, max=30, message="Тип оплаты должен быть от 4 до 30 символов")
     private String paymentMethod;
 
     @Min(value = 0, message ="Сумма рекламы должна быть больше 0")
@@ -43,6 +45,7 @@ public class Ad {
     @Transient
     private Product product;
 
+    @NotNull(message="У рекламы должен быть рекламируемый продукт")
     private Long keyToProduct;
 
     @Transient
@@ -52,6 +55,7 @@ public class Ad {
     private Organization organization;
 
     @Basic(fetch = FetchType.EAGER)
+    @NotNull(message="У рекламы должен быть рекламодатель")
     private Long organizationKey;
 
     public Long getKeyToKindAd() {

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.beans.PropertyEditorSupport;
 
 /**
@@ -47,11 +48,24 @@ public class SaleController {
     }
 
     @RequestMapping(value="/",method = RequestMethod.POST)
-    public String addSale(@ModelAttribute("sale")
+    public ModelAndView addSale(@ModelAttribute("sale") @Valid
                                Sale sale, BindingResult result)
     {
+        if (result.hasErrors()) {
+            ModelAndView modelView = new ModelAndView("add_sale");
+            modelView.addObject("sale", sale);
+            modelView.addObject("add", new Boolean(true));
+            java.util.List<Organization> organizations = organizationService.getAll();
+            modelView.addObject("organizationList", organizations);
+            java.util.List<Production> productionList = productionService.getEmptyProduction();
+            modelView.addObject("productionList", productionList);
+
+            return modelView;
+        }
+
         saleService.add(sale);
-        return "redirect:/sales";
+        return new ModelAndView("redirect:/sales");
+
     }
 
     @RequestMapping(method= RequestMethod.GET)
@@ -68,7 +82,7 @@ public class SaleController {
         modelView.addObject("sale", sale);
         java.util.List<Organization> organizations = organizationService.getAll();
         modelView.addObject("organizationList", organizations);
-        java.util.List<Production> productionList = productionService.getAll();
+        java.util.List<Production> productionList = productionService.getEmptyProduction();
         modelView.addObject("productionList", productionList);
         modelView.addObject("add", new Boolean(true));
         return modelView;
@@ -82,7 +96,7 @@ public class SaleController {
         modelView.addObject("sale", sale);
         java.util.List<Organization> organizations = organizationService.getAll();
         modelView.addObject("organizationList", organizations);
-        java.util.List<Production> productionList = productionService.getAll();
+        java.util.List<Production> productionList = productionService.getEmptyProduction();
         modelView.addObject("productionList", productionList);
         modelView.addObject("add", new Boolean(false));
         return modelView;

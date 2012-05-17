@@ -32,6 +32,11 @@ public class ProductionServiceImpl implements ProductionService {
         return productionDAO.getAll();
     }
 
+    public List<Production> getEmptyProduction()
+    {
+        return  productionDAO.getEmptyProduction();
+    }
+
     public Production getByID(Long id)
     {
         return productionDAO.getByID(id);

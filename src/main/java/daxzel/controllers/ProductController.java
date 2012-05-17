@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,7 +40,7 @@ public class ProductController {
  	
 	@Autowired
  	private ProductService productService;
-	
+
 	
 	@RequestMapping("/delete/{NCP}")
     public String deleteProduct(@PathVariable("NCP")
@@ -125,33 +126,34 @@ public class ProductController {
 	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) {
 		binder.registerCustomEditor(Group.class, new PropertyEditorSupport() {
 
-			public void setAsText(String text) {
-				if (StringUtils.isNumeric(text))
-				{
-					Long id  = Long.parseLong(text);
-					Group group = productService.findGroup(id);
-					this.setValue(group);
-				}
-				else
-				{
-					this.setValue(null);
-				}			
-				
-			}
-			
-			public String getAsText() {
-				Group group = (Group) this.getValue();
-				if (group!=null)
-				{
-					return Long.toString(group.getKey());
-				}
-				else
-				{
-					return "";
-				}
-			}
-		});
-	}
-    
+            public void setAsText(String text) {
+                if (text != "")
+                {
+                    if (StringUtils.isNumeric(text)) {
+                        Long id = Long.parseLong(text);
+                        Group group = productService.findGroup(id);
+                        this.setValue(group);
+                        return;
+                    }
+                }
+                else
+                {
+                    this.setValue(new Group());
+                    return;
+                }
+
+            }
+
+            public String getAsText() {
+                Group group = (Group) this.getValue();
+                if (group != null) {
+                    return Long.toString(group.getKey());
+                } else {
+                    return "";
+                }
+            }
+        });
+    }
+
     
 }

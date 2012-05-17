@@ -58,6 +58,19 @@ public class ProductionDAOImpl implements ProductionDAO {
         return lr;
     }
 
+    public List<Production> getEmptyProduction()
+    {
+        EntityManager em = emf.createEntityManager();
+        List<Production> lr = em.createQuery("Select From Production Where sold = false").getResultList();
+        for(Production production : lr)
+        {
+            production.setProduct(em.find(Product.class,production.getProductKey()));
+        }
+        em.close();
+        return lr;
+    }
+
+
     public void addOrUpdate(Production production) {
         EntityManager em = emf.createEntityManager();
         em.persist(production);

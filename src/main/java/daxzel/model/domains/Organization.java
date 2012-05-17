@@ -4,7 +4,9 @@ import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.KeyFactory;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created by IntelliJ IDEA.
@@ -18,20 +20,30 @@ public class Organization
 {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
 
+    @NotNull(message="Введите код организации")
+    @Min(value = 0, message ="Код организаци должен быть больше 0")
     private Long NCEO;
 
+    @NotNull(message="Введите название организации")
+    @Size(min=3, max=30, message="Название организации должно быть от 3 до 30 символов")
     private String name;
 
+    @NotNull(message="Введите адрес организации")
+    @Size(min=3, max=60, message="Адрес организации должен быть от 3 до 60 символов")
     private String address;
 
+    @NotNull(message="Введите ФИО директора организации")
+    @Size(min=3, max=30, message="ФИО директора должно быть от 3 до 15 символов")
     private String fioOfDirector;
-    
+
+    @NotNull(message="Введите номер телефона организации")
+    @Size(min=3, max=15, message="Телефон должен быть от 3 до 15 символов")
     private String telephoneOfDirector;
 
+    @Size(min=3, max=15, message="Телефон должен быть от 3 до 15 символов")
     private String telephoneOfMarketing;
 
     public Long getNCEO() {

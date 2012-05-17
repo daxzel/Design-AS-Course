@@ -5,7 +5,9 @@ import com.google.appengine.api.datastore.KeyFactory;
 import org.omg.CORBA.LongHolder;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,17 +21,33 @@ import javax.validation.constraints.NotNull;
 public class Production {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
 
+    @NotNull(message="Введите количество товаров")
+    @Min(value = 0, message ="Количество товаров должно быть больше 0")
     private int count;
 
+    @Size(min=6, max=50, message="Единица измерения должна быть от 1 до 10 символов")
     private String unitOfMeasurement;
 
+    @NotNull(message="Введите затраты на производство")
+    @Min(value = 0, message ="Затраты на производство должны быть больше 0")
     private int costsProduction;
 
+    @NotNull(message="Введите затраты на хранение")
+    @Min(value = 0, message ="Затраты на хранение должны быть больше 0")
     private int costsStorage;
+
+    private boolean sold = false;
+
+    @Transient
+    private Product product;
+
+    @Basic(fetch = FetchType.EAGER)
+    @NotNull(message="Должен быть указан произведённый товар")
+    private Long productKey;
+
 
     public void setProduct(Product product) {
         if (product!=null)
@@ -44,8 +62,6 @@ public class Production {
         }
     }
 
-    @Transient
-    private Product product;
 
     public Long getProductKey() {
         return productKey;
@@ -55,8 +71,7 @@ public class Production {
         this.productKey = productKey;
     }
 
-    @Basic(fetch = FetchType.EAGER)
-    private Long productKey;
+
 
 
     public Product getProduct() {
@@ -67,6 +82,15 @@ public class Production {
     {
         return key;
     }
+
+    public boolean isSold() {
+        return sold;
+    }
+
+    public void setSold(boolean sold) {
+        this.sold = sold;
+    }
+
 
     public void setKey(Long key) {
         this.key = key;
