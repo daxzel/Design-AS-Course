@@ -15,11 +15,14 @@
 	<link href="/resources/hlist.css" rel="stylesheet" type="text/css">
 	<link href="/resources/print.css" rel="stylesheet" type="text/css">	
 	<link href="/resources/typography.css" rel="stylesheet" type="text/css">	
-	<link href="/resources/tabs.css" rel="stylesheet" type="text/css">	
+	<link href="/resources/tabs.css" rel="stylesheet" type="text/css">
+	<link href="/resources/visualize.css" rel="stylesheet" type="text/css">
+	<link href="/resources/visualize-light.css" rel="stylesheet" type="text/css">
 	<link href="/resources/screen-PAGE-layout.css" rel="stylesheet" type="text/css">
 	<script src="/resources/js/jquery-1.7.1.min.js" type="text/javascript"></script>
 	<script src="/resources/js/jquery.tabs.js" type="text/javascript"></script>
 	<script src="/resources/js/yaml-focusfix.js" type="text/javascript"></script>
+	<script src="/resources/js/visualize.js" type="text/javascript"></script>
 	<script src="/resources/js/application.js" type="text/javascript"></script>
 	<script src="" type="text/javascript"></script>
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>
@@ -44,7 +47,6 @@
                                           <li><a href="/products/">Товары</a></li>
                                           <li><a href="/kindsAd/">Типы реклам</a></li>
                                           <li><a href="/organizations/">Организации</a></li>
-                                          <li><a href="/roles/create">Заполнить роли</a></li>
 
                                         </sec:authorize>
 

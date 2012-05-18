@@ -7,42 +7,47 @@
 
 <h3>По организациям</h2>
 
-<table class="bordertable">
+<table class="bordertable table_pie">
 	<thead>
 		<tr>
-		    <th style="width: 80%;">Название</th>
-		    <th style="width: 20%;">Доля</th>
+		    <c:forEach items="${result.organizationAndShareCostList}" var="organizationAndShareCost">
+                <th>${organizationAndShareCost.organization.name}</th>
+            </c:forEach>
 
 		</tr>
 	</thead>
 	<tbody>
-		<c:forEach items="${result.organizationAndShareCostList}" var="organizationAndShareCost">
+
 				<tr>
-				    <td>${organizationAndShareCost.organization.name}</td>
-				    <td>${organizationAndShareCost.shareCost}%</td>
+				    <c:forEach items="${result.organizationAndShareCostList}" var="organizationAndShareCost">
+				         <td>${organizationAndShareCost.shareCost}</td>
+				    </c:forEach>
 				</tr>
-		</c:forEach>
+
 	</tbody>
 </table>
 
 <h3>По типам реклам</h2>
 
-<table class="bordertable">
-	<thead>
-		<tr>
-		    <th style="width: 80%;">Название</th>
-		    <th style="width: 20%;">Доля</th>
+<table class="bordertable table_pie">
+    <thead>
+    		<tr>
+    		    <c:forEach items="${result.kindAdAndShareCostList}" var="kindAdAndShareCost">
+                    <th>${organizationAndShareCost.kindAd.name}</th>
+                </c:forEach>
 
-		</tr>
-	</thead>
-	<tbody>
-		<c:forEach items="${result.kindAdAndShareCostList}" var="kindAdAndShareCost">
-				<tr>
-				    <td>${kindAdAndShareCost.kindAd.name}</td>
-				    <td>${kindAdAndShareCost.shareCost}%</td>
-				</tr>
-		</c:forEach>
-	</tbody>
+    		</tr>
+    	</thead>
+    	<tbody>
+
+    				<tr>
+    				    <c:forEach items="${result.kindAdAndShareCostList}" var="kindAdAndShareCost">
+    				         <td>${organizationAndShareCost.shareCost}</td>
+    				    </c:forEach>
+    				</tr>
+
+    	</tbody>
+    </table>
 </table>
 
 

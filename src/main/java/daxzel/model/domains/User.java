@@ -13,7 +13,7 @@ import com.google.appengine.api.datastore.KeyFactory;
 
 
 @Entity
-public class User 
+public class User
 {
 	
 	@Id
