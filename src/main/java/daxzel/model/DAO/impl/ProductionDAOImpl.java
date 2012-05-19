@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -72,8 +73,24 @@ public class ProductionDAOImpl implements ProductionDAO {
 
 
     public void addOrUpdate(Production production) {
+
         EntityManager em = emf.createEntityManager();
+
+        em.getTransaction().begin();
         em.persist(production);
+        em.getTransaction().commit();
+
+
+        Product product = production.getProduct();
+
+        List<Long> keys = product.getKeysProduction();
+        if (keys == null)
+        {
+            keys = new ArrayList<Long>();
+        }
+        keys.add(production.getKey());
+        product.setKeysProduction(keys);
+        em.merge(product);
         em.close();
     }
 

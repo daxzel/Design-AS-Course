@@ -18,8 +18,8 @@
 	</thead>
 	<tbody>
 		<c:forEach items="${orderList}" var="order">
-				<tr>
-				    <td>${order.organization.name}</td>
+				<tr >
+				    <td >${order.organization.name}</td>
 				    <td>${order.dateBegin}</td>
 				    <td>${order.production.count}</td>
 				    <td>${order.amount}</td>

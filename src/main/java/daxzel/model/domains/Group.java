@@ -2,6 +2,8 @@ package daxzel.model.domains;
 
 import javax.persistence.*;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import javax.validation.constraints.Size;
@@ -22,8 +24,15 @@ public class Group
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long key;
-	
-	private String name;
+
+    @NotNull(message="Группа должна иметь ОКП")
+    @Max(value = 999999, message ="Код ОКП должен содержать 6 цифр")
+    @Min(value = 0, message ="Код ОКП должен содержать 6 цифр")
+    private Long NCP;
+
+    @NotNull(message="Группа должна иметь имя")
+    @Size(min=3, max=15, message="Имя группы должно быть от 3 до 15 символов")
+    private String name;
 
     @Transient
     private List<Product> products = new ArrayList<Product>();
@@ -65,4 +74,15 @@ public class Group
 	{
 		this.key = key;
 	}
+
+    public Long getNCP() {
+        return NCP;
+    }
+
+    public void setNCP(Long NCP) {
+        this.NCP = NCP;
+    }
+
+
+
 }

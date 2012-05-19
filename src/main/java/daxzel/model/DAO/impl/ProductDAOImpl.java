@@ -75,6 +75,17 @@ public class ProductDAOImpl implements ProductDAO {
 
         product.setSales(sales);
 
+        List<Production> productions = new ArrayList<Production>();
+
+        for(Long key : product.getKeysProduction())
+        {
+            Production production = em.find(Production.class, key);
+            productions.add(production);
+        }
+
+        product.setProduction(productions);
+
+
 
         em.close();
         return product;
@@ -123,6 +134,18 @@ public class ProductDAOImpl implements ProductDAO {
             }
 
             product.setSales(sales);
+
+
+            List<Production> productions = new ArrayList<Production>();
+
+            for(Long key : product.getKeysProduction())
+            {
+                Production production = em.find(Production.class, key);
+                productions.add(production);
+            }
+
+            product.setProduction(productions);
+
 
 
         }
@@ -202,6 +225,17 @@ public class ProductDAOImpl implements ProductDAO {
         product.setSales(sales);
 
 
+        List<Production> productions = new ArrayList<Production>();
+
+        for(Long key : product.getKeysProduction())
+        {
+            Production production = em.find(Production.class, key);
+            productions.add(production);
+        }
+
+        product.setProduction(productions);
+
+
 
         em.close();
         return product;
@@ -254,6 +288,17 @@ public class ProductDAOImpl implements ProductDAO {
         }
 
         product.setSales(sales);
+
+
+        List<Production> productions = new ArrayList<Production>();
+
+        for(Long key : product.getKeysProduction())
+        {
+            Production production = em.find(Production.class, key);
+            productions.add(production);
+        }
+
+        product.setProduction(productions);
 
 
         product.setOrders(orders);

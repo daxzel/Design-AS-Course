@@ -6,22 +6,68 @@
 <h2>Динамика изменения продаж и затрат на рекламу</h2>
 
 <table class="bordertable">
-	<thead>
+
+    <hr>
+    <h3>Динамика изменения продаж</h2>
+
+    <table class="bordertable table_line">
+        <thead>
+            <tr>
+                <c:forEach items="${result.result}" var="monthsAmountsMargins">
+                                    <th>${monthsAmountsMargins.month}</th>
+                </c:forEach>
+            </tr>
+        </thead>
+
+        <tbody>
+                <tr>
+                    <c:forEach items="${result.result}" var="monthsAmountsMargins">
+                        <td>${monthsAmountsMargins.amount}</td>
+                    </c:forEach>
+                </tr>
+        </tbody>
+	</table>
+
+
+    <hr>
+    <h3>Динамика изменения прибыли</h2>
+
+<table class="bordertable table_line">
+    <thead>
 		<tr>
-		    <th style="width: 25%;">Месяц</th>
-		     <th style="width: 25%;">Объём продаж</th>
-		     <th style="width: 25%;">Выручка</th>
-		     <th style="width: 25%;">Расходы на рекламу</th>
+		    <c:forEach items="${result.result}" var="monthsAmountsMargins">
+            				    <th>${monthsAmountsMargins.month}</th>
+            </c:forEach>
 		</tr>
 	</thead>
+
 	<tbody>
-		<c:forEach items="${result.result}" var="monthsAmountsMargins">
-				<tr>
-				    <td>${monthsAmountsMargins.month}</td>
-				    <td>${monthsAmountsMargins.amount}</td>
+			<tr>
+				<c:forEach items="${result.result}" var="monthsAmountsMargins">
 				    <td>${monthsAmountsMargins.margin}</td>
+				</c:forEach>
+			</tr>
+	</tbody>
+</table>
+
+
+    <hr>
+    <h3>Динамика изменения затрат на рекламу</h2>
+
+<table class="bordertable table_line">
+    <thead>
+		<tr>
+		    <c:forEach items="${result.result}" var="monthsAmountsMargins">
+            				    <th>${monthsAmountsMargins.month}</th>
+            </c:forEach>
+		</tr>
+	</thead>
+
+	<tbody>
+			<tr>
+				<c:forEach items="${result.result}" var="monthsAmountsMargins">
 				    <td>${monthsAmountsMargins.adCost}</td>
-				</tr>
-		</c:forEach>
+				</c:forEach>
+			</tr>
 	</tbody>
 </table>

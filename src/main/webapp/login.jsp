@@ -41,7 +41,7 @@
      </div>
 
     <div class="ym-fbox-button">
-    		<input type="submit" class="save" value="Принять" />
+    		<input type="submit" class="save" value="Вход" />
     </div>
 
 </form>

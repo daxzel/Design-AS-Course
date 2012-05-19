@@ -5,6 +5,7 @@
 
 <h2>Доли затрат</h2>
 
+<hr>
 <h3>По организациям</h2>
 
 <table class="bordertable table_pie">
@@ -18,34 +19,33 @@
 	</thead>
 	<tbody>
 
-				<tr>
-				    <c:forEach items="${result.organizationAndShareCostList}" var="organizationAndShareCost">
-				         <td>${organizationAndShareCost.shareCost}</td>
-				    </c:forEach>
-				</tr>
+		    <tr>
+			    <c:forEach items="${result.organizationAndShareCostList}" var="organizationAndShareCost">
+				   <td>${organizationAndShareCost.shareCost}</td>
+				</c:forEach>
+			</tr>
 
 	</tbody>
 </table>
 
+<hr>
 <h3>По типам реклам</h2>
 
 <table class="bordertable table_pie">
     <thead>
     		<tr>
     		    <c:forEach items="${result.kindAdAndShareCostList}" var="kindAdAndShareCost">
-                    <th>${organizationAndShareCost.kindAd.name}</th>
+                    <th>${kindAdAndShareCost.kindAd.name}</th>
                 </c:forEach>
-
     		</tr>
     	</thead>
     	<tbody>
 
-    				<tr>
-    				    <c:forEach items="${result.kindAdAndShareCostList}" var="kindAdAndShareCost">
-    				         <td>${organizationAndShareCost.shareCost}</td>
-    				    </c:forEach>
-    				</tr>
-
+    	    <tr>
+    		    <c:forEach items="${result.kindAdAndShareCostList}" var="kindAdAndShareCost">
+    			    <td>${kindAdAndShareCost.shareCost}</td>
+    			 </c:forEach>
+    		</tr>
     	</tbody>
     </table>
 </table>

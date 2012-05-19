@@ -2,6 +2,7 @@ package daxzel.model.domains;
 
 import javax.persistence.*;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -23,7 +24,8 @@ public class Product
     private Long key;
 
     @NotNull(message="Товар должен иметь код ОКП")
-    @Min(value = 0, message ="Код ОКП должен быть больше 0")
+    @Max(value = 999, message ="Код ОКП должен содержать 3 цифры")
+    @Min(value = 0, message ="Код ОКП должен содержать 3 цифры")
 	private Long NCP;
 
     @NotNull(message="Товар должен иметь имя")
@@ -62,6 +64,30 @@ public class Product
 
     @Basic(fetch = FetchType.EAGER)
     private List<Long> keysSales = new ArrayList<Long>();
+
+    @Transient
+    private List<Production> production = new ArrayList<Production>();
+
+
+    @Basic(fetch = FetchType.EAGER)
+    private List<Long> keysProduction = new ArrayList<Long>();
+
+    public List<Production> getProduction() {
+        return production;
+    }
+
+    public void setProduction(List<Production> production) {
+        this.production = production;
+    }
+
+    public List<Long> getKeysProduction() {
+        return keysProduction;
+    }
+
+    public void setKeysProduction(List<Long> keysProduction) {
+        this.keysProduction = keysProduction;
+    }
+
 
     public Group getGroup() {
         return group;

@@ -90,24 +90,59 @@ public class ReportServiceImpl implements ReportService {
         Calendar cal = Calendar.getInstance();
 
         HashMap<String,SaleAndAd> mountSaleAd = new HashMap<String, SaleAndAd>();
+        List<String> sortMonths = new ArrayList<String>();
 
         for(Sale sale : product.getSales())
         {
             cal.setTime(sale.getDateBegin());
 
-            String month =Integer.toString(cal.get(Calendar.YEAR)) + ' ' + Integer.toString(cal.get(Calendar.MONTH));
 
-            if (mountSaleAd.containsKey(month))
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH);
+
+
+            String monthString = Integer.toString(year) + ' ' + Integer.toString(month);
+
+
+            if (mountSaleAd.containsKey(monthString))
             {
-                mountSaleAd.get(month).getSales().add(sale);
+                mountSaleAd.get(monthString).getSales().add(sale);
             }
             else
             {
+                int i = 0;
+                for (String keyMonth : sortMonths)
+                {
+                    String[] yearAndMonth = keyMonth.split(" ");
+
+                    int foundedYear = Integer.parseInt(yearAndMonth[0]);
+
+                    int foundedMonth = Integer.parseInt(yearAndMonth[1]);
+
+                    if (foundedYear<year)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        if (foundedMonth>month)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                }
+                sortMonths.add(i,monthString);
+
+
                 SaleAndAd saleAndAda = new SaleAndAd();
 
                 saleAndAda.getSales().add(sale);
 
-                mountSaleAd.put(month, saleAndAda);
+                mountSaleAd.put(monthString, saleAndAda);
             }
         }
 
@@ -115,19 +150,54 @@ public class ReportServiceImpl implements ReportService {
         {
             cal.setTime(ad.getDateBegin());
 
-            String month =Integer.toString(cal.get(Calendar.YEAR)) + ' ' + Integer.toString(cal.get(Calendar.MONTH));
 
-            if (mountSaleAd.containsKey(month))
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH);
+
+
+            String monthString = Integer.toString(year) + ' ' + Integer.toString(month);
+
+
+            if (mountSaleAd.containsKey(monthString))
             {
-                mountSaleAd.get(month).getAds().add(ad);
+
+                mountSaleAd.get(monthString).getAds().add(ad);
             }
             else
             {
+                int i = 0;
+                for (String keyMonth : sortMonths)
+                {
+                    String[] yearAndMonth = keyMonth.split(" ");
+
+                    int foundedYear = Integer.parseInt(yearAndMonth[0]);
+
+                    int foundedMonth = Integer.parseInt(yearAndMonth[1]);
+
+                    if (foundedYear<year)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        if (foundedMonth>month)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                }
+                sortMonths.add(i,monthString);
+
+
                 SaleAndAd saleAndAda = new SaleAndAd();
 
                 saleAndAda.getAds().add(ad);
 
-                mountSaleAd.put(month, saleAndAda);
+                mountSaleAd.put(monthString, saleAndAda);
             }
 
 
@@ -136,34 +206,107 @@ public class ReportServiceImpl implements ReportService {
 
         MonthsAmountsMargins result = new MonthsAmountsMargins();
 
-
-        for(String month : mountSaleAd.keySet())
+        if (sortMonths.size()>0)
         {
-            SaleAndAd saleAndAd = mountSaleAd.get(month);
+            int lastAdCost = 0;
 
-            int adCost = 0;
+            int lastCount = 0;
 
-            for(Ad ad : saleAndAd.getAds())
+            int lastMargin = 0;
+
             {
-                adCost+=ad.getAmount();
+                SaleAndAd saleAndAd = mountSaleAd.get(sortMonths.get(0));
+
+
+                for(Ad ad : saleAndAd.getAds())
+                {
+                    lastAdCost+=ad.getAmount();
+                }
+
+                for(Sale sale : saleAndAd.getSales())
+                {
+                    lastCount+= sale.getProduction().getCount();
+                    lastMargin+=sale.getAmount();
+                }
             }
 
-            int margin = 0;
 
-            int count = 0;
 
-            for(Sale sale : saleAndAd.getSales())
+            for(int i=1; i<sortMonths.size();i++)
             {
-                count+= sale.getProduction().getCount();
-                margin+=sale.getAmount();
+                SaleAndAd saleAndAd = mountSaleAd.get(sortMonths.get(i));
+
+                int adCost = 0;
+
+                for(Ad ad : saleAndAd.getAds())
+                {
+                    adCost+=ad.getAmount();
+                }
+
+                lastAdCost =  adCost - lastAdCost;
+
+                int margin = 0;
+
+                int count = 0;
+
+                for(Sale sale : saleAndAd.getSales())
+                {
+                    count+= sale.getProduction().getCount();
+                    margin+=sale.getAmount();
+                }
+
+                lastCount =  count - lastCount;
+
+                lastMargin =  margin - lastMargin;
+
+                result.getResult().add(new MonthAmountMargin(lastMargin,lastCount,sortMonths.get(i),lastAdCost));
+
             }
-
-            result.getResult().add(new MonthAmountMargin(margin,count,month,adCost));
-
         }
 
         return result;
     }
+
+
+    public ProductCosts getProductCosts(Product product)
+    {
+
+        int adCost = 0;
+        for(Ad ad : product.getAds())
+        {
+            adCost+= ad.getAmount();
+        }
+
+        int otherCost = 0;
+        int transportCost = 0;
+
+        for(Sale sale : product.getSales())
+        {
+            otherCost+=sale.getOtherCosts();
+            transportCost+=sale.getTransportationCosts();
+        }
+
+        for(Order order : product.getOrders())
+        {
+            otherCost+=order.getOtherCosts();
+            transportCost+=order.getTransportationCosts();
+        }
+
+        int storageCost = 0;
+
+        int productionCost = 0;
+
+        for(Production production : product.getProduction())
+        {
+            otherCost+=production.getCostsStorage();
+            productionCost+=production.getCostsProduction();
+        }
+
+
+        ProductCosts result = new ProductCosts(adCost,storageCost,otherCost,productionCost,transportCost);
+        return result;
+    }
+
 
     class SaleAndAd{
 

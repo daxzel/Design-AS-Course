@@ -14,7 +14,7 @@
 	}
 %>
 
-<h2><%=name%> типа рекламы</h2>
+<h2><%=name%> производства</h2>
 
 <form:form method="post" action="/production/" commandName="production" class="ym-form ">
 
