@@ -31,7 +31,7 @@
         <intercept-url pattern="/reports/dynamics_changes_sales/**" access="ROLE_ECONOMIST" />
 
         <intercept-url pattern="/reports/determining_cost_advertising/**" access="ROLE_ACCOUNTANT" />
-        <intercept-url pattern="/reports/average_cost_product/**" access="ROLE_ACCOUNTANT" />
+        <intercept-url pattern="/reports/cost_by_product/**" access="ROLE_ACCOUNTANT" />
 
         <intercept-url pattern="/reports/average_cost_product/**" access="ROLE_DIRECTOR" />
 

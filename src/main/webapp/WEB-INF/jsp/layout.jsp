@@ -70,12 +70,12 @@
                                         <sec:authorize access="hasRole('ROLE_ACCOUNTANT')">
 
                                             <li><a href="/reports/ad_cost_by_product/">Отчёт по затратам на рекламу</a></li>
-                                            <li><a href="/reports/average_cost_product/">Определение средних затрат по товару</a></li>
+                                            <li><a href="/reports/cost_by_product/">Определение средних затрат по товару</a></li>
 
                                         </sec:authorize>
 
                                         <sec:authorize access="hasRole('ROLE_DIRECTOR')">
-                                            <li><a href="/reports/report_dynamics_costs/">Отчёт по динамике изменения фактических затрат</a></li>
+                                            <li><a href="/reports/dynamics_costs/">Отчёт по динамике изменения фактических затрат</a></li>
                                         </sec:authorize>
 
 

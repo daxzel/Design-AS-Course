@@ -1,8 +1,7 @@
 package daxzel.model.services;
 
 import daxzel.model.domains.Product;
-import daxzel.model.services.ReportHelpers.MonthsAmountsMargins;
-import daxzel.model.services.ReportHelpers.ShareAdCosts;
+import daxzel.model.services.ReportHelpers.*;
 
 import java.util.Date;
 
@@ -18,5 +17,9 @@ public interface ReportService {
     ShareAdCosts getShareAdCosts(Product product,Date begin,Date end);
 
     MonthsAmountsMargins getMonthsAmountsMargins(Product product);
+
+    ProductCosts getProductCosts(Product product);
+
+    MonthsCostsPrices getMonthsCostPrices(Product product);
 
 }

@@ -137,7 +137,7 @@
         <put-attribute name="body" value="/WEB-INF/jsp/reports/ad_cost_by_product.jsp" />
     </definition>
 
-    <definition name="input_cost_by_products" extends="base.definition">
+    <definition name="input_ad_cost_by_products" extends="base.definition">
         <put-attribute name="title" value="Product Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/inputForReport/ad_cost_by_product.jsp" />
     </definition>
@@ -150,6 +150,26 @@
     <definition name="input_average_cost_product" extends="base.definition">
         <put-attribute name="title" value="Product Manager" />
         <put-attribute name="body" value="/WEB-INF/jsp/inputForReport/average_cost_product.jsp" />
+    </definition>
+
+    <definition name="report_cost_by_product" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/reports/cost_by_product.jsp" />
+    </definition>
+
+    <definition name="input_cost_by_product" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/inputForReport/cost_by_product.jsp" />
+    </definition>
+
+    <definition name="report_dynamics_costs" extends="base.definition">
+        <put-attribute name="title" value="Organization Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/reports/dynamics_costs.jsp" />
+    </definition>
+
+    <definition name="input_dynamics_costs" extends="base.definition">
+        <put-attribute name="title" value="Product Manager" />
+        <put-attribute name="body" value="/WEB-INF/jsp/inputForReport/dynamics_costs.jsp" />
     </definition>
     
     <definition name="home" extends="base.definition">

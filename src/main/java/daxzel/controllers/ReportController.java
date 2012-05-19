@@ -81,7 +81,7 @@ public class ReportController {
     @RequestMapping(value="/ad_cost_by_product")
     public ModelAndView getAdCostsReport()
     {
-        ModelAndView modelView = new ModelAndView("input_cost_by_products");
+        ModelAndView modelView = new ModelAndView("input_ad_cost_by_products");
         java.util.List<Product> products = productService.getAll();
         modelView.addObject("productList", products);
 
@@ -120,10 +120,68 @@ public class ReportController {
     }
 
 
+    @RequestMapping(value="/cost_by_product/get")
+    public ModelAndView getCostProduct(@ModelAttribute("commandObjectForCosts")
+                                       CommandObjectForAdCosts commandObjectForAdCosts)
+    {
+        ModelAndView modelView = new ModelAndView("report_cost_by_product");
+
+        Product product = commandObjectForAdCosts.getProduct();
+
+        Date begin = commandObjectForAdCosts.getDateBegin();
+
+        Date end = commandObjectForAdCosts.getDateEnd();
+
+        modelView.addObject("result", reportService.getProductCosts(product));
+        return modelView;
+    }
 
 
+    @RequestMapping(value="/cost_by_product")
+    public ModelAndView CostProduct()
+    {
+        ModelAndView modelView = new ModelAndView("input_cost_by_product");
+        java.util.List<Product> products = productService.getAll();
+        modelView.addObject("productList", products);
+
+        CommandObjectForAdCosts commandObjectForAdCosts = new CommandObjectForAdCosts();
+
+        modelView.addObject("commandObjectForCosts", commandObjectForAdCosts);
+
+        return modelView;
+    }
 
 
+    @RequestMapping(value="/dynamics_costs/get")
+    public ModelAndView getDynamicsCosts(@ModelAttribute("commandObjectForCosts")
+                                       CommandObjectForAdCosts commandObjectForAdCosts)
+    {
+        ModelAndView modelView = new ModelAndView("report_dynamics_costs");
+
+        Product product = commandObjectForAdCosts.getProduct();
+
+        Date begin = commandObjectForAdCosts.getDateBegin();
+
+        Date end = commandObjectForAdCosts.getDateEnd();
+
+        modelView.addObject("result", reportService.getMonthsCostPrices(product));
+        return modelView;
+    }
+
+
+    @RequestMapping(value="/dynamics_costs")
+    public ModelAndView DynamicsCosts()
+    {
+        ModelAndView modelView = new ModelAndView("input_dynamics_costs");
+        java.util.List<Product> products = productService.getAll();
+        modelView.addObject("productList", products);
+
+        CommandObjectForAdCosts commandObjectForAdCosts = new CommandObjectForAdCosts();
+
+        modelView.addObject("commandObjectForCosts", commandObjectForAdCosts);
+
+        return modelView;
+    }
 
     @InitBinder
     protected void initBinderProduct(HttpServletRequest request, ServletRequestDataBinder binder) {

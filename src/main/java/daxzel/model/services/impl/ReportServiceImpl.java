@@ -307,6 +307,125 @@ public class ReportServiceImpl implements ReportService {
         return result;
     }
 
+    public MonthsCostsPrices getMonthsCostPrices(Product product)
+    {
+
+        Calendar cal = Calendar.getInstance();
+
+        HashMap<String,List<Sale>> mountSale= new HashMap<String, List<Sale>>();
+        List<String> sortMonths = new ArrayList<String>();
+
+        for(Sale sale : product.getSales())
+        {
+            cal.setTime(sale.getDateBegin());
+
+
+            int year = cal.get(Calendar.YEAR);
+            int month = cal.get(Calendar.MONTH);
+
+
+            String monthString = Integer.toString(year) + ' ' + Integer.toString(month);
+
+
+            if (mountSale.containsKey(monthString))
+            {
+                mountSale.get(monthString).add(sale);
+            }
+            else
+            {
+                int i = 0;
+                for (String keyMonth : sortMonths)
+                {
+                    String[] yearAndMonth = keyMonth.split(" ");
+
+                    int foundedYear = Integer.parseInt(yearAndMonth[0]);
+
+                    int foundedMonth = Integer.parseInt(yearAndMonth[1]);
+
+                    if (foundedYear<year)
+                    {
+                        i++;
+                    }
+                    else
+                    {
+                        if (foundedMonth>month)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+                }
+                sortMonths.add(i,monthString);
+
+
+                List<Sale> sales = new ArrayList<Sale>();
+
+                sales.add(sale);
+
+                mountSale.put(monthString, sales);
+            }
+        }
+
+        MonthsCostsPrices result = new MonthsCostsPrices();
+
+        if (sortMonths.size()>0)
+        {
+            int lastCost = 0;
+
+            int lastPrice = 0;
+
+            {
+                List<Sale> sales = mountSale.get(sortMonths.get(0));
+
+                int count = 0;
+
+                for(Sale sale : sales)
+                {
+                    lastCost+= sale.getProduction().getCostsProduction();
+                    lastPrice+= sale.getPrice();
+                    count++;
+                }
+                lastPrice=lastPrice/count;
+            }
+
+
+
+            for(int i=1; i<sortMonths.size();i++)
+            {
+                List<Sale> sales = mountSale.get(sortMonths.get(1));
+
+                int count = 0;
+
+                int cost = 0;
+
+                int price = 0;
+
+                for(Sale sale : sales)
+                {
+                    cost+= sale.getProduction().getCostsProduction();
+                    price+= sale.getPrice();
+                    count++;
+                }
+
+                lastPrice=lastPrice/count;
+
+                lastCost =  cost - lastCost;
+
+                lastPrice =  price - lastPrice;
+
+                result.getMonthCostPriceList().add(new MonthCostPrice(lastCost, lastPrice,sortMonths.get(i)));
+
+            }
+        }
+
+        return result;
+    }
+
+
+
 
     class SaleAndAd{
 
