@@ -18,8 +18,6 @@ import java.util.*;
 @Service
 public class ReportServiceImpl implements ReportService {
 
-
-
     public ShareAdCosts getShareAdCosts(Product product,Date begin,Date end){
 
         long allCosts = 0;

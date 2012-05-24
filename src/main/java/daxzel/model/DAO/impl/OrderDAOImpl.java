@@ -81,7 +81,7 @@ public class OrderDAOImpl implements OrderDAO {
             keys = new ArrayList<Long>();
         }
         keys.add(order.getKey());
-        product.setAdsKeys(keys);
+        product.setKeysOrders(keys);
         em.merge(product);
 
 

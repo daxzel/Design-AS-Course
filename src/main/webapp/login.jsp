@@ -42,6 +42,8 @@
 
     <div class="ym-fbox-button">
     		<input type="submit" class="save" value="Вход" />
+    		<a href="https://docs.google.com/document/d/1ypm_usi3VXVJgQK7gamxx2za-rSN30o0wVvpUgNe7wc/edit"class="ym-button">Руководство пользователя</a>
+
     </div>
 
 </form>
