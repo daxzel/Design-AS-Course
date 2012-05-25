@@ -1,8 +1,24 @@
 Курсвоая работа по Проектированию АС.
 
-App engine
-Spring Security
-Spring MVC
+Использовал:
+  Google App engine
+  JPA
+  Maven
+  Spring
+  Spring Security
+  Spring MVC
+  Tiles
 
-Ссылка на app engine хостинг http://labautoas.appspot.com
+Записка: https://docs.google.com/document/d/1fxULJzbwZ0EwFcDPeBwjcw0d0457YrNVzQHXv1A-1LA/edit
 
+App engine хостинг http://labautoas.appspot.com
+
+Скриншоты:
+
+  https://www.dropbox.com/s/chzczq5m5fhj4ws/s1.png
+  https://www.dropbox.com/s/6ot636yh4tx0r2p/s2.png
+  https://www.dropbox.com/s/wd6zwb3a0tdowlj/s3.png
+  https://www.dropbox.com/s/mrwfb8esrj4xf1i/s4.png
+  https://www.dropbox.com/s/xao1mwvv200wiu5/s5.png
+  https://www.dropbox.com/s/ogpoane4783new1/s6.png
+  https://www.dropbox.com/s/amxps84obwitf0l/s7.png
