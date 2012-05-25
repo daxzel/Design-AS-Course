@@ -1,8 +1,6 @@
-Курсвоая работа по Проектированию АС.
-=====================================
+Course work at the rate of Automated Systems.
 
-Использовал:
-------------
+Used:
   Google App engine
   JPA
   Maven
@@ -11,11 +9,11 @@
   Spring MVC
   Tiles
 
-Записка: https://docs.google.com/document/d/1fxULJzbwZ0EwFcDPeBwjcw0d0457YrNVzQHXv1A-1LA/edit
+Report: https://docs.google.com/document/d/1fxULJzbwZ0EwFcDPeBwjcw0d0457YrNVzQHXv1A-1LA/edit
 
-App engine хостинг http://labautoas.appspot.com
+App engine hosting: http://labautoas.appspot.com
 
-Скриншоты:
+Screenshots:
 
   https://www.dropbox.com/s/chzczq5m5fhj4ws/s1.png
   https://www.dropbox.com/s/6ot636yh4tx0r2p/s2.png
